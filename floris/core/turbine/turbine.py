@@ -32,7 +32,7 @@ from floris.type_dec import (
 )
 from floris.utilities import cosd
 
-
+from floris.user_defined.user_defined_function import UserDefinedTurbine
 TURBINE_MODEL_MAP = {
     "operation_model": {
         "simple": SimpleTurbine,
@@ -41,6 +41,7 @@ TURBINE_MODEL_MAP = {
         "mixed": MixedOperationTurbine,
         "awc": AWCTurbine,
         "peak-shaving": PeakShavingTurbine,
+        "user-defined": UserDefinedTurbine,
     },
 }
 

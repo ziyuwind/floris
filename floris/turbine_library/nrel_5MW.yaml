@@ -42,6 +42,12 @@ power_thrust_table:
   ###
   # Cosine exponent for power loss due to yaw misalignment.
   cosine_loss_exponent_yaw: 1.88
+
+  # Cosine exponent for power loss due to yaw misalignment
+  pT: 1.8
+
+  # Cosine exponent for thrust loss due to yaw misalignment
+  pP: 1.8
   ###
   # Helix parameters
   helix_a: 1.802

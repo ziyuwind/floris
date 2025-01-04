@@ -29,6 +29,10 @@ from floris.core.wake_velocity import (
     TurbOParkVelocityDeficit,
 )
 
+from floris.user_defined.cosine_model import (
+    CosineVelocityDeflection,
+    CosineVelocityDeficit,
+)
 
 MODEL_MAP = {
     "combination_model": {
@@ -40,7 +44,8 @@ MODEL_MAP = {
         "jimenez": JimenezVelocityDeflection,
         "gauss": GaussVelocityDeflection,
         "none": NoneVelocityDeflection,
-        "empirical_gauss": EmpiricalGaussVelocityDeflection
+        "empirical_gauss": EmpiricalGaussVelocityDeflection,
+        "cosine": CosineVelocityDeflection,
     },
     "turbulence_model": {
         "none": NoneWakeTurbulence,
@@ -55,6 +60,7 @@ MODEL_MAP = {
         "turbopark": TurbOParkVelocityDeficit,
         "empirical_gauss": EmpiricalGaussVelocityDeficit,
         "turboparkgauss": TurboparkgaussVelocityDeficit,
+        'cosine': CosineVelocityDeficit,
     },
 }
 

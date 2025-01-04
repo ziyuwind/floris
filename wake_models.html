@@ -16,17 +16,19 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
@@ -36,10 +38,11 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=30a733bc"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -87,6 +90,7 @@ window.addEventListener("load", () => mermaid.run());
     <link rel="prev" title="Turbine Input File Reference" href="input_reference_turbine.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="python"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -102,19 +106,8 @@ window.addEventListener("load", () => mermaid.run());
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -122,7 +115,6 @@ window.addEventListener("load", () => mermaid.run());
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -130,8 +122,8 @@ window.addEventListener("load", () => mermaid.run());
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -147,7 +139,8 @@ window.addEventListener("load", () => mermaid.run());
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -177,21 +170,17 @@ window.addEventListener("load", () => mermaid.run());
     
     
     <img src="_static/docs_image.png" class="logo__image only-light" alt="FLORIS - Home"/>
-    <script>document.write(`<img src="_static/docs_image.png" class="logo__image only-dark" alt="FLORIS - Home"/>`);</script>
+    <img src="_static/docs_image.png" class="logo__image only-dark pst-js-only" alt="FLORIS - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -348,6 +337,7 @@ window.addEventListener("load", () => mermaid.run());
 <li class="toctree-l1"><a class="reference internal" href="examples/examples_control_optimization/005_optimize_yaw_aep_parallel.html">Example: Optimize yaw and compare AEP in parallel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/examples_control_optimization/006_compare_yaw_optimizers.html">Example: Compare yaw optimizers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/examples_control_optimization/007_optimize_yaw_with_neighbor_farms.html">Example: Optimize yaw with neighbor farm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples_control_optimization/008_optimize_yaw_with_disabled_turbines.html">Example: Optimizing yaw angles with disabled turbines</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Control types</span></p>
 <ul class="nav bd-sidenav">
@@ -438,9 +428,14 @@ window.addEventListener("load", () => mermaid.run());
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -601,24 +596,16 @@ window.addEventListener("load", () => mermaid.run());
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -747,7 +734,7 @@ wake boundary line. The slope of the wake boundary line, or wake expansion, is a
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8a890e24b2c9c4fe4c230e3d4448ce60b3278b387c93007339b2927b75bec30f.png" src="_images/8a890e24b2c9c4fe4c230e3d4448ce60b3278b387c93007339b2927b75bec30f.png" />
+<img alt="_images/4c1358a12cbfb20d632f0ccecfa2fee82d31d20b7247c69da7283edb5126afd7.png" src="_images/4c1358a12cbfb20d632f0ccecfa2fee82d31d20b7247c69da7283edb5126afd7.png" />
 </div>
 </div>
 </section>
@@ -768,7 +755,7 @@ the deflection field in turbine wakes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/30961f3a113041623bfcf8ee8758b49bb3a2f479ac763fb9731c2b926e5fe03e.png" src="_images/30961f3a113041623bfcf8ee8758b49bb3a2f479ac763fb9731c2b926e5fe03e.png" />
+<img alt="_images/4486887629a7f8a706d0eb13c75e56030acd6b165142f5e46e83eb5b52c03189.png" src="_images/4486887629a7f8a706d0eb13c75e56030acd6b165142f5e46e83eb5b52c03189.png" />
 </div>
 </div>
 </section>
@@ -785,7 +772,7 @@ simpler tuning and data fitting.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/10bb408ac7e3b931570a77b627abf89eba3cf40bf4b82ee1b71c5802078d96ac.png" src="_images/10bb408ac7e3b931570a77b627abf89eba3cf40bf4b82ee1b71c5802078d96ac.png" />
+<img alt="_images/9fa853349e339fcac819611b5eb97d18bfe9f7920bbb5a54894a0cfb5f354a5f.png" src="_images/9fa853349e339fcac819611b5eb97d18bfe9f7920bbb5a54894a0cfb5f354a5f.png" />
 </div>
 </div>
 </section>
@@ -800,7 +787,7 @@ which itself is based on the cumulative model of <span id="id8">Bastankhah <em>e
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/fb56405c8e82c5494fee9f4fccba8eed57941db99ec856146d1a17bc9f5c27b8.png" src="_images/fb56405c8e82c5494fee9f4fccba8eed57941db99ec856146d1a17bc9f5c27b8.png" />
+<img alt="_images/01f063cdce61e9b865346627ef0672cab34f649c2a12ca995d4aa9995000a09c.png" src="_images/01f063cdce61e9b865346627ef0672cab34f649c2a12ca995d4aa9995000a09c.png" />
 </div>
 </div>
 </section>
@@ -818,7 +805,7 @@ which itself is based on the cumulative model of <span id="id8">Bastankhah <em>e
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/76a66c6d35245474561c6fcc3d68de8e8b7a146678fcb3a6e06b40999699a82a.png" src="_images/76a66c6d35245474561c6fcc3d68de8e8b7a146678fcb3a6e06b40999699a82a.png" />
+<img alt="_images/9cfcb3f2c12bc98b577f907ac8ff110803d13241b247b20c62a180772eb345ac.png" src="_images/9cfcb3f2c12bc98b577f907ac8ff110803d13241b247b20c62a180772eb345ac.png" />
 </div>
 </div>
 </section>
@@ -912,8 +899,8 @@ flow field.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/72d47b8a3ecbb3dea60ddf09f4a654b4770d33d44590c2b099c2942ddf6c6293.png" src="_images/72d47b8a3ecbb3dea60ddf09f4a654b4770d33d44590c2b099c2942ddf6c6293.png" />
-<img alt="_images/9823e6376841368a37675cd6f741feebf55f6304b8a3d8f0d3ad1450400d9c36.png" src="_images/9823e6376841368a37675cd6f741feebf55f6304b8a3d8f0d3ad1450400d9c36.png" />
+<img alt="_images/43a584f1ee3d65bd312f82ff127bbe46c814464d90d242467691123d157ec569.png" src="_images/43a584f1ee3d65bd312f82ff127bbe46c814464d90d242467691123d157ec569.png" />
+<img alt="_images/02871e5144e97df1e3b1d0ce50df3d76455012548377022a6339682254978577.png" src="_images/02871e5144e97df1e3b1d0ce50df3d76455012548377022a6339682254978577.png" />
 </div>
 </div>
 </section>
@@ -928,8 +915,8 @@ maximum of the two for each point. For more information, refer to <span id="id13
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/72d47b8a3ecbb3dea60ddf09f4a654b4770d33d44590c2b099c2942ddf6c6293.png" src="_images/72d47b8a3ecbb3dea60ddf09f4a654b4770d33d44590c2b099c2942ddf6c6293.png" />
-<img alt="_images/601b80f9d8822cc3523696cec8859715d678ace298001f2fb887b716cb77a25d.png" src="_images/601b80f9d8822cc3523696cec8859715d678ace298001f2fb887b716cb77a25d.png" />
+<img alt="_images/43a584f1ee3d65bd312f82ff127bbe46c814464d90d242467691123d157ec569.png" src="_images/43a584f1ee3d65bd312f82ff127bbe46c814464d90d242467691123d157ec569.png" />
+<img alt="_images/32deeb7bb23d6aa1d053577b9a5d6724555532a3bedbd4310182c42811fb6fb2.png" src="_images/32deeb7bb23d6aa1d053577b9a5d6724555532a3bedbd4310182c42811fb6fb2.png" />
 </div>
 </div>
 </section>
@@ -944,8 +931,8 @@ flow field.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/72d47b8a3ecbb3dea60ddf09f4a654b4770d33d44590c2b099c2942ddf6c6293.png" src="_images/72d47b8a3ecbb3dea60ddf09f4a654b4770d33d44590c2b099c2942ddf6c6293.png" />
-<img alt="_images/eb2285189fe4cca480807e5ae86c69f1cc53c513df62cb0db7c828570e688e86.png" src="_images/eb2285189fe4cca480807e5ae86c69f1cc53c513df62cb0db7c828570e688e86.png" />
+<img alt="_images/43a584f1ee3d65bd312f82ff127bbe46c814464d90d242467691123d157ec569.png" src="_images/43a584f1ee3d65bd312f82ff127bbe46c814464d90d242467691123d157ec569.png" />
+<img alt="_images/e175886bd5a1b0895eee1a3aa00625bc48d6d931efd93483272ea69b1c0cf56d.png" src="_images/e175886bd5a1b0895eee1a3aa00625bc48d6d931efd93483272ea69b1c0cf56d.png" />
 </div>
 </div>
 </section>
@@ -1009,7 +996,8 @@ flow field.</p>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1081,8 +1069,8 @@ By National Renewable Energy Laboratory
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

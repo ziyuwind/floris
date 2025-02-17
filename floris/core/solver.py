@@ -216,7 +216,8 @@ def sequential_solver(
 
         wake_field = model_manager.combination_model.function(
             wake_field,
-            velocity_deficit * flow_field.u_initial_sorted
+            # velocity_deficit * flow_field.u_initial_sorted
+            velocity_deficit * flow_field.u_sorted[:,i:i+1,:,:] # ith wind turbine
         )
 
         wake_added_turbulence_intensity = model_manager.turbulence_model.function(
@@ -229,7 +230,8 @@ def sequential_solver(
 
         # Calculate wake overlap for wake-added turbulence (WAT)
         area_overlap = (
-            np.sum(velocity_deficit * flow_field.u_initial_sorted > 0.05, axis=(2, 3))
+            # np.sum(velocity_deficit * flow_field.u_initial_sorted > 0.05, axis=(2, 3))
+            np.sum(velocity_deficit * flow_field.u_sorted > 0.0, axis=(2, 3))
             / (grid.grid_resolution * grid.grid_resolution)
         )
         area_overlap = area_overlap[:, :, None, None]

@@ -189,9 +189,9 @@ class WindRose(WindDataBase):
             if not np.all(np.diff(wind_speeds) > 0):
                 raise ValueError("wind_speeds must be monotonically increasing")
 
-            # Check evenly spaced
-            if not np.allclose(np.diff(wind_speeds), wind_speeds[1] - wind_speeds[0]):
-                raise ValueError("wind_speeds must be evenly spaced")
+            # Check evenly spaced  # modified by ziyu, 20250215
+            # if not np.allclose(np.diff(wind_speeds), wind_speeds[1] - wind_speeds[0]):
+            #     raise ValueError("wind_speeds must be evenly spaced")
 
         # Save the wind speeds and directions
         self.wind_directions = wind_directions

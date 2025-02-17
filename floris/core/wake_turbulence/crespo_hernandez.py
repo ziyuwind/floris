@@ -67,7 +67,7 @@ class CrespoHernandez(BaseModel):
 
         # TODO: ensure that these fudge factors are needed for different rotations
         upstream_mask = delta_x <= 0.1
-        downstream_mask = delta_x > -0.1
+        downstream_mask = delta_x > +0.1
 
         #        Keep downstream components          Set upstream to 1.0
         delta_x = delta_x * downstream_mask + np.ones_like(delta_x) * upstream_mask

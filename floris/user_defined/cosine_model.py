@@ -269,8 +269,8 @@ class CosineVelocityDeficit(BaseModel):
             +(k*(x - x0) + rw0)*far_wake_mask
          
         #  update wake masks
-        near_wake_mask = near_wake_mask*( abs(y - y_i - deflection_field_i)<=rw )*(abs(z - hub_height_i)<=rw)
-        far_wake_mask = far_wake_mask*( abs(y - y_i - deflection_field_i)<=rw )*(abs(z - hub_height_i)<=rw)
+        near_wake_mask = near_wake_mask*( np.sqrt( (y - y_i - deflection_field_i)**2.+(z - hub_height_i)**2. ) <=rw )
+        far_wake_mask =   far_wake_mask*( np.sqrt( (y - y_i - deflection_field_i)**2.+(z - hub_height_i)**2. ) <=rw )
 
         # Initialize the velocity deficit array
         velocity_deficit = np.zeros_like(u_initial)

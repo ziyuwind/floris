@@ -16,7 +16,7 @@ hub_height: 90.0
 
 ###
 # Rotor diameter.
-rotor_diameter: 125.88
+rotor_diameter: 126.0
 
 ###
 # Tip speed ratio defined as linear blade tip speed normalized by the incoming wind speed.

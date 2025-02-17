@@ -44,7 +44,7 @@ def test_min_dist(layout_x, layout_y, min_dist):
     return dist.min() >= min_dist
 
 def test_point_in_bounds(test_x, test_y, poly_outer):
-    return poly_outer.contains(Point(test_x, test_y))
+    return poly_outer.contains(Point(test_x, test_y)) or poly_outer.touches(Point(test_x, test_y)) # boundary is also checked, added by ziyu20250213
 
 # Return in MW
 def _get_objective(
@@ -85,7 +85,7 @@ def _gen_dist_based_init(
     # Choose the initial point randomly
     init_x = float(np.random.randint(int(min_x),int(max_x)))
     init_y = float(np.random.randint(int(min_y),int(max_y)))
-    while not (poly_outer.contains(Point([init_x,init_y]))):
+    while not (poly_outer.contains(Point([init_x,init_y])) or poly_outer.touches(Point([init_x,init_y]))): # boundary is also checked, added by ziyu20250213
         init_x = float(np.random.randint(int(min_x),int(max_x)))
         init_y = float(np.random.randint(int(min_y),int(max_y)))
 
@@ -102,7 +102,7 @@ def _gen_dist_based_init(
         max_dist = 0.
         for x in np.arange(min_x, max_x,step_size):
             for y in np.arange(min_y, max_y,step_size):
-                if poly_outer.contains(Point([x,y])):
+                if poly_outer.contains(Point([x,y])) or poly_outer.touches(Point([x,y])): # boundary is also checked, added by ziyu20250213
                     test_dist = cdist([[x,y]],layout)
                     min_dist = np.min(test_dist)
                     if min_dist > max_dist:
@@ -348,7 +348,7 @@ class LayoutOptimizationRandomSearch(LayoutOptimization):
             jump_prob = 0.05
 
             d = np.append(np.linspace(0.0, 2.0*self.D, 99), jump_dist)
-            p = np.append((1-jump_prob)/len(d)*np.ones(len(d)-1), jump_prob)
+            p = np.append((1-jump_prob)/(len(d)-1)*np.ones(len(d)-1), jump_prob) # bug fixed by ziyu 20250109
             p = p / p.sum()
             dist_pmf = {"d":d, "p":p}
 

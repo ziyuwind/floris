@@ -16,33 +16,30 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../../_static/documentation_options.js?v=30a733bc"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -80,7 +77,6 @@
     <link rel="prev" title="Example: Layout optimization with heterogeneous inflow" href="002_optimize_layout_with_heterogeneity.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="python"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -96,8 +92,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -105,6 +112,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -112,8 +120,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -129,8 +137,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -160,17 +167,21 @@
     
     
     <img src="../../_static/docs_image.png" class="logo__image only-light" alt="FLORIS - Home"/>
-    <img src="../../_static/docs_image.png" class="logo__image only-dark pst-js-only" alt="FLORIS - Home"/>
+    <script>document.write(`<img src="../../_static/docs_image.png" class="logo__image only-dark" alt="FLORIS - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -236,6 +247,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../../_autosummary/floris.optimization.layout_optimization.layout_optimization_scipy.html">floris.optimization.layout_optimization.layout_optimization_scipy</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../_autosummary/floris.optimization.load_optimization.html">floris.optimization.load_optimization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../_autosummary/floris.optimization.load_optimization.load_optimization.html">floris.optimization.load_optimization.load_optimization</a></li>
+</ul>
+</details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../_autosummary/floris.optimization.other.html">floris.optimization.other</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../_autosummary/floris.optimization.other.boundary_grid.html">floris.optimization.other.boundary_grid</a></li>
 </ul>
@@ -261,8 +276,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../_autosummary/floris.core.rotor_velocity.html">floris.core.rotor_velocity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../_autosummary/floris.core.solver.html">floris.core.solver</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../_autosummary/floris.core.turbine.html">floris.core.turbine</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../_autosummary/floris.core.turbine.controller_dependent_operation_model.html">floris.core.turbine.controller_dependent_operation_model</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../_autosummary/floris.core.turbine.operation_models.html">floris.core.turbine.operation_models</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../_autosummary/floris.core.turbine.turbine.html">floris.core.turbine.turbine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../_autosummary/floris.core.turbine.unified_momentum_model.html">floris.core.turbine.unified_momentum_model</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3"><a class="reference internal" href="../../_autosummary/floris.core.wake.html">floris.core.wake</a></li>
@@ -369,10 +386,19 @@
 <li class="toctree-l1"><a class="reference internal" href="004_generate_gridded_layout.html">Example: Gridded layout design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="005_layout_optimization_complex_boundary.html">Example: Separated boundaries layout optimization</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Load optimization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../examples_load_optimization/001_lti_and_voc.html">Example: LTI and VOC Behavior with Changing Wind Direction and Power Setpoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_load_optimization/002_row_opt_example.html">Example: Optimize a row of turbines</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Multidim</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../examples_multidim/001_multi_dimensional_cp_ct.html">Example: Multi-dimensional Cp/Ct data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples_multidim/002_multi_dimensional_cp_ct_2Hs.html">Example: Multi-dimensional Cp/Ct with 2 Hs values</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Operation models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../examples_operation_models/001_compare_yaw_loss.html">Example: Compare yaw loss under different operation models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Turbine</span></p>
 <ul class="nav bd-sidenav">
@@ -418,14 +444,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -586,16 +607,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 
 </div></div>
       
@@ -631,12 +660,12 @@
 <span class="sd">probability mass functions for the random search perturbations.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">gamma</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">gamma</span>
 
-<span class="kn">from</span> <span class="nn">floris</span> <span class="kn">import</span> <span class="n">FlorisModel</span><span class="p">,</span> <span class="n">WindRose</span>
-<span class="kn">from</span> <span class="nn">floris.optimization.layout_optimization.layout_optimization_random_search</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">floris</span><span class="w"> </span><span class="kn">import</span> <span class="n">FlorisModel</span><span class="p">,</span> <span class="n">WindRose</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">floris.optimization.layout_optimization.layout_optimization_random_search</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">LayoutOptimizationRandomSearch</span><span class="p">,</span>
 <span class="p">)</span>
 
@@ -707,7 +736,7 @@
     <span class="n">layout_opt</span><span class="o">.</span><span class="n">plot_progress</span><span class="p">()</span>
 
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -734,42 +763,6 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Placing turbine 2 of 4.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Placing turbine 2 of 4.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Placing turbine 2 of 4.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Placing turbine 3 of 4.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Placing turbine 3 of 4.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Placing turbine 3 of 4.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Placing turbine 1 of 4.
 </pre></div>
 </div>
@@ -779,6 +772,33 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Placing turbine 2 of 4.
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Placing turbine 2 of 4.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Placing turbine 2 of 4.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Placing turbine 2 of 4.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Placing turbine 3 of 4.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Placing turbine 3 of 4.
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
@@ -788,14 +808,23 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Time to generate initial layouts: 0.420 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Placing turbine 3 of 4.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Time to generate initial layouts: 0.387 s
 =======================================
 Optimization step +0.0
 Optimization time = +0.4 [s]
-Mean AEP = 57.3 [GWh] (+1.85%)
-Median AEP = 57.3 [GWh] (+1.86%)
-Max AEP = 57.5 [GWh] (+2.11%)
-Min AEP = 57.2 [GWh] (+1.57%)
+Mean AEP = 57.4 [GWh] (+1.97%)
+Median AEP = 57.3 [GWh] (+1.91%)
+Max AEP = 57.6 [GWh] (+2.33%)
+Min AEP = 57.2 [GWh] (+1.71%)
 =======================================
 Random Layout Optimization
 Number of turbines to optimize = 4
@@ -809,11 +838,11 @@ Optimization time: 0.0 s / 60.0 s
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=======================================
 Optimization step +1.0
-Optimization time = +10.6 [s]
-Mean AEP = 58.6 [GWh] (+4.06%)
-Median AEP = 58.5 [GWh] (+4.04%)
-Max AEP = 58.6 [GWh] (+4.21%)
-Min AEP = 58.5 [GWh] (+3.97%)
+Optimization time = +10.5 [s]
+Mean AEP = 58.3 [GWh] (+3.64%)
+Median AEP = 58.6 [GWh] (+4.17%)
+Max AEP = 58.8 [GWh] (+4.43%)
+Min AEP = 57.3 [GWh] (+1.77%)
 =======================================
 Optimization time: 10.1 s / 60.0 s
 </pre></div>
@@ -821,32 +850,32 @@ Optimization time: 10.1 s / 60.0 s
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=======================================
 Optimization step +2.0
 Optimization time = +20.7 [s]
-Mean AEP = 58.7 [GWh] (+4.34%)
-Median AEP = 58.7 [GWh] (+4.36%)
-Max AEP = 58.7 [GWh] (+4.39%)
-Min AEP = 58.7 [GWh] (+4.24%)
+Mean AEP = 58.8 [GWh] (+4.43%)
+Median AEP = 58.8 [GWh] (+4.45%)
+Max AEP = 58.8 [GWh] (+4.46%)
+Min AEP = 58.7 [GWh] (+4.37%)
 =======================================
 Optimization time: 20.3 s / 60.0 s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=======================================
 Optimization step +3.0
-Optimization time = +30.9 [s]
-Mean AEP = 58.8 [GWh] (+4.46%)
-Median AEP = 58.8 [GWh] (+4.48%)
-Max AEP = 58.8 [GWh] (+4.50%)
-Min AEP = 58.7 [GWh] (+4.40%)
+Optimization time = +30.8 [s]
+Mean AEP = 58.8 [GWh] (+4.52%)
+Median AEP = 58.8 [GWh] (+4.52%)
+Max AEP = 58.8 [GWh] (+4.57%)
+Min AEP = 58.8 [GWh] (+4.47%)
 =======================================
 Optimization time: 30.4 s / 60.0 s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=======================================
 Optimization step +4.0
-Optimization time = +41.0 [s]
-Mean AEP = 58.8 [GWh] (+4.51%)
-Median AEP = 58.8 [GWh] (+4.50%)
-Max AEP = 58.8 [GWh] (+4.55%)
-Min AEP = 58.8 [GWh] (+4.49%)
+Optimization time = +40.9 [s]
+Mean AEP = 58.8 [GWh] (+4.55%)
+Median AEP = 58.8 [GWh] (+4.55%)
+Max AEP = 58.8 [GWh] (+4.58%)
+Min AEP = 58.8 [GWh] (+4.50%)
 =======================================
 Optimization time: 40.5 s / 60.0 s
 </pre></div>
@@ -854,28 +883,28 @@ Optimization time: 40.5 s / 60.0 s
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=======================================
 Optimization step +5.0
 Optimization time = +51.1 [s]
-Mean AEP = 58.8 [GWh] (+4.53%)
-Median AEP = 58.8 [GWh] (+4.54%)
-Max AEP = 58.8 [GWh] (+4.55%)
-Min AEP = 58.8 [GWh] (+4.50%)
+Mean AEP = 58.8 [GWh] (+4.57%)
+Median AEP = 58.8 [GWh] (+4.58%)
+Max AEP = 58.8 [GWh] (+4.59%)
+Min AEP = 58.8 [GWh] (+4.53%)
 =======================================
 Optimization time: 50.7 s / 60.0 s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=======================================
 Optimization step +6.0
-Optimization time = +61.3 [s]
-Mean AEP = 58.8 [GWh] (+4.56%)
-Median AEP = 58.8 [GWh] (+4.56%)
-Max AEP = 58.8 [GWh] (+4.57%)
-Min AEP = 58.8 [GWh] (+4.54%)
+Optimization time = +61.2 [s]
+Mean AEP = 58.8 [GWh] (+4.58%)
+Median AEP = 58.8 [GWh] (+4.59%)
+Max AEP = 58.8 [GWh] (+4.59%)
+Min AEP = 58.8 [GWh] (+4.58%)
 =======================================
-Final AEP = 58.8 [GWh] (+4.57%)
+Final AEP = 58.8 [GWh] (+4.59%)
 </pre></div>
 </div>
-<img alt="../../_images/982f0ce60ccae60171174b49f32ad5bde577cafcc7ef2f38c3495032248ab5bf.png" src="../../_images/982f0ce60ccae60171174b49f32ad5bde577cafcc7ef2f38c3495032248ab5bf.png" />
-<img alt="../../_images/616dad8226273b4454c451775cf1e756389b66ee8c13652b24113eaee09573a2.png" src="../../_images/616dad8226273b4454c451775cf1e756389b66ee8c13652b24113eaee09573a2.png" />
-<img alt="../../_images/c91c90b3a9e9ec20a46873e4b9e58f79bc02ed97b00a9cdebdb5271eb287cae4.png" src="../../_images/c91c90b3a9e9ec20a46873e4b9e58f79bc02ed97b00a9cdebdb5271eb287cae4.png" />
+<img alt="../../_images/9d710741b3c8f69f28d1a7290ceed64acb8abf8333b6d6893f472967676ad2a7.png" src="../../_images/9d710741b3c8f69f28d1a7290ceed64acb8abf8333b6d6893f472967676ad2a7.png" />
+<img alt="../../_images/0ca26e23817619d57ef90bb30661c0b6dfaa27ac88eabe0acc4ae462c2e91420.png" src="../../_images/0ca26e23817619d57ef90bb30661c0b6dfaa27ac88eabe0acc4ae462c2e91420.png" />
+<img alt="../../_images/172f838b8f22f323188bf5b14ca43b43585cdef4cd328b5c6533eb1b9ff0c53a.png" src="../../_images/172f838b8f22f323188bf5b14ca43b43585cdef4cd328b5c6533eb1b9ff0c53a.png" />
 </div>
 </div>
 </section>
@@ -978,8 +1007,8 @@ By National Renewable Energy Laboratory
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

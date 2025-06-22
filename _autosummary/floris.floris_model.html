@@ -16,33 +16,30 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../_static/documentation_options.js?v=30a733bc"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
@@ -80,7 +77,6 @@
     <link rel="prev" title="floris.flow_visualization" href="floris.flow_visualization.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="python"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -96,8 +92,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -105,6 +112,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -112,8 +120,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -129,8 +137,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -160,17 +167,21 @@
     
     
     <img src="../_static/docs_image.png" class="logo__image only-light" alt="FLORIS - Home"/>
-    <img src="../_static/docs_image.png" class="logo__image only-dark pst-js-only" alt="FLORIS - Home"/>
+    <script>document.write(`<img src="../_static/docs_image.png" class="logo__image only-dark" alt="FLORIS - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -236,6 +247,10 @@
 <li class="toctree-l4"><a class="reference internal" href="floris.optimization.layout_optimization.layout_optimization_scipy.html">floris.optimization.layout_optimization.layout_optimization_scipy</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="floris.optimization.load_optimization.html">floris.optimization.load_optimization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="floris.optimization.load_optimization.load_optimization.html">floris.optimization.load_optimization.load_optimization</a></li>
+</ul>
+</details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="floris.optimization.other.html">floris.optimization.other</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="floris.optimization.other.boundary_grid.html">floris.optimization.other.boundary_grid</a></li>
 </ul>
@@ -261,8 +276,10 @@
 <li class="toctree-l3"><a class="reference internal" href="floris.core.rotor_velocity.html">floris.core.rotor_velocity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="floris.core.solver.html">floris.core.solver</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="floris.core.turbine.html">floris.core.turbine</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="floris.core.turbine.controller_dependent_operation_model.html">floris.core.turbine.controller_dependent_operation_model</a></li>
 <li class="toctree-l4"><a class="reference internal" href="floris.core.turbine.operation_models.html">floris.core.turbine.operation_models</a></li>
 <li class="toctree-l4"><a class="reference internal" href="floris.core.turbine.turbine.html">floris.core.turbine.turbine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="floris.core.turbine.unified_momentum_model.html">floris.core.turbine.unified_momentum_model</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3"><a class="reference internal" href="floris.core.wake.html">floris.core.wake</a></li>
@@ -369,10 +386,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/examples_layout_optimization/004_generate_gridded_layout.html">Example: Gridded layout design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/examples_layout_optimization/005_layout_optimization_complex_boundary.html">Example: Separated boundaries layout optimization</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Load optimization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../examples/examples_load_optimization/001_lti_and_voc.html">Example: LTI and VOC Behavior with Changing Wind Direction and Power Setpoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/examples_load_optimization/002_row_opt_example.html">Example: Optimize a row of turbines</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Multidim</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../examples/examples_multidim/001_multi_dimensional_cp_ct.html">Example: Multi-dimensional Cp/Ct data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/examples_multidim/002_multi_dimensional_cp_ct_2Hs.html">Example: Multi-dimensional Cp/Ct with 2 Hs values</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Operation models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../examples/examples_operation_models/001_compare_yaw_loss.html">Example: Compare yaw loss under different operation models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Turbine</span></p>
 <ul class="nav bd-sidenav">
@@ -418,14 +444,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -586,16 +607,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -620,6 +649,7 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.floris_model.FlorisModel"><code class="docutils literal notranslate"><span class="pre">FlorisModel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.floris_model.FlorisModel.get_defaults"><code class="docutils literal notranslate"><span class="pre">FlorisModel.get_defaults()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.floris_model.FlorisModel.set_operation"><code class="docutils literal notranslate"><span class="pre">FlorisModel.set_operation()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.floris_model.FlorisModel.set"><code class="docutils literal notranslate"><span class="pre">FlorisModel.set()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.floris_model.FlorisModel.reset_operation"><code class="docutils literal notranslate"><span class="pre">FlorisModel.reset_operation()</span></code></a></li>
@@ -649,7 +679,9 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.floris_model.FlorisModel.get_param"><code class="docutils literal notranslate"><span class="pre">FlorisModel.get_param()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.floris_model.FlorisModel.set_param"><code class="docutils literal notranslate"><span class="pre">FlorisModel.set_param()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.floris_model.FlorisModel.get_turbine_layout"><code class="docutils literal notranslate"><span class="pre">FlorisModel.get_turbine_layout()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.floris_model.FlorisModel.show_config"><code class="docutils literal notranslate"><span class="pre">FlorisModel.show_config()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.floris_model.FlorisModel.print_dict"><code class="docutils literal notranslate"><span class="pre">FlorisModel.print_dict()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.floris_model.FlorisModel.secondary_init_kwargs"><code class="docutils literal notranslate"><span class="pre">FlorisModel.secondary_init_kwargs</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.floris_model.FlorisModel.layout_x"><code class="docutils literal notranslate"><span class="pre">FlorisModel.layout_x</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.floris_model.FlorisModel.layout_y"><code class="docutils literal notranslate"><span class="pre">FlorisModel.layout_y</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.floris_model.FlorisModel.wind_directions"><code class="docutils literal notranslate"><span class="pre">FlorisModel.wind_directions</span></code></a></li>
@@ -716,6 +748,16 @@ methods on objects within FLORIS.</p>
 </dd>
 </dl>
 <dl class="py method">
+<dt class="sig sig-object py" id="floris.floris_model.FlorisModel.get_defaults">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_defaults</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/floris/floris_model.html#FlorisModel.get_defaults"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#floris.floris_model.FlorisModel.get_defaults" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="floris.floris_model.FlorisModel.set_operation">
 <span class="sig-name descname"><span class="pre">set_operation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">yaw_angles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">power_setpoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">awc_modes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">awc_amplitudes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">awc_frequencies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">disable_turbines</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/floris/floris_model.html#FlorisModel.set_operation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#floris.floris_model.FlorisModel.set_operation" title="Link to this definition">#</a></dt>
 <dd><p>Apply operating setpoints to the floris object.</p>
@@ -735,12 +777,12 @@ the set() method.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>yaw_angles</strong> (<em>ndarray</em><em>[</em><em>Any</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>None</em>)</p></li>
-<li><p><strong>power_setpoints</strong> (<em>ndarray</em><em>[</em><em>Any</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>list</em><em>[</em><em>float</em><em>, </em><em>None</em><em>] </em><em>| </em><em>None</em>)</p></li>
-<li><p><strong>awc_modes</strong> (<em>ndarray</em><em>[</em><em>Any</em><em>, </em><em>dtype</em><em>[</em><em>str_</em><em>]</em><em>] </em><em>| </em><em>list</em><em>[</em><em>str</em><em>] </em><em>| </em><em>list</em><em>[</em><em>str</em><em>, </em><em>None</em><em>] </em><em>| </em><em>None</em>)</p></li>
-<li><p><strong>awc_amplitudes</strong> (<em>ndarray</em><em>[</em><em>Any</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>list</em><em>[</em><em>float</em><em>, </em><em>None</em><em>] </em><em>| </em><em>None</em>)</p></li>
-<li><p><strong>awc_frequencies</strong> (<em>ndarray</em><em>[</em><em>Any</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>list</em><em>[</em><em>float</em><em>, </em><em>None</em><em>] </em><em>| </em><em>None</em>)</p></li>
-<li><p><strong>disable_turbines</strong> (<em>ndarray</em><em>[</em><em>Any</em><em>, </em><em>dtype</em><em>[</em><em>bool_</em><em>]</em><em>] </em><em>| </em><em>list</em><em>[</em><em>bool</em><em>] </em><em>| </em><em>None</em>)</p></li>
+<li><p><strong>yaw_angles</strong> (<em>ndarray</em><em>[</em><em>tuple</em><em>[</em><em>Any</em><em>, </em><em>...</em><em>]</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>None</em>)</p></li>
+<li><p><strong>power_setpoints</strong> (<em>ndarray</em><em>[</em><em>tuple</em><em>[</em><em>Any</em><em>, </em><em>...</em><em>]</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>list</em><em>[</em><em>float</em><em>, </em><em>None</em><em>] </em><em>| </em><em>None</em>)</p></li>
+<li><p><strong>awc_modes</strong> (<em>ndarray</em><em>[</em><em>tuple</em><em>[</em><em>Any</em><em>, </em><em>...</em><em>]</em><em>, </em><em>dtype</em><em>[</em><em>str_</em><em>]</em><em>] </em><em>| </em><em>list</em><em>[</em><em>str</em><em>] </em><em>| </em><em>list</em><em>[</em><em>str</em><em>, </em><em>None</em><em>] </em><em>| </em><em>None</em>)</p></li>
+<li><p><strong>awc_amplitudes</strong> (<em>ndarray</em><em>[</em><em>tuple</em><em>[</em><em>Any</em><em>, </em><em>...</em><em>]</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>list</em><em>[</em><em>float</em><em>, </em><em>None</em><em>] </em><em>| </em><em>None</em>)</p></li>
+<li><p><strong>awc_frequencies</strong> (<em>ndarray</em><em>[</em><em>tuple</em><em>[</em><em>Any</em><em>, </em><em>...</em><em>]</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>list</em><em>[</em><em>float</em><em>, </em><em>None</em><em>] </em><em>| </em><em>None</em>)</p></li>
+<li><p><strong>disable_turbines</strong> (<em>ndarray</em><em>[</em><em>tuple</em><em>[</em><em>Any</em><em>, </em><em>...</em><em>]</em><em>, </em><em>dtype</em><em>[</em><em>bool</em><em>]</em><em>] </em><em>| </em><em>list</em><em>[</em><em>bool</em><em>] </em><em>| </em><em>None</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -800,25 +842,25 @@ and the power setpoint at that position is set to 0. Defaults to None.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>wind_speeds</strong> (<em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>ndarray</em><em>[</em><em>Any</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>None</em>)</p></li>
-<li><p><strong>wind_directions</strong> (<em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>ndarray</em><em>[</em><em>Any</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>None</em>)</p></li>
+<li><p><strong>wind_speeds</strong> (<em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>ndarray</em><em>[</em><em>tuple</em><em>[</em><em>Any</em><em>, </em><em>...</em><em>]</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>None</em>)</p></li>
+<li><p><strong>wind_directions</strong> (<em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>ndarray</em><em>[</em><em>tuple</em><em>[</em><em>Any</em><em>, </em><em>...</em><em>]</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>None</em>)</p></li>
 <li><p><strong>wind_shear</strong> (<em>float</em><em> | </em><em>None</em>)</p></li>
 <li><p><strong>wind_veer</strong> (<em>float</em><em> | </em><em>None</em>)</p></li>
 <li><p><strong>reference_wind_height</strong> (<em>float</em><em> | </em><em>None</em>)</p></li>
-<li><p><strong>turbulence_intensities</strong> (<em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>ndarray</em><em>[</em><em>Any</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>None</em>)</p></li>
+<li><p><strong>turbulence_intensities</strong> (<em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>ndarray</em><em>[</em><em>tuple</em><em>[</em><em>Any</em><em>, </em><em>...</em><em>]</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>None</em>)</p></li>
 <li><p><strong>air_density</strong> (<em>float</em><em> | </em><em>None</em>)</p></li>
-<li><p><strong>layout_x</strong> (<em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>ndarray</em><em>[</em><em>Any</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>None</em>)</p></li>
-<li><p><strong>layout_y</strong> (<em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>ndarray</em><em>[</em><em>Any</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>None</em>)</p></li>
+<li><p><strong>layout_x</strong> (<em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>ndarray</em><em>[</em><em>tuple</em><em>[</em><em>Any</em><em>, </em><em>...</em><em>]</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>None</em>)</p></li>
+<li><p><strong>layout_y</strong> (<em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>ndarray</em><em>[</em><em>tuple</em><em>[</em><em>Any</em><em>, </em><em>...</em><em>]</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>None</em>)</p></li>
 <li><p><strong>turbine_type</strong> (<em>list</em><em> | </em><em>None</em>)</p></li>
 <li><p><strong>turbine_library_path</strong> (<em>str</em><em> | </em><em>Path</em><em> | </em><em>None</em>)</p></li>
 <li><p><strong>solver_settings</strong> (<em>dict</em><em> | </em><em>None</em>)</p></li>
 <li><p><strong>wind_data</strong> (<em>type</em><em>[</em><a class="reference internal" href="floris.wind_data.html#floris.wind_data.WindDataBase" title="floris.wind_data.WindDataBase"><em>WindDataBase</em></a><em>] </em><em>| </em><em>None</em>)</p></li>
-<li><p><strong>yaw_angles</strong> (<em>ndarray</em><em>[</em><em>Any</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>None</em>)</p></li>
-<li><p><strong>power_setpoints</strong> (<em>ndarray</em><em>[</em><em>Any</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>list</em><em>[</em><em>float</em><em>, </em><em>None</em><em>] </em><em>| </em><em>None</em>)</p></li>
-<li><p><strong>awc_modes</strong> (<em>ndarray</em><em>[</em><em>Any</em><em>, </em><em>dtype</em><em>[</em><em>str_</em><em>]</em><em>] </em><em>| </em><em>list</em><em>[</em><em>str</em><em>] </em><em>| </em><em>list</em><em>[</em><em>str</em><em>, </em><em>None</em><em>] </em><em>| </em><em>None</em>)</p></li>
-<li><p><strong>awc_amplitudes</strong> (<em>ndarray</em><em>[</em><em>Any</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>list</em><em>[</em><em>float</em><em>, </em><em>None</em><em>] </em><em>| </em><em>None</em>)</p></li>
-<li><p><strong>awc_frequencies</strong> (<em>ndarray</em><em>[</em><em>Any</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>list</em><em>[</em><em>float</em><em>, </em><em>None</em><em>] </em><em>| </em><em>None</em>)</p></li>
-<li><p><strong>disable_turbines</strong> (<em>ndarray</em><em>[</em><em>Any</em><em>, </em><em>dtype</em><em>[</em><em>bool_</em><em>]</em><em>] </em><em>| </em><em>list</em><em>[</em><em>bool</em><em>] </em><em>| </em><em>None</em>)</p></li>
+<li><p><strong>yaw_angles</strong> (<em>ndarray</em><em>[</em><em>tuple</em><em>[</em><em>Any</em><em>, </em><em>...</em><em>]</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>None</em>)</p></li>
+<li><p><strong>power_setpoints</strong> (<em>ndarray</em><em>[</em><em>tuple</em><em>[</em><em>Any</em><em>, </em><em>...</em><em>]</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>list</em><em>[</em><em>float</em><em>, </em><em>None</em><em>] </em><em>| </em><em>None</em>)</p></li>
+<li><p><strong>awc_modes</strong> (<em>ndarray</em><em>[</em><em>tuple</em><em>[</em><em>Any</em><em>, </em><em>...</em><em>]</em><em>, </em><em>dtype</em><em>[</em><em>str_</em><em>]</em><em>] </em><em>| </em><em>list</em><em>[</em><em>str</em><em>] </em><em>| </em><em>list</em><em>[</em><em>str</em><em>, </em><em>None</em><em>] </em><em>| </em><em>None</em>)</p></li>
+<li><p><strong>awc_amplitudes</strong> (<em>ndarray</em><em>[</em><em>tuple</em><em>[</em><em>Any</em><em>, </em><em>...</em><em>]</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>list</em><em>[</em><em>float</em><em>, </em><em>None</em><em>] </em><em>| </em><em>None</em>)</p></li>
+<li><p><strong>awc_frequencies</strong> (<em>ndarray</em><em>[</em><em>tuple</em><em>[</em><em>Any</em><em>, </em><em>...</em><em>]</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>list</em><em>[</em><em>float</em><em>, </em><em>None</em><em>] </em><em>| </em><em>None</em>)</p></li>
+<li><p><strong>disable_turbines</strong> (<em>ndarray</em><em>[</em><em>tuple</em><em>[</em><em>Any</em><em>, </em><em>...</em><em>]</em><em>, </em><em>dtype</em><em>[</em><em>bool</em><em>]</em><em>] </em><em>| </em><em>list</em><em>[</em><em>bool</em><em>] </em><em>| </em><em>None</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -1118,7 +1160,7 @@ of value.</p>
 <span class="sig-name descname"><span class="pre">get_turbine_ais</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/floris/floris_model.html#FlorisModel.get_turbine_ais"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#floris.floris_model.FlorisModel.get_turbine_ais" title="Link to this definition">#</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">dtype</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float64</span></code>]]</span></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">...</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">dtype</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float64</span></code>]]</span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1128,7 +1170,7 @@ of value.</p>
 <span class="sig-name descname"><span class="pre">get_turbine_thrust_coefficients</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/floris/floris_model.html#FlorisModel.get_turbine_thrust_coefficients"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#floris.floris_model.FlorisModel.get_turbine_thrust_coefficients" title="Link to this definition">#</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">dtype</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float64</span></code>]]</span></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">...</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">dtype</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float64</span></code>]]</span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1138,7 +1180,7 @@ of value.</p>
 <span class="sig-name descname"><span class="pre">get_turbine_TIs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/floris/floris_model.html#FlorisModel.get_turbine_TIs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#floris.floris_model.FlorisModel.get_turbine_TIs" title="Link to this definition">#</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">dtype</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float64</span></code>]]</span></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">...</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">dtype</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float64</span></code>]]</span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1213,7 +1255,7 @@ x_resolution (float, optional): Output array resolution.</p>
 <dt>y_bounds (tuple, optional): Limits of output array (in m).</dt><dd><p>Defaults to None.</p>
 </dd>
 </dl>
-<p>finder_for_viz (int, optional): Index of the condition to visualize.</p>
+<p>findex_for_viz (int, optional): Index of the condition to visualize.</p>
 </dd>
 <dt>Returns:</dt><dd><p><code class="xref py py-class docutils literal notranslate"><span class="pre">CutPlane</span></code>: containing values
 of x, y, u, v, w</p>
@@ -1285,9 +1327,9 @@ z (1DArrayFloat | list): z-locations of points where flow is desired.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>ndarray</em><em>[</em><em>Any</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>]</em>)</p></li>
-<li><p><strong>y</strong> (<em>ndarray</em><em>[</em><em>Any</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>]</em>)</p></li>
-<li><p><strong>z</strong> (<em>ndarray</em><em>[</em><em>Any</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>]</em>)</p></li>
+<li><p><strong>x</strong> (<em>ndarray</em><em>[</em><em>tuple</em><em>[</em><em>Any</em><em>, </em><em>...</em><em>]</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>]</em>)</p></li>
+<li><p><strong>y</strong> (<em>ndarray</em><em>[</em><em>tuple</em><em>[</em><em>Any</em><em>, </em><em>...</em><em>]</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>]</em>)</p></li>
+<li><p><strong>z</strong> (<em>ndarray</em><em>[</em><em>tuple</em><em>[</em><em>Any</em><em>, </em><em>...</em><em>]</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>]</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -1308,8 +1350,8 @@ where u is the wake velocity obtained when wind_shear = 0.0.</p>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>direction</strong> (<em>str</em>)</p></li>
-<li><p><strong>downstream_dists</strong> (<em>ndarray</em><em>[</em><em>Any</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>list</em>)</p></li>
-<li><p><strong>profile_range</strong> (<em>ndarray</em><em>[</em><em>Any</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>list</em>)</p></li>
+<li><p><strong>downstream_dists</strong> (<em>ndarray</em><em>[</em><em>tuple</em><em>[</em><em>Any</em><em>, </em><em>...</em><em>]</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>list</em>)</p></li>
+<li><p><strong>profile_range</strong> (<em>ndarray</em><em>[</em><em>tuple</em><em>[</em><em>Any</em><em>, </em><em>...</em><em>]</em><em>, </em><em>dtype</em><em>[</em><em>float64</em><em>]</em><em>] </em><em>| </em><em>list</em>)</p></li>
 <li><p><strong>resolution</strong> (<em>int</em>)</p></li>
 <li><p><strong>wind_direction</strong> (<em>float</em>)</p></li>
 <li><p><strong>homogeneous_wind_speed</strong> (<em>float</em>)</p></li>
@@ -1394,6 +1436,9 @@ profile.</p>
 <dt class="sig sig-object py" id="floris.floris_model.FlorisModel.copy">
 <span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/floris/floris_model.html#FlorisModel.copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#floris.floris_model.FlorisModel.copy" title="Link to this definition">#</a></dt>
 <dd><p>Create an independent copy of the current FlorisModel object</p>
+<p>When creating the copy, this method uses self.__class__(), rather than FlorisModel()
+directly, so that subclasses of FlorisModel can inherit this method and return
+instantiations of their own class, rather than the FlorisModel class.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1461,6 +1506,17 @@ otherwise, return x and y only. Defaults to <em>False</em>.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="floris.floris_model.FlorisModel.show_config">
+<span class="sig-name descname"><span class="pre">show_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">full</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/floris/floris_model.html#FlorisModel.show_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#floris.floris_model.FlorisModel.show_config" title="Link to this definition">#</a></dt>
+<dd><p>Print the FlorisModel dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="floris.floris_model.FlorisModel.print_dict">
 <span class="sig-name descname"><span class="pre">print_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/floris/floris_model.html#FlorisModel.print_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#floris.floris_model.FlorisModel.print_dict" title="Link to this definition">#</a></dt>
 <dd><p>Print the FlorisModel dictionary.</p>
@@ -1469,6 +1525,13 @@ otherwise, return x and y only. Defaults to <em>False</em>.</p>
 <dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="floris.floris_model.FlorisModel.secondary_init_kwargs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">secondary_init_kwargs</span></span><a class="headerlink" href="#floris.floris_model.FlorisModel.secondary_init_kwargs" title="Link to this definition">#</a></dt>
+<dd><p>FlorisModel takes only the configuration argument. This method is a placeholder for
+subclasses of FlorisModel.</p>
 </dd></dl>
 
 <dl class="py property">
@@ -1553,7 +1616,7 @@ otherwise, return x and y only. Defaults to <em>False</em>.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="floris.floris_model.FlorisModel.turbine_average_velocities">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">turbine_average_velocities</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#floris.floris_model.FlorisModel.turbine_average_velocities" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">turbine_average_velocities</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#floris.floris_model.FlorisModel.turbine_average_velocities" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -1677,8 +1740,7 @@ or general solver settings.</p>
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1688,6 +1750,7 @@ or general solver settings.</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.floris_model.FlorisModel"><code class="docutils literal notranslate"><span class="pre">FlorisModel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.floris_model.FlorisModel.get_defaults"><code class="docutils literal notranslate"><span class="pre">FlorisModel.get_defaults()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.floris_model.FlorisModel.set_operation"><code class="docutils literal notranslate"><span class="pre">FlorisModel.set_operation()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.floris_model.FlorisModel.set"><code class="docutils literal notranslate"><span class="pre">FlorisModel.set()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.floris_model.FlorisModel.reset_operation"><code class="docutils literal notranslate"><span class="pre">FlorisModel.reset_operation()</span></code></a></li>
@@ -1717,7 +1780,9 @@ or general solver settings.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.floris_model.FlorisModel.get_param"><code class="docutils literal notranslate"><span class="pre">FlorisModel.get_param()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.floris_model.FlorisModel.set_param"><code class="docutils literal notranslate"><span class="pre">FlorisModel.set_param()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.floris_model.FlorisModel.get_turbine_layout"><code class="docutils literal notranslate"><span class="pre">FlorisModel.get_turbine_layout()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.floris_model.FlorisModel.show_config"><code class="docutils literal notranslate"><span class="pre">FlorisModel.show_config()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.floris_model.FlorisModel.print_dict"><code class="docutils literal notranslate"><span class="pre">FlorisModel.print_dict()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.floris_model.FlorisModel.secondary_init_kwargs"><code class="docutils literal notranslate"><span class="pre">FlorisModel.secondary_init_kwargs</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.floris_model.FlorisModel.layout_x"><code class="docutils literal notranslate"><span class="pre">FlorisModel.layout_x</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.floris_model.FlorisModel.layout_y"><code class="docutils literal notranslate"><span class="pre">FlorisModel.layout_y</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.floris_model.FlorisModel.wind_directions"><code class="docutils literal notranslate"><span class="pre">FlorisModel.wind_directions</span></code></a></li>
@@ -1781,8 +1846,8 @@ By National Renewable Energy Laboratory
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

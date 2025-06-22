@@ -15,33 +15,30 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../../_static/documentation_options.js?v=30a733bc"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -85,7 +82,6 @@ window.addEventListener("load", () => mermaid.run());
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="python"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -101,8 +97,19 @@ window.addEventListener("load", () => mermaid.run());
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -110,6 +117,7 @@ window.addEventListener("load", () => mermaid.run());
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -117,8 +125,8 @@ window.addEventListener("load", () => mermaid.run());
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -136,8 +144,7 @@ window.addEventListener("load", () => mermaid.run());
       
         
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -167,17 +174,21 @@ window.addEventListener("load", () => mermaid.run());
     
     
     <img src="../../_static/docs_image.png" class="logo__image only-light" alt="FLORIS - Home"/>
-    <img src="../../_static/docs_image.png" class="logo__image only-dark pst-js-only" alt="FLORIS - Home"/>
+    <script>document.write(`<img src="../../_static/docs_image.png" class="logo__image only-dark" alt="FLORIS - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -243,6 +254,10 @@ window.addEventListener("load", () => mermaid.run());
 <li class="toctree-l4"><a class="reference internal" href="../../_autosummary/floris.optimization.layout_optimization.layout_optimization_scipy.html">floris.optimization.layout_optimization.layout_optimization_scipy</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../_autosummary/floris.optimization.load_optimization.html">floris.optimization.load_optimization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../_autosummary/floris.optimization.load_optimization.load_optimization.html">floris.optimization.load_optimization.load_optimization</a></li>
+</ul>
+</details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../_autosummary/floris.optimization.other.html">floris.optimization.other</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../_autosummary/floris.optimization.other.boundary_grid.html">floris.optimization.other.boundary_grid</a></li>
 </ul>
@@ -268,8 +283,10 @@ window.addEventListener("load", () => mermaid.run());
 <li class="toctree-l3"><a class="reference internal" href="../../_autosummary/floris.core.rotor_velocity.html">floris.core.rotor_velocity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../_autosummary/floris.core.solver.html">floris.core.solver</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../_autosummary/floris.core.turbine.html">floris.core.turbine</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../_autosummary/floris.core.turbine.controller_dependent_operation_model.html">floris.core.turbine.controller_dependent_operation_model</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../_autosummary/floris.core.turbine.operation_models.html">floris.core.turbine.operation_models</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../_autosummary/floris.core.turbine.turbine.html">floris.core.turbine.turbine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../_autosummary/floris.core.turbine.unified_momentum_model.html">floris.core.turbine.unified_momentum_model</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3"><a class="reference internal" href="../../_autosummary/floris.core.wake.html">floris.core.wake</a></li>
@@ -376,10 +393,19 @@ window.addEventListener("load", () => mermaid.run());
 <li class="toctree-l1"><a class="reference internal" href="../../examples/examples_layout_optimization/004_generate_gridded_layout.html">Example: Gridded layout design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/examples_layout_optimization/005_layout_optimization_complex_boundary.html">Example: Separated boundaries layout optimization</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Load optimization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../examples/examples_load_optimization/001_lti_and_voc.html">Example: LTI and VOC Behavior with Changing Wind Direction and Power Setpoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/examples_load_optimization/002_row_opt_example.html">Example: Optimize a row of turbines</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Multidim</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../examples/examples_multidim/001_multi_dimensional_cp_ct.html">Example: Multi-dimensional Cp/Ct data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/examples_multidim/002_multi_dimensional_cp_ct_2Hs.html">Example: Multi-dimensional Cp/Ct with 2 Hs values</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Operation models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../examples/examples_operation_models/001_compare_yaw_loss.html">Example: Compare yaw loss under different operation models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Turbine</span></p>
 <ul class="nav bd-sidenav">
@@ -425,14 +451,9 @@ window.addEventListener("load", () => mermaid.run());
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -528,16 +549,24 @@ window.addEventListener("load", () => mermaid.run());
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 
 </div></div>
       
@@ -565,17 +594,17 @@ window.addEventListener("load", () => mermaid.run());
                   
   <h1>Source code for floris.cut_plane</h1><div class="highlight"><pre>
 <span></span>
-<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
 
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">griddata</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.interpolate</span><span class="w"> </span><span class="kn">import</span> <span class="n">griddata</span>
 
 
 <div class="viewcode-block" id="nudge_outward">
 <a class="viewcode-back" href="../../_autosummary/floris.cut_plane.html#floris.cut_plane.nudge_outward">[docs]</a>
-<span class="k">def</span> <span class="nf">nudge_outward</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">nudge_outward</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Avoid numerical issue in grid data by slightly expanding input x.</span>
 <span class="sd">    TODO: expand this description</span>
@@ -599,7 +628,7 @@ window.addEventListener("load", () => mermaid.run());
 
 <div class="viewcode-block" id="get_plane_from_flow_data">
 <a class="viewcode-back" href="../../_autosummary/floris.cut_plane.html#floris.cut_plane.get_plane_from_flow_data">[docs]</a>
-<span class="k">def</span> <span class="nf">get_plane_from_flow_data</span><span class="p">(</span><span class="n">flow_data</span><span class="p">,</span> <span class="n">normal_vector</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="n">x3_value</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_plane_from_flow_data</span><span class="p">(</span><span class="n">flow_data</span><span class="p">,</span> <span class="n">normal_vector</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="n">x3_value</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get a plane of data, in form of DataFrame, from a :py:class:`~.FlowData`</span>
 <span class="sd">    object. This is used to get planes from SOWFA results and FLORIS</span>
@@ -659,13 +688,13 @@ window.addEventListener("load", () => mermaid.run());
 
 <div class="viewcode-block" id="CutPlane">
 <a class="viewcode-back" href="../../_autosummary/floris.cut_plane.html#floris.cut_plane.CutPlane">[docs]</a>
-<span class="k">class</span> <span class="nc">CutPlane</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CutPlane</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A CutPlane object represents a 2D slice through the flow of a</span>
 <span class="sd">    FLORIS simulation, or other such as SOWFA result.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">x1_resolution</span><span class="p">,</span> <span class="n">x2_resolution</span><span class="p">,</span> <span class="n">normal_vector</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">x1_resolution</span><span class="p">,</span> <span class="n">x2_resolution</span><span class="p">,</span> <span class="n">normal_vector</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize CutPlane object, storing the DataFrame and resolution.</span>
 
@@ -678,7 +707,7 @@ window.addEventListener("load", () => mermaid.run());
         <span class="bp">self</span><span class="o">.</span><span class="n">resolution</span> <span class="o">=</span> <span class="p">(</span><span class="n">x1_resolution</span><span class="p">,</span> <span class="n">x2_resolution</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s2">&quot;x1&quot;</span><span class="p">,</span> <span class="s2">&quot;x2&quot;</span><span class="p">])</span>
 
-    <span class="k">def</span> <span class="fm">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">normal_vector</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">normal_vector</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Operands must have consistent normal vectors.&quot;</span><span class="p">)</span>
@@ -706,7 +735,7 @@ window.addEventListener("load", () => mermaid.run());
 <span class="c1"># Modification functions</span>
 <div class="viewcode-block" id="set_origin">
 <a class="viewcode-back" href="../../_autosummary/floris.cut_plane.html#floris.cut_plane.set_origin">[docs]</a>
-<span class="k">def</span> <span class="nf">set_origin</span><span class="p">(</span><span class="n">cut_plane</span><span class="p">,</span> <span class="n">center_x1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">center_x2</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">set_origin</span><span class="p">(</span><span class="n">cut_plane</span><span class="p">,</span> <span class="n">center_x1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">center_x2</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Establish the origin of a CutPlane object.</span>
 
@@ -732,7 +761,7 @@ window.addEventListener("load", () => mermaid.run());
 
 <div class="viewcode-block" id="change_resolution">
 <a class="viewcode-back" href="../../_autosummary/floris.cut_plane.html#floris.cut_plane.change_resolution">[docs]</a>
-<span class="k">def</span> <span class="nf">change_resolution</span><span class="p">(</span><span class="n">cut_plane</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">change_resolution</span><span class="p">(</span><span class="n">cut_plane</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Modify default resolution of a CutPlane object.</span>
 
@@ -805,7 +834,7 @@ window.addEventListener("load", () => mermaid.run());
 
 <div class="viewcode-block" id="interpolate_onto_array">
 <a class="viewcode-back" href="../../_autosummary/floris.cut_plane.html#floris.cut_plane.interpolate_onto_array">[docs]</a>
-<span class="k">def</span> <span class="nf">interpolate_onto_array</span><span class="p">(</span><span class="n">cut_plane_in</span><span class="p">,</span> <span class="n">x1_array</span><span class="p">,</span> <span class="n">x2_array</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">interpolate_onto_array</span><span class="p">(</span><span class="n">cut_plane_in</span><span class="p">,</span> <span class="n">x1_array</span><span class="p">,</span> <span class="n">x2_array</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Interpolate a CutPlane object onto specified coordinate arrays.</span>
 
@@ -878,7 +907,7 @@ window.addEventListener("load", () => mermaid.run());
 
 <div class="viewcode-block" id="rescale_axis">
 <a class="viewcode-back" href="../../_autosummary/floris.cut_plane.html#floris.cut_plane.rescale_axis">[docs]</a>
-<span class="k">def</span> <span class="nf">rescale_axis</span><span class="p">(</span><span class="n">cut_plane</span><span class="p">,</span> <span class="n">x1_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">x2_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">rescale_axis</span><span class="p">(</span><span class="n">cut_plane</span><span class="p">,</span> <span class="n">x1_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">x2_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Stretch or compress CutPlane coordinates.</span>
 
@@ -902,7 +931,7 @@ window.addEventListener("load", () => mermaid.run());
 
 <div class="viewcode-block" id="project_onto">
 <a class="viewcode-back" href="../../_autosummary/floris.cut_plane.html#floris.cut_plane.project_onto">[docs]</a>
-<span class="k">def</span> <span class="nf">project_onto</span><span class="p">(</span><span class="n">cut_plane_a</span><span class="p">,</span> <span class="n">cut_plane_b</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">project_onto</span><span class="p">(</span><span class="n">cut_plane_a</span><span class="p">,</span> <span class="n">cut_plane_b</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Project cut_plane_a onto the x1, x2 of cut_plane_b</span>
 
@@ -925,7 +954,7 @@ window.addEventListener("load", () => mermaid.run());
 
 <div class="viewcode-block" id="calculate_wind_speed">
 <a class="viewcode-back" href="../../_autosummary/floris.cut_plane.html#floris.cut_plane.calculate_wind_speed">[docs]</a>
-<span class="k">def</span> <span class="nf">calculate_wind_speed</span><span class="p">(</span><span class="n">cross_plane</span><span class="p">,</span> <span class="n">x1_loc</span><span class="p">,</span> <span class="n">x2_loc</span><span class="p">,</span> <span class="n">R</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_wind_speed</span><span class="p">(</span><span class="n">cross_plane</span><span class="p">,</span> <span class="n">x1_loc</span><span class="p">,</span> <span class="n">x2_loc</span><span class="p">,</span> <span class="n">R</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculate effective wind speed within specified range of a point.</span>
 
@@ -953,7 +982,7 @@ window.addEventListener("load", () => mermaid.run());
 
 <div class="viewcode-block" id="wind_speed_profile">
 <a class="viewcode-back" href="../../_autosummary/floris.cut_plane.html#floris.cut_plane.wind_speed_profile">[docs]</a>
-<span class="k">def</span> <span class="nf">wind_speed_profile</span><span class="p">(</span><span class="n">cross_plane</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">x2_loc</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">x1_locs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">wind_speed_profile</span><span class="p">(</span><span class="n">cross_plane</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">x2_loc</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">x1_locs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
     <span class="k">if</span> <span class="n">x1_locs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">x1_locs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span>
@@ -968,7 +997,7 @@ window.addEventListener("load", () => mermaid.run());
 
 <div class="viewcode-block" id="calculate_power">
 <a class="viewcode-back" href="../../_autosummary/floris.cut_plane.html#floris.cut_plane.calculate_power">[docs]</a>
-<span class="k">def</span> <span class="nf">calculate_power</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_power</span><span class="p">(</span>
     <span class="n">cross_plane</span><span class="p">,</span> <span class="n">x1_loc</span><span class="p">,</span> <span class="n">x2_loc</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">ws_array</span><span class="p">,</span> <span class="n">cp_array</span><span class="p">,</span> <span class="n">air_density</span><span class="o">=</span><span class="mf">1.225</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1000,7 +1029,7 @@ window.addEventListener("load", () => mermaid.run());
 
 <div class="viewcode-block" id="get_power_profile">
 <a class="viewcode-back" href="../../_autosummary/floris.cut_plane.html#floris.cut_plane.get_power_profile">[docs]</a>
-<span class="k">def</span> <span class="nf">get_power_profile</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_power_profile</span><span class="p">(</span>
     <span class="n">cross_plane</span><span class="p">,</span>
     <span class="n">x2_loc</span><span class="p">,</span>
     <span class="n">ws_array</span><span class="p">,</span>
@@ -1147,8 +1176,8 @@ By National Renewable Energy Laboratory
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

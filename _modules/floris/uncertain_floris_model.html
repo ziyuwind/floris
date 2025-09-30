@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -210,14 +210,18 @@ window.addEventListener("load", () => mermaid.run());
 <li class="toctree-l1"><a class="reference internal" href="../../wind_data_user.html">Wind Data Objects</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../../floris_models.html">FLORIS Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../input_reference_main.html">Main Input File Reference</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../turbine_models.html">Wind turbine models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../input_reference_turbine.html">Turbine Input File Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operation_models_user.html">Turbine Operation Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../floating_wind_turbine.html">Floating Wind Turbine Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../multidimensional_wind_turbine.html">Multidimensional Wind Turbine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../turbine_library.html">Turbine Library</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_concepts.html">Advanced Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../heterogeneous_map.html">Heterogeneous Map</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../floating_wind_turbine.html">Floating Wind Turbine Modeling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../turbine_interaction.html">Turbine Library Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../operation_models_user.html">Turbine Operation Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../layout_optimization.html">Layout Optimization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../input_reference_main.html">Main Input File Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../input_reference_turbine.html">Turbine Input File Reference</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Theory and Background</span></p>
 <ul class="nav bd-sidenav">
@@ -376,7 +380,8 @@ window.addEventListener("load", () => mermaid.run());
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../examples/examples_get_flow/001_extract_wind_speed_at_turbines.html">Example: Extract wind speed at turbines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/examples_get_flow/002_extract_wind_speed_at_points.html">Example: Extract wind speed at points</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../examples/examples_get_flow/003_plot_velocity_deficit_profiles.html">Example: Plot velocity deficit profiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/examples_get_flow/003_extract_turbulence_intensity_at_points.html">Example: Extract turbulence intensity at points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/examples_get_flow/004_plot_velocity_deficit_profiles.html">Example: Plot velocity deficit profiles</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Heterogeneous</span></p>
 <ul class="nav bd-sidenav">
@@ -400,8 +405,9 @@ window.addEventListener("load", () => mermaid.run());
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Multidim</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../examples/examples_multidim/001_multi_dimensional_cp_ct.html">Example: Multi-dimensional Cp/Ct data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../examples/examples_multidim/002_multi_dimensional_cp_ct_2Hs.html">Example: Multi-dimensional Cp/Ct with 2 Hs values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/examples_multidim/001_multi_dimensional_cp_ct.html">Example: Multi-dimensional power/thrust coefficient data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/examples_multidim/002_multi_dimensional_cp_ct_2Hs.html">Example: Multi-dimensional power/thrust coefficient with 2 Hs values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/examples_multidim/003_multi_dimensional_cp_ct_TI.html">Example: Multi-dimensional power/thrust coefficients with turbulence intensity</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Operation models</span></p>
 <ul class="nav bd-sidenav">
@@ -605,7 +611,7 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">floris</span><span class="w"> </span><span class="kn">import</span> <span class="n">FlorisModel</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">floris.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">State</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">floris.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">average_velocity</span><span class="p">,</span> <span class="n">State</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">floris.logging_manager</span><span class="w"> </span><span class="kn">import</span> <span class="n">LoggingManager</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">floris.par_floris_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">ParFlorisModel</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">floris.type_dec</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
@@ -682,6 +688,10 @@ document.write(`
         <span class="n">fix_yaw_to_nominal_direction</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="p">):</span>
+        <span class="c1"># Check validity of inputs</span>
+        <span class="k">if</span> <span class="n">wd_std</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;wd_std must be strictly greater than 0.&quot;</span><span class="p">)</span>
+
         <span class="c1"># Save these inputs</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wd_resolution</span> <span class="o">=</span> <span class="n">wd_resolution</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ws_resolution</span> <span class="o">=</span> <span class="n">ws_resolution</span>
@@ -881,8 +891,8 @@ document.write(`
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="c1"># Pass to off-class function</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">map_turbine_powers_uncertain</span><span class="p">(</span>
-            <span class="n">unique_turbine_powers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fmodel_expanded</span><span class="o">.</span><span class="n">_get_turbine_powers</span><span class="p">(),</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">map_turbine_values_uncertain</span><span class="p">(</span>
+            <span class="n">unique_turbine_values</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fmodel_expanded</span><span class="o">.</span><span class="n">_get_turbine_powers</span><span class="p">(),</span>
             <span class="n">map_to_expanded_inputs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">map_to_expanded_inputs</span><span class="p">,</span>
             <span class="n">weights</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">,</span>
             <span class="n">n_unexpanded</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_unexpanded</span><span class="p">,</span>
@@ -1785,7 +1795,28 @@ document.write(`
 <span class="sd">        Returns:</span>
 <span class="sd">            Floris: The core of the unexpanded model.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmodel_unexpanded</span><span class="o">.</span><span class="n">core</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmodel_unexpanded</span><span class="o">.</span><span class="n">core</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">turbine_average_velocities</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NDArrayFloat</span><span class="p">:</span>
+        <span class="c1"># Get the expanded velocities</span>
+        <span class="n">expanded_velocities</span> <span class="o">=</span> <span class="n">average_velocity</span><span class="p">(</span>
+            <span class="n">velocities</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fmodel_expanded</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">flow_field</span><span class="o">.</span><span class="n">u</span><span class="p">,</span>
+            <span class="n">method</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fmodel_expanded</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">grid</span><span class="o">.</span><span class="n">average_method</span><span class="p">,</span>
+            <span class="n">cubature_weights</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fmodel_expanded</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">grid</span><span class="o">.</span><span class="n">cubature_weights</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Pass to off-class function</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">map_turbine_values_uncertain</span><span class="p">(</span>
+            <span class="n">unique_turbine_values</span><span class="o">=</span><span class="n">expanded_velocities</span><span class="p">,</span>
+            <span class="n">map_to_expanded_inputs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">map_to_expanded_inputs</span><span class="p">,</span>
+            <span class="n">weights</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">,</span>
+            <span class="n">n_unexpanded</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_unexpanded</span><span class="p">,</span>
+            <span class="n">n_sample_points</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_sample_points</span><span class="p">,</span>
+            <span class="n">n_turbines</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fmodel_unexpanded</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">farm</span><span class="o">.</span><span class="n">n_turbines</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span></div>
 
 
 
@@ -1799,35 +1830,60 @@ document.write(`
     <span class="n">n_sample_points</span><span class="p">,</span>
     <span class="n">n_turbines</span><span class="p">,</span>
 <span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates the power at each turbine in the wind farm based on uncertainty weights.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Alias for map_turbine_values_uncertain.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Deprecation warning</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;map_turbine_powers_uncertain is deprecated, use map_turbine_values_uncertain instead.&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">map_turbine_values_uncertain</span><span class="p">(</span>
+        <span class="n">unique_turbine_values</span><span class="o">=</span><span class="n">unique_turbine_powers</span><span class="p">,</span>
+        <span class="n">map_to_expanded_inputs</span><span class="o">=</span><span class="n">map_to_expanded_inputs</span><span class="p">,</span>
+        <span class="n">weights</span><span class="o">=</span><span class="n">weights</span><span class="p">,</span>
+        <span class="n">n_unexpanded</span><span class="o">=</span><span class="n">n_unexpanded</span><span class="p">,</span>
+        <span class="n">n_sample_points</span><span class="o">=</span><span class="n">n_sample_points</span><span class="p">,</span>
+        <span class="n">n_turbines</span><span class="o">=</span><span class="n">n_turbines</span><span class="p">,</span>
+    <span class="p">)</span></div>
 
-<span class="sd">    This function calculates the power at each turbine in the wind farm, considering</span>
-<span class="sd">    the underlying turbine powers and applying a weighted sum to handle uncertainty.</span>
+
+<div class="viewcode-block" id="map_turbine_values_uncertain">
+<a class="viewcode-back" href="../../_autosummary/floris.uncertain_floris_model.html#floris.uncertain_floris_model.map_turbine_values_uncertain">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">map_turbine_values_uncertain</span><span class="p">(</span>
+    <span class="n">unique_turbine_values</span><span class="p">,</span>
+    <span class="n">map_to_expanded_inputs</span><span class="p">,</span>
+    <span class="n">weights</span><span class="p">,</span>
+    <span class="n">n_unexpanded</span><span class="p">,</span>
+    <span class="n">n_sample_points</span><span class="p">,</span>
+    <span class="n">n_turbines</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates values at each turbine in the wind farm based on uncertainty weights.</span>
+
+<span class="sd">    This function calculates the values (e.g. power, velocity) at each turbine in the wind farm,</span>
+<span class="sd">    considering the underlying turbine values and applying a weighted sum to handle uncertainty.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        unique_turbine_powers (NDArrayFloat): An array of unique turbine powers from the</span>
-<span class="sd">            underlying FlorisModel</span>
-<span class="sd">        map_to_expanded_inputs (NDArrayFloat): An array of indices mapping the unique powers to</span>
-<span class="sd">            the expanded powers</span>
+<span class="sd">        unique_turbine_values (NDArrayFloat): An array of unique turbine powers, velocities, etc</span>
+<span class="sd">            from the underlying FlorisModel</span>
+<span class="sd">        map_to_expanded_inputs (NDArrayFloat): An array of indices mapping the unique values to</span>
+<span class="sd">            the expanded values</span>
 <span class="sd">        weights (NDArrayFloat): An array of weights for each wind direction sample point</span>
 <span class="sd">        n_unexpanded (int): The number of unexpanded conditions</span>
 <span class="sd">        n_sample_points (int): The number of wind direction sample points</span>
 <span class="sd">        n_turbines (int): The number of turbines in the wind farm</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        NDArrayFloat: An array containing the powers at each turbine for each findex.</span>
+<span class="sd">        NDArrayFloat: An array containing the values at each turbine for each findex.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># Expand back to the expanded value</span>
-    <span class="n">expanded_turbine_powers</span> <span class="o">=</span> <span class="n">unique_turbine_powers</span><span class="p">[</span><span class="n">map_to_expanded_inputs</span><span class="p">]</span>
+    <span class="n">expanded_turbine_values</span> <span class="o">=</span> <span class="n">unique_turbine_values</span><span class="p">[</span><span class="n">map_to_expanded_inputs</span><span class="p">]</span>
 
     <span class="c1"># Reshape the weights array to make it compatible with broadcasting</span>
     <span class="n">weights_reshaped</span> <span class="o">=</span> <span class="n">weights</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
 
-    <span class="c1"># Reshape expanded_turbine_powers into blocks</span>
+    <span class="c1"># Reshape expanded_turbine_values into blocks</span>
     <span class="n">blocks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span>
-        <span class="n">expanded_turbine_powers</span><span class="p">,</span>
+        <span class="n">expanded_turbine_values</span><span class="p">,</span>
         <span class="p">(</span><span class="n">n_unexpanded</span><span class="p">,</span> <span class="n">n_sample_points</span><span class="p">,</span> <span class="n">n_turbines</span><span class="p">),</span>
         <span class="n">order</span><span class="o">=</span><span class="s2">&quot;F&quot;</span><span class="p">,</span>
     <span class="p">)</span>
@@ -1872,7 +1928,7 @@ document.write(`
             <span class="n">yaw_resolution</span><span class="p">,</span>
             <span class="n">power_setpoint_resolution</span><span class="p">,</span>
             <span class="n">awc_amplitude_resolution</span><span class="p">,</span>
-            <span class="n">wd_std</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+            <span class="n">wd_std</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>  <span class="c1"># Arbitrary nonzero value, not used since only one sample point</span>
             <span class="n">wd_sample_points</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
             <span class="n">fix_yaw_to_nominal_direction</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
             <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span>

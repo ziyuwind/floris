@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -75,8 +75,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'operation_models_user';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Layout Optimization" href="layout_optimization.html" />
-    <link rel="prev" title="Turbine Library Interface" href="turbine_interaction.html" />
+    <link rel="next" title="Floating Wind Turbine Modeling" href="floating_wind_turbine.html" />
+    <link rel="prev" title="Turbine Input File Reference" href="input_reference_turbine.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="python"/>
   </head>
@@ -205,14 +205,18 @@
 <li class="toctree-l1"><a class="reference internal" href="wind_data_user.html">Wind Data Objects</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="floris_models.html">FLORIS Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input_reference_main.html">Main Input File Reference</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="turbine_models.html">Wind turbine models</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="input_reference_turbine.html">Turbine Input File Reference</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Turbine Operation Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="floating_wind_turbine.html">Floating Wind Turbine Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multidimensional_wind_turbine.html">Multidimensional Wind Turbine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="turbine_library.html">Turbine Library</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="advanced_concepts.html">Advanced Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="heterogeneous_map.html">Heterogeneous Map</a></li>
-<li class="toctree-l1"><a class="reference internal" href="floating_wind_turbine.html">Floating Wind Turbine Modeling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="turbine_interaction.html">Turbine Library Interface</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Turbine Operation Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="layout_optimization.html">Layout Optimization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="input_reference_main.html">Main Input File Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="input_reference_turbine.html">Turbine Input File Reference</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Theory and Background</span></p>
 <ul class="nav bd-sidenav">
@@ -371,7 +375,8 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="examples/examples_get_flow/001_extract_wind_speed_at_turbines.html">Example: Extract wind speed at turbines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/examples_get_flow/002_extract_wind_speed_at_points.html">Example: Extract wind speed at points</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/examples_get_flow/003_plot_velocity_deficit_profiles.html">Example: Plot velocity deficit profiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples_get_flow/003_extract_turbulence_intensity_at_points.html">Example: Extract turbulence intensity at points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples_get_flow/004_plot_velocity_deficit_profiles.html">Example: Plot velocity deficit profiles</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Heterogeneous</span></p>
 <ul class="nav bd-sidenav">
@@ -395,8 +400,9 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Multidim</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="examples/examples_multidim/001_multi_dimensional_cp_ct.html">Example: Multi-dimensional Cp/Ct data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/examples_multidim/002_multi_dimensional_cp_ct_2Hs.html">Example: Multi-dimensional Cp/Ct with 2 Hs values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples_multidim/001_multi_dimensional_cp_ct.html">Example: Multi-dimensional power/thrust coefficient data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples_multidim/002_multi_dimensional_cp_ct_2Hs.html">Example: Multi-dimensional power/thrust coefficient with 2 Hs values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples_multidim/003_multi_dimensional_cp_ct_TI.html">Example: Multi-dimensional power/thrust coefficients with turbulence intensity</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Operation models</span></p>
 <ul class="nav bd-sidenav">
@@ -742,8 +748,8 @@ We also describe the different parameters that must be specified in the turbine
 cosine-loss operation model powers [kW]:  [[1561.31837381  778.04338242  651.77709894]]
 </pre></div>
 </div>
-<img alt="_images/b331ceb87c7187cf2028781bb7a1d94a5907180e23e1014f08adf7ec0ea0406e.png" src="_images/b331ceb87c7187cf2028781bb7a1d94a5907180e23e1014f08adf7ec0ea0406e.png" />
-<img alt="_images/d347c2888f9bd38b88fd4402935b11a585fe67e46b5b5869e0ae04c813294f32.png" src="_images/d347c2888f9bd38b88fd4402935b11a585fe67e46b5b5869e0ae04c813294f32.png" />
+<img alt="_images/c321fa9df717404744b65f71145686b82cfc91413fc8eb2b71c3973964cf1da0.png" src="_images/c321fa9df717404744b65f71145686b82cfc91413fc8eb2b71c3973964cf1da0.png" />
+<img alt="_images/e6f3d8686a3c87fa52af424df4a3481aa0dad332dc8bd68c97975c16bd7ea37d.png" src="_images/e6f3d8686a3c87fa52af424df4a3481aa0dad332dc8bd68c97975c16bd7ea37d.png" />
 </div>
 </div>
 </section>
@@ -782,10 +788,14 @@ often used as a baseline or for users wanting to evaluate wind farms in nominal 
 <p>The <code class="docutils literal notranslate"><span class="pre">&quot;cosine-loss&quot;</span></code> operation model describes the decrease in power and thrust produced by a
 wind turbine as it yaws (or tilts) away from the incoming wind. The thrust is reduced by a factor of
 <span class="math notranslate nohighlight">\(\cos \gamma\)</span>, where <span class="math notranslate nohighlight">\(\gamma\)</span> is the yaw misalignment angle, while the power is reduced by a factor
-of <span class="math notranslate nohighlight">\((\cos\gamma)^{p_P}\)</span>, where <span class="math notranslate nohighlight">\(p_P\)</span> is the cosine loss exponent, specified by <code class="docutils literal notranslate"><span class="pre">cosine_loss_exponent_yaw</span></code>
-(or <code class="docutils literal notranslate"><span class="pre">cosine_loss_exponent_tilt</span></code> for tilt angles). The power and thrust produced by the turbine
+of <span class="math notranslate nohighlight">\((\cos\gamma)^{p_P}\)</span>, where <span class="math notranslate nohighlight">\(p_P\)</span> is the cosine loss exponent, specified by <code class="docutils literal notranslate"><span class="pre">cosine_loss_exponent_yaw</span></code>.
+Similarly, the thrust and power are reduced by factors of <span class="math notranslate nohighlight">\((\cos \theta / \cos \theta_{ref})\)</span> and
+<span class="math notranslate nohighlight">\((\cos \theta / \cos \theta_{ref})^{p_T}\)</span>, respectively, where <span class="math notranslate nohighlight">\(\theta\)</span> is the tilt angle,
+<span class="math notranslate nohighlight">\(\theta_{ref}\)</span> is the reference tilt angle under which the power and thrust curves are specified, and
+<span class="math notranslate nohighlight">\(p_T\)</span> is the cosine loss exponent for tilt, specified by <code class="docutils literal notranslate"><span class="pre">cosine_loss_exponent_tilt</span></code>.
+The power and thrust produced by the turbine
 thus vary as a function of the turbine's yaw angle, set using the <code class="docutils literal notranslate"><span class="pre">yaw_angles</span></code> argument to
-<code class="docutils literal notranslate"><span class="pre">FlorisModel.set()</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">FlorisModel.set()</span></code>, and tilt angle (if applicable, for example for floating wind turbines).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">floris</span><span class="w"> </span><span class="kn">import</span> <span class="n">TimeSeries</span>
@@ -823,7 +833,7 @@ thus vary as a function of the turbine's yaw angle, set using the <code class="d
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Power [kW]&#39;)
 </pre></div>
 </div>
-<img alt="_images/1343007d42300863acd3ed6ed8be755d7640afcaf2c469acb67a243c7d689755.png" src="_images/1343007d42300863acd3ed6ed8be755d7640afcaf2c469acb67a243c7d689755.png" />
+<img alt="_images/55460a28e1745c87b04afccb3730cc0da8790f0fe472309fea5b5af9f9f93204.png" src="_images/55460a28e1745c87b04afccb3730cc0da8790f0fe472309fea5b5af9f9f93204.png" />
 </div>
 </div>
 </section>
@@ -873,7 +883,7 @@ appropriate entries of <code class="docutils literal notranslate"><span class="p
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/floris/floris/floris/core/turbine/operation_models.py:358: RuntimeWarning: divide by zero encountered in divide
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/floris/floris/floris/core/turbine/operation_models.py:361: RuntimeWarning: divide by zero encountered in divide
   power_fractions = power_setpoints / base_powers
 /home/runner/work/floris/floris/floris/core/wake_deflection/gauss.py:328: RuntimeWarning: invalid value encountered in divide
   val = 2 * (avg_v - v_core) / (v_top + v_bottom)
@@ -886,7 +896,7 @@ appropriate entries of <code class="docutils literal notranslate"><span class="p
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Power [kW]&#39;)
 </pre></div>
 </div>
-<img alt="_images/6302f1a99aa4fe9aa0dcd08adc3a1e65abca6b6f0780ec36aa474e97d37eea63.png" src="_images/6302f1a99aa4fe9aa0dcd08adc3a1e65abca6b6f0780ec36aa474e97d37eea63.png" />
+<img alt="_images/63fa6dcc11914e8f209bc65cccf3551f9bc23be8d0346960933106f97cc48ddc.png" src="_images/63fa6dcc11914e8f209bc65cccf3551f9bc23be8d0346960933106f97cc48ddc.png" />
 </div>
 </div>
 </section>
@@ -1082,7 +1092,7 @@ i.e. the lesser solution to <span class="math notranslate nohighlight">\(C_T=4a(
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Power [kW]&#39;)
 </pre></div>
 </div>
-<img alt="_images/5829f23db089cb00a8bf29d1ccc70a02acf34e824de631e5a5182f0cfd7ce968.png" src="_images/5829f23db089cb00a8bf29d1ccc70a02acf34e824de631e5a5182f0cfd7ce968.png" />
+<img alt="_images/98bcff3f393a3addde95f1c0363a26b18b5de8794aa07e6b387924fc87019dbe.png" src="_images/98bcff3f393a3addde95f1c0363a26b18b5de8794aa07e6b387924fc87019dbe.png" />
 </div>
 </div>
 </section>
@@ -1107,7 +1117,7 @@ surface to optimize performance under yaw misalignment.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">&quot;controller-dependent&quot;</span></code> operation model determines the wind turbine power output in yaw misalignment conditions, taking into account the effects of the control system.
 When the rotor operates in below-rated conditions, the models assumes that blade pitch is equal to the optimal value (corresponding to maximum power coefficient <span class="math notranslate nohighlight">\(C_P\)</span>),
 while the generator torque is scheduled as a function of rotational speed <span class="math notranslate nohighlight">\(\omega\)</span> according to the <span class="math notranslate nohighlight">\(K\omega^2\)</span> law.
-The <span class="math notranslate nohighlight">\(K\)</span> coefficient is computed using the condition of maximum efficiency as shown in Chapter 7 of <span id="id1">Hansen [<a class="reference internal" href="bibliography.html#id31" title="M.O.L. Hansen. Aerodynamics of wind turbines: Third edition. Routledge, 05 2015. ISBN 9781315769981. doi:10.4324/9781315769981.">1</a>]</span>.
+The <span class="math notranslate nohighlight">\(K\)</span> coefficient is computed using the condition of maximum efficiency as shown in Chapter 7 of <span id="id1">Hansen [<a class="reference internal" href="bibliography.html#id31" title="M.O.L. Hansen. Aerodynamics of wind turbines: Third edition. Routledge, 05 2015. ISBN 9781315769981. doi:10.4324/9781315769981.">4</a>]</span>.
 When the turbine operates above rated wind speed, the rotor speed is fixed and equal to the rated value, while the pitch angle is used to keep the power output equal to rated.
 The <code class="docutils literal notranslate"><span class="pre">&quot;controller-dependent&quot;</span></code> operation model solves a balance equation between electrical power and aerodynamic power, assuming the aforementioned control strategies.
 This yields the pitch and torque values that correspond to the current inflow and yaw misalignment. Based on these quantities, the power output of the turbine is computed.
@@ -1120,12 +1130,12 @@ To include the effects of shear, ensure that <code class="docutils literal notra
 <li><p>Rated rotation speed (<code class="docutils literal notranslate"><span class="pre">rated_rpm</span></code>), generator efficiency (<code class="docutils literal notranslate"><span class="pre">generator_efficiency</span></code>), and rated power, specified in kW (<code class="docutils literal notranslate"><span class="pre">rated_power</span></code>).</p></li>
 <li><p>Three parameters that describe the aerodynamics of the blade, namely <code class="docutils literal notranslate"><span class="pre">beta</span></code> (twist), <code class="docutils literal notranslate"><span class="pre">cd</span></code> (drag) and <code class="docutils literal notranslate"><span class="pre">cl_alfa</span></code> (lift slope).
 These parameters are provided for the NREL 5MW, IEA 10MW, and IEA 15MW turbines in the &quot;floris/turbine_library/&quot;.
-When using a different turbine model, these parameters can be estimated as shown in Section 3.5 of <span id="id2">Tamaro <em>et al.</em> [<a class="reference internal" href="bibliography.html#id30" title="S. Tamaro, F. Campagnolo, and C. L. Bottasso. On the power and control of a misaligned rotor – beyond the cosine law. Wind Energy Science, 9(7):1547–1575, 2024. URL: https://wes.copernicus.org/articles/9/1547/2024/, doi:10.5194/wes-9-1547-2024.">2</a>]</span>.</p></li>
+When using a different turbine model, these parameters can be estimated as shown in Section 3.5 of <span id="id2">Tamaro <em>et al.</em> [<a class="reference internal" href="bibliography.html#id30" title="S. Tamaro, F. Campagnolo, and C. L. Bottasso. On the power and control of a misaligned rotor – beyond the cosine law. Wind Energy Science, 9(7):1547–1575, 2024. URL: https://wes.copernicus.org/articles/9/1547/2024/, doi:10.5194/wes-9-1547-2024.">5</a>]</span>.</p></li>
 <li><p>Look-up tables of the power coefficient (<span class="math notranslate nohighlight">\(C_P\)</span>) and thrust coefficient <span class="math notranslate nohighlight">\(C_T\)</span> as functions of tip-speed ratio and blade pitch angle.
 Approximate values for these are provided for the reference turbines in &quot;floris/turbine_library/&quot;.</p></li>
 <li><p>Rotor solidity (<code class="docutils literal notranslate"><span class="pre">rotor_solidity</span></code>), i.e. the fraction of the rotor area occupied by the blades.</p></li>
 </ol>
-<p>Further details can be found in <span id="id3">Tamaro <em>et al.</em> [<a class="reference internal" href="bibliography.html#id30" title="S. Tamaro, F. Campagnolo, and C. L. Bottasso. On the power and control of a misaligned rotor – beyond the cosine law. Wind Energy Science, 9(7):1547–1575, 2024. URL: https://wes.copernicus.org/articles/9/1547/2024/, doi:10.5194/wes-9-1547-2024.">2</a>]</span>.
+<p>Further details can be found in <span id="id3">Tamaro <em>et al.</em> [<a class="reference internal" href="bibliography.html#id30" title="S. Tamaro, F. Campagnolo, and C. L. Bottasso. On the power and control of a misaligned rotor – beyond the cosine law. Wind Energy Science, 9(7):1547–1575, 2024. URL: https://wes.copernicus.org/articles/9/1547/2024/, doi:10.5194/wes-9-1547-2024.">5</a>]</span>.
 Developed and implemented by Simone Tamaro, Filippo Campagnolo, and Carlo L. Bottasso at Technische Universität München (TUM) (email: <a class="reference external" href="mailto:simone&#46;tamaro&#37;&#52;&#48;tum&#46;de">simone<span>&#46;</span>tamaro<span>&#64;</span>tum<span>&#46;</span>de</a>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1181,7 +1191,7 @@ Evaluating model: controller-dependent
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Normalized turbine power [deg]&#39;)
 </pre></div>
 </div>
-<img alt="_images/965fc9e13fd7d941df40ea0be76f3cb95a8bddc1546ca18dc01011de1aeb3f26.png" src="_images/965fc9e13fd7d941df40ea0be76f3cb95a8bddc1546ca18dc01011de1aeb3f26.png" />
+<img alt="_images/c9836da6233ee92d015c97333890bd89780304eeeebc9a18a9757451f9fb4b1c.png" src="_images/c9836da6233ee92d015c97333890bd89780304eeeebc9a18a9757451f9fb4b1c.png" />
 </div>
 </div>
 <p><strong>WARNING</strong>: The power and thrust curves generated by querying tabulated data as a function of blade pitch and tip-speed ratio for the reference wind turbines is <em>not</em> an exact match for the reference power and thrust curves found at the IEA Wind Task 37's <a class="reference external" href="https://github.com/IEAWindTask37">Github page</a> or the NREL 5MW <a class="reference external" href="https://github.com/NREL/turbine-models/blob/master/Offshore/NREL_5MW_126_RWT_corrected.csv">reference data</a>. As such, results using the Controller-dependent model, which rely on these <span class="math notranslate nohighlight">\(C_P\)</span> and <span class="math notranslate nohighlight">\(C_T\)</span> tables, should be considered demonstrative only and not necessarily consistent with other results using the reference wind turbines.</p>
@@ -1270,9 +1280,9 @@ Evaluating model: controller-dependent
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Powers more than 1% above rated detected. Consider checking Cp-Ct data.
 </pre></div>
 </div>
-<img alt="_images/79bf87237d69412920da0b2fe1da65e751220015d3dff4e73df9362f45a98938.png" src="_images/79bf87237d69412920da0b2fe1da65e751220015d3dff4e73df9362f45a98938.png" />
-<img alt="_images/fe5534fc9a8d20a12ec65aa478418a3c3c40eb46072291fcabdf0d15cffa61aa.png" src="_images/fe5534fc9a8d20a12ec65aa478418a3c3c40eb46072291fcabdf0d15cffa61aa.png" />
-<img alt="_images/ff6b9b4ac529a462048e7b2e9ad297765835769148e2df61a7dc021c536f5fdb.png" src="_images/ff6b9b4ac529a462048e7b2e9ad297765835769148e2df61a7dc021c536f5fdb.png" />
+<img alt="_images/4151dcb6323c35dbf41b6f2c7738fbfe19fd9d65ac5ca2bf34aebb240bd6fa4b.png" src="_images/4151dcb6323c35dbf41b6f2c7738fbfe19fd9d65ac5ca2bf34aebb240bd6fa4b.png" />
+<img alt="_images/e4a7dec4b9203e18f572204b5e63a8c86ac9ff9bc96deb0f63c8aa77946eba0c.png" src="_images/e4a7dec4b9203e18f572204b5e63a8c86ac9ff9bc96deb0f63c8aa77946eba0c.png" />
+<img alt="_images/b726631d9136d1a8f9ffee01c5018a3f5d49d8e11f938c735b17ea52aaca9f88.png" src="_images/b726631d9136d1a8f9ffee01c5018a3f5d49d8e11f938c735b17ea52aaca9f88.png" />
 </div>
 </div>
 </section>
@@ -1289,7 +1299,7 @@ Evaluating model: controller-dependent
 <li><p><code class="docutils literal notranslate"><span class="pre">thrust_coefficient</span></code> (list)</p></li>
 </ul>
 <p>An extension of the classical one-dimensional momentum theory to model the induction of an
-actuator disk is presented in <span id="id4">K.S. Heck and Howland [<a class="reference internal" href="bibliography.html#id32" title="H.M. Johlas K.S. Heck and M.F. Howland. Modelling the induction, thrust and power of a yaw-misaligned actuator disk. Journal of Fluid Mechanics, mar 2023. URL: https://doi.org/10.1017/jfm.2023.129, doi:10.1017/jfm.2023.129.">3</a>]</span> to directly account
+actuator disk is presented in <span id="id4">K.S. Heck and Howland [<a class="reference internal" href="bibliography.html#id32" title="H.M. Johlas K.S. Heck and M.F. Howland. Modelling the induction, thrust and power of a yaw-misaligned actuator disk. Journal of Fluid Mechanics, mar 2023. URL: https://doi.org/10.1017/jfm.2023.129, doi:10.1017/jfm.2023.129.">6</a>]</span> to directly account
 for power and thrust loss due to yaw misalignment rather than using an empirical correction
 as in the cosine loss model. Analytical expressions for the induction, thrust, initial wake
 velocities and power are developed as a function of the yaw angle and thrust coefficient.</p>
@@ -1339,7 +1349,7 @@ This low thrust limit will be accurate for thrust coefficients approximately les
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Power ratio, $P(\\gamma)/P(0)$&#39;)
 </pre></div>
 </div>
-<img alt="_images/d7516bfb189478aeced5a28296ad45885e7142710bce86234dcd0a7ba6400567.png" src="_images/d7516bfb189478aeced5a28296ad45885e7142710bce86234dcd0a7ba6400567.png" />
+<img alt="_images/99a70b73cb57500802c1cf35c6e97cd4f1da4b24c5487023009a38a575c21423.png" src="_images/99a70b73cb57500802c1cf35c6e97cd4f1da4b24c5487023009a38a575c21423.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1371,7 +1381,7 @@ This low thrust limit will be accurate for thrust coefficients approximately les
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Axial induction ratio, $a_n(\\gamma) / a_n(0)$&#39;)
 </pre></div>
 </div>
-<img alt="_images/cb6306c72d1b2394f0764fa5a14cfcee7637b0a5a4a24d78f10116d785302c44.png" src="_images/cb6306c72d1b2394f0764fa5a14cfcee7637b0a5a4a24d78f10116d785302c44.png" />
+<img alt="_images/09ff53ae8307117a622efd4e602cf5498eddd12d55b0d1c53ad4b7bac2f385da.png" src="_images/09ff53ae8307117a622efd4e602cf5498eddd12d55b0d1c53ad4b7bac2f385da.png" />
 </div>
 </div>
 </section>
@@ -1409,20 +1419,20 @@ This low thrust limit will be accurate for thrust coefficients approximately les
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="turbine_interaction.html"
+       href="input_reference_turbine.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Turbine Library Interface</p>
+        <p class="prev-next-title">Turbine Input File Reference</p>
       </div>
     </a>
     <a class="right-next"
-       href="layout_optimization.html"
+       href="floating_wind_turbine.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Layout Optimization</p>
+        <p class="prev-next-title">Floating Wind Turbine Modeling</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Example: Multi-dimensional Cp/Ct with 2 Hs values &#8212; FLORIS</title>
+    <title>Example: Multi-dimensional power/thrust coefficient with 2 Hs values &#8212; FLORIS</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -73,8 +73,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'examples/examples_multidim/002_multi_dimensional_cp_ct_2Hs';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Example: Compare yaw loss under different operation models" href="../examples_operation_models/001_compare_yaw_loss.html" />
-    <link rel="prev" title="Example: Multi-dimensional Cp/Ct data" href="001_multi_dimensional_cp_ct.html" />
+    <link rel="next" title="Example: Multi-dimensional power/thrust coefficients with turbulence intensity" href="003_multi_dimensional_cp_ct_TI.html" />
+    <link rel="prev" title="Example: Multi-dimensional power/thrust coefficient data" href="001_multi_dimensional_cp_ct.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="python"/>
   </head>
@@ -203,14 +203,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../../wind_data_user.html">Wind Data Objects</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../../floris_models.html">FLORIS Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../input_reference_main.html">Main Input File Reference</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../turbine_models.html">Wind turbine models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../input_reference_turbine.html">Turbine Input File Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operation_models_user.html">Turbine Operation Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../floating_wind_turbine.html">Floating Wind Turbine Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../multidimensional_wind_turbine.html">Multidimensional Wind Turbine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../turbine_library.html">Turbine Library</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_concepts.html">Advanced Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../heterogeneous_map.html">Heterogeneous Map</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../floating_wind_turbine.html">Floating Wind Turbine Modeling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../turbine_interaction.html">Turbine Library Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../operation_models_user.html">Turbine Operation Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../layout_optimization.html">Layout Optimization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../input_reference_main.html">Main Input File Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../input_reference_turbine.html">Turbine Input File Reference</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Theory and Background</span></p>
 <ul class="nav bd-sidenav">
@@ -369,7 +373,8 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../examples_get_flow/001_extract_wind_speed_at_turbines.html">Example: Extract wind speed at turbines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples_get_flow/002_extract_wind_speed_at_points.html">Example: Extract wind speed at points</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples_get_flow/003_plot_velocity_deficit_profiles.html">Example: Plot velocity deficit profiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_get_flow/003_extract_turbulence_intensity_at_points.html">Example: Extract turbulence intensity at points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_get_flow/004_plot_velocity_deficit_profiles.html">Example: Plot velocity deficit profiles</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Heterogeneous</span></p>
 <ul class="nav bd-sidenav">
@@ -393,8 +398,9 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Multidim</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="001_multi_dimensional_cp_ct.html">Example: Multi-dimensional Cp/Ct data</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Example: Multi-dimensional Cp/Ct with 2 Hs values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="001_multi_dimensional_cp_ct.html">Example: Multi-dimensional power/thrust coefficient data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Example: Multi-dimensional power/thrust coefficient with 2 Hs values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="003_multi_dimensional_cp_ct_TI.html">Example: Multi-dimensional power/thrust coefficients with turbulence intensity</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Operation models</span></p>
 <ul class="nav bd-sidenav">
@@ -636,7 +642,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Example: Multi-dimensional Cp/Ct with 2 Hs values</h1>
+    <h1>Example: Multi-dimensional power/thrust coefficient with 2 Hs values</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -650,16 +656,16 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="example-multi-dimensional-cp-ct-with-2-hs-values">
-<h1>Example: Multi-dimensional Cp/Ct with 2 Hs values<a class="headerlink" href="#example-multi-dimensional-cp-ct-with-2-hs-values" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="example-multi-dimensional-power-thrust-coefficient-with-2-hs-values">
+<h1>Example: Multi-dimensional power/thrust coefficient with 2 Hs values<a class="headerlink" href="#example-multi-dimensional-power-thrust-coefficient-with-2-hs-values" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Example: Multi-dimensional Cp/Ct with 2 Hs values</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Example: Multi-dimensional power/thrust coefficient with 2 Hs values</span>
 <span class="sd">This example follows the previous example but shows the effect of changing the Hs setting.</span>
 
-<span class="sd">NOTE: The multi-dimensional Cp/Ct data used in this example is fictional for the purposes of</span>
-<span class="sd">facilitating this example. The Cp/Ct values for the different wave conditions are scaled</span>
-<span class="sd">values of the original Cp/Ct data for the IEA 15MW turbine.</span>
+<span class="sd">NOTE: The multi-dimensional power/thrust coefficient data used in this example is fictional for the</span>
+<span class="sd">purposes of facilitating this example. The power/thrust coefficient values for the different wave</span>
+<span class="sd">conditions are scaled values of the original power/thrust coefficient data for the IEA 15MW turbine.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 
@@ -731,7 +737,7 @@ document.write(`
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">floris.logging_manager.LoggingManager</span> <span class=" -Color -Color-Bold -Color-Bold-Black">WARNING</span> <span class=" -Color -Color-Yellow">The current model does not account for vertical wake deflection due to tilt. Corrections to power and thrust coefficient can be included, but no vertical wake deflection will occur.</span>
 </pre></div>
 </div>
-<img alt="../../_images/348700fba449d0c271fc7e83aec0c589d691c4a0df5916b6a92d3c46add11903.png" src="../../_images/348700fba449d0c271fc7e83aec0c589d691c4a0df5916b6a92d3c46add11903.png" />
+<img alt="../../_images/3702db8b5d6dc32a83b2c740baf87c7e50360559e8b3cc95430e2e9a5ecedb89.png" src="../../_images/3702db8b5d6dc32a83b2c740baf87c7e50360559e8b3cc95430e2e9a5ecedb89.png" />
 </div>
 </div>
 </section>
@@ -772,15 +778,15 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Example: Multi-dimensional Cp/Ct data</p>
+        <p class="prev-next-title">Example: Multi-dimensional power/thrust coefficient data</p>
       </div>
     </a>
     <a class="right-next"
-       href="../examples_operation_models/001_compare_yaw_loss.html"
+       href="003_multi_dimensional_cp_ct_TI.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Example: Compare yaw loss under different operation models</p>
+        <p class="prev-next-title">Example: Multi-dimensional power/thrust coefficients with turbulence intensity</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

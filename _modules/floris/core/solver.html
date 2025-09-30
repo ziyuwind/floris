@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -210,14 +210,18 @@ window.addEventListener("load", () => mermaid.run());
 <li class="toctree-l1"><a class="reference internal" href="../../../wind_data_user.html">Wind Data Objects</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../../../floris_models.html">FLORIS Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../input_reference_main.html">Main Input File Reference</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../turbine_models.html">Wind turbine models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../input_reference_turbine.html">Turbine Input File Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../operation_models_user.html">Turbine Operation Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../floating_wind_turbine.html">Floating Wind Turbine Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../multidimensional_wind_turbine.html">Multidimensional Wind Turbine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../turbine_library.html">Turbine Library</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../advanced_concepts.html">Advanced Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../heterogeneous_map.html">Heterogeneous Map</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../floating_wind_turbine.html">Floating Wind Turbine Modeling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../turbine_interaction.html">Turbine Library Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../operation_models_user.html">Turbine Operation Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../layout_optimization.html">Layout Optimization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../input_reference_main.html">Main Input File Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../input_reference_turbine.html">Turbine Input File Reference</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Theory and Background</span></p>
 <ul class="nav bd-sidenav">
@@ -376,7 +380,8 @@ window.addEventListener("load", () => mermaid.run());
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../../examples/examples_get_flow/001_extract_wind_speed_at_turbines.html">Example: Extract wind speed at turbines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../examples/examples_get_flow/002_extract_wind_speed_at_points.html">Example: Extract wind speed at points</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../examples/examples_get_flow/003_plot_velocity_deficit_profiles.html">Example: Plot velocity deficit profiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/examples_get_flow/003_extract_turbulence_intensity_at_points.html">Example: Extract turbulence intensity at points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/examples_get_flow/004_plot_velocity_deficit_profiles.html">Example: Plot velocity deficit profiles</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Heterogeneous</span></p>
 <ul class="nav bd-sidenav">
@@ -400,8 +405,9 @@ window.addEventListener("load", () => mermaid.run());
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Multidim</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../examples/examples_multidim/001_multi_dimensional_cp_ct.html">Example: Multi-dimensional Cp/Ct data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../examples/examples_multidim/002_multi_dimensional_cp_ct_2Hs.html">Example: Multi-dimensional Cp/Ct with 2 Hs values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/examples_multidim/001_multi_dimensional_cp_ct.html">Example: Multi-dimensional power/thrust coefficient data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/examples_multidim/002_multi_dimensional_cp_ct_2Hs.html">Example: Multi-dimensional power/thrust coefficient with 2 Hs values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/examples_multidim/003_multi_dimensional_cp_ct_TI.html">Example: Multi-dimensional power/thrust coefficients with turbulence intensity</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Operation models</span></p>
 <ul class="nav bd-sidenav">
@@ -914,6 +920,12 @@ document.write(`
     <span class="n">v_wake</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">flow_field</span><span class="o">.</span><span class="n">v_initial_sorted</span><span class="p">)</span>
     <span class="n">w_wake</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">flow_field</span><span class="o">.</span><span class="n">w_initial_sorted</span><span class="p">)</span>
 
+    <span class="c1"># Initialize the turbulence intensity field over the entire flow field grid</span>
+    <span class="n">n_points</span> <span class="o">=</span> <span class="n">flow_field_grid</span><span class="o">.</span><span class="n">x_sorted</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ambient_turbulence_intensities</span> <span class="o">=</span> <span class="n">flow_field</span><span class="o">.</span><span class="n">turbulence_intensities</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="n">ambient_turbulence_intensities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">ambient_turbulence_intensities</span><span class="p">,</span> <span class="n">n_points</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">turbulence_intensity_field</span> <span class="o">=</span> <span class="n">ambient_turbulence_intensities</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
     <span class="c1"># Calculate the velocity deficit sequentially from upstream to downstream turbines</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">flow_field_grid</span><span class="o">.</span><span class="n">n_turbines</span><span class="p">):</span>
 
@@ -1044,9 +1056,36 @@ document.write(`
             <span class="n">velocity_deficit</span> <span class="o">*</span> <span class="n">flow_field</span><span class="o">.</span><span class="n">u_initial_sorted</span>
         <span class="p">)</span>
 
+        <span class="n">wake_added_ti</span> <span class="o">=</span> <span class="n">model_manager</span><span class="o">.</span><span class="n">turbulence_model</span><span class="o">.</span><span class="n">function</span><span class="p">(</span>
+            <span class="n">ambient_turbulence_intensities</span><span class="p">,</span>
+            <span class="n">flow_field_grid</span><span class="o">.</span><span class="n">x_sorted</span><span class="p">,</span>
+            <span class="n">x_i</span><span class="p">,</span>
+            <span class="n">rotor_diameter_i</span><span class="p">,</span>
+            <span class="n">axial_induction_i</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Calculate locations where wake-added turbulence (WAT) applies</span>
+        <span class="n">area_overlap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">velocity_deficit</span> <span class="o">*</span> <span class="n">flow_field</span><span class="o">.</span><span class="n">u_initial_sorted</span> <span class="o">&gt;</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="c1"># Modify wake added turbulence by wake area overlap</span>
+        <span class="n">downstream_influence_length</span> <span class="o">=</span> <span class="mi">15</span> <span class="o">*</span> <span class="n">rotor_diameter_i</span>
+        <span class="n">ti_added</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">area_overlap</span>
+            <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">nan_to_num</span><span class="p">(</span><span class="n">wake_added_ti</span><span class="p">,</span> <span class="n">posinf</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+            <span class="o">*</span> <span class="p">(</span><span class="n">flow_field_grid</span><span class="o">.</span><span class="n">x_sorted</span> <span class="o">&gt;</span> <span class="n">x_i</span><span class="p">)</span>
+            <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y_i</span> <span class="o">-</span> <span class="n">flow_field_grid</span><span class="o">.</span><span class="n">y_sorted</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">rotor_diameter_i</span><span class="p">)</span>
+            <span class="o">*</span> <span class="p">(</span><span class="n">flow_field_grid</span><span class="o">.</span><span class="n">x_sorted</span> <span class="o">&lt;=</span> <span class="n">downstream_influence_length</span> <span class="o">+</span> <span class="n">x_i</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="c1"># Combine turbine TIs with WAT</span>
+        <span class="n">turbulence_intensity_field</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">ti_added</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">ambient_turbulence_intensities</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="n">turbulence_intensity_field</span>
+        <span class="p">)</span>
+
         <span class="n">flow_field</span><span class="o">.</span><span class="n">u_sorted</span> <span class="o">=</span> <span class="n">flow_field</span><span class="o">.</span><span class="n">u_initial_sorted</span> <span class="o">-</span> <span class="n">wake_field</span>
         <span class="n">flow_field</span><span class="o">.</span><span class="n">v_sorted</span> <span class="o">+=</span> <span class="n">v_wake</span>
-        <span class="n">flow_field</span><span class="o">.</span><span class="n">w_sorted</span> <span class="o">+=</span> <span class="n">w_wake</span></div>
+        <span class="n">flow_field</span><span class="o">.</span><span class="n">w_sorted</span> <span class="o">+=</span> <span class="n">w_wake</span>
+
+    <span class="n">flow_field</span><span class="o">.</span><span class="n">turbulence_intensity_field_sorted</span> <span class="o">=</span> <span class="n">turbulence_intensity_field</span></div>
 
 
 
@@ -1350,6 +1389,12 @@ document.write(`
     <span class="n">w_wake</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">flow_field</span><span class="o">.</span><span class="n">w_initial_sorted</span><span class="p">)</span>
     <span class="n">turb_u_wake</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">flow_field</span><span class="o">.</span><span class="n">u_initial_sorted</span><span class="p">)</span>
 
+    <span class="c1"># Initialize the turbulence intensity field over the entire flow field grid</span>
+    <span class="n">n_points</span> <span class="o">=</span> <span class="n">flow_field_grid</span><span class="o">.</span><span class="n">x_sorted</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ambient_turbulence_intensities</span> <span class="o">=</span> <span class="n">flow_field</span><span class="o">.</span><span class="n">turbulence_intensities</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="n">ambient_turbulence_intensities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">ambient_turbulence_intensities</span><span class="p">,</span> <span class="n">n_points</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">turbulence_intensity_field</span> <span class="o">=</span> <span class="n">ambient_turbulence_intensities</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
     <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">farm</span><span class="o">.</span><span class="n">n_turbines</span><span class="p">,)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">flow_field</span><span class="o">.</span><span class="n">u_initial_sorted</span><span class="p">)</span>
     <span class="n">Ctmp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">shape</span><span class="p">))</span>
 
@@ -1480,9 +1525,37 @@ document.write(`
             <span class="o">**</span><span class="n">deficit_model_args</span><span class="p">,</span>
         <span class="p">)</span>
 
+        <span class="n">wake_added_turbulence_intensity</span> <span class="o">=</span> <span class="n">model_manager</span><span class="o">.</span><span class="n">turbulence_model</span><span class="o">.</span><span class="n">function</span><span class="p">(</span>
+            <span class="n">ambient_turbulence_intensities</span><span class="p">,</span>
+            <span class="n">flow_field_grid</span><span class="o">.</span><span class="n">x_sorted</span><span class="p">,</span>
+            <span class="n">x_i</span><span class="p">,</span>
+            <span class="n">rotor_diameter_i</span><span class="p">,</span>
+            <span class="n">axial_induction_i</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Calculate wake overlap for wake-added turbulence (WAT)</span>
+        <span class="n">area_overlap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">turb_u_wake</span> <span class="o">&gt;</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="c1"># Modify wake added turbulence by wake area overlap</span>
+        <span class="n">downstream_influence_length</span> <span class="o">=</span> <span class="mi">15</span> <span class="o">*</span> <span class="n">rotor_diameter_i</span>
+        <span class="n">ti_added</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">area_overlap</span>
+            <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">nan_to_num</span><span class="p">(</span><span class="n">wake_added_turbulence_intensity</span><span class="p">,</span> <span class="n">posinf</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+            <span class="o">*</span> <span class="p">(</span><span class="n">flow_field_grid</span><span class="o">.</span><span class="n">x_sorted</span> <span class="o">&gt;</span> <span class="n">x_i</span><span class="p">)</span>
+            <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y_i</span> <span class="o">-</span> <span class="n">flow_field_grid</span><span class="o">.</span><span class="n">y_sorted</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">rotor_diameter_i</span><span class="p">)</span>
+            <span class="o">*</span> <span class="p">(</span><span class="n">flow_field_grid</span><span class="o">.</span><span class="n">x_sorted</span> <span class="o">&lt;=</span> <span class="n">downstream_influence_length</span> <span class="o">+</span> <span class="n">x_i</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Combine turbine TIs with WAT</span>
+        <span class="n">turbulence_intensity_field</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">ti_added</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">ambient_turbulence_intensities</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="n">turbulence_intensity_field</span>
+        <span class="p">)</span>
+
         <span class="n">flow_field</span><span class="o">.</span><span class="n">v_sorted</span> <span class="o">+=</span> <span class="n">v_wake</span>
         <span class="n">flow_field</span><span class="o">.</span><span class="n">w_sorted</span> <span class="o">+=</span> <span class="n">w_wake</span>
-    <span class="n">flow_field</span><span class="o">.</span><span class="n">u_sorted</span> <span class="o">=</span> <span class="n">flow_field</span><span class="o">.</span><span class="n">u_initial_sorted</span> <span class="o">-</span> <span class="n">turb_u_wake</span></div>
+
+    <span class="n">flow_field</span><span class="o">.</span><span class="n">u_sorted</span> <span class="o">=</span> <span class="n">flow_field</span><span class="o">.</span><span class="n">u_initial_sorted</span> <span class="o">-</span> <span class="n">turb_u_wake</span>
+    <span class="n">flow_field</span><span class="o">.</span><span class="n">turbulence_intensity_field_sorted</span> <span class="o">=</span> <span class="n">turbulence_intensity_field</span></div>
 
 
 
@@ -2004,6 +2077,12 @@ document.write(`
         <span class="n">model_manager</span>
     <span class="p">)</span>
 
+    <span class="c1"># Create placeholder for TI, which is not currently used in the EmG model</span>
+    <span class="n">n_points</span> <span class="o">=</span> <span class="n">flow_field_grid</span><span class="o">.</span><span class="n">x_sorted</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ambient_turbulence_intensities</span> <span class="o">=</span> <span class="n">flow_field</span><span class="o">.</span><span class="n">turbulence_intensities</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="n">ambient_turbulence_intensities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">ambient_turbulence_intensities</span><span class="p">,</span> <span class="n">n_points</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">turbulence_intensity_field</span> <span class="o">=</span> <span class="n">ambient_turbulence_intensities</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
     <span class="c1">### Referring to the quantities from above, calculate the wake in the full grid</span>
 
     <span class="c1"># Use full flow_field here to use the full grid in the wake models</span>
@@ -2128,7 +2207,8 @@ document.write(`
 
         <span class="n">flow_field</span><span class="o">.</span><span class="n">u_sorted</span> <span class="o">=</span> <span class="n">flow_field</span><span class="o">.</span><span class="n">u_initial_sorted</span> <span class="o">-</span> <span class="n">wake_field</span>
         <span class="n">flow_field</span><span class="o">.</span><span class="n">v_sorted</span> <span class="o">+=</span> <span class="n">v_wake</span>
-        <span class="n">flow_field</span><span class="o">.</span><span class="n">w_sorted</span> <span class="o">+=</span> <span class="n">w_wake</span></div>
+        <span class="n">flow_field</span><span class="o">.</span><span class="n">w_sorted</span> <span class="o">+=</span> <span class="n">w_wake</span>
+        <span class="n">flow_field</span><span class="o">.</span><span class="n">turbulence_intensity_field_sorted</span> <span class="o">=</span> <span class="n">turbulence_intensity_field</span></div>
 
 </pre></div>
 

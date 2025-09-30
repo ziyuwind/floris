@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -203,14 +203,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../../wind_data_user.html">Wind Data Objects</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../../floris_models.html">FLORIS Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../input_reference_main.html">Main Input File Reference</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../turbine_models.html">Wind turbine models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../input_reference_turbine.html">Turbine Input File Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operation_models_user.html">Turbine Operation Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../floating_wind_turbine.html">Floating Wind Turbine Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../multidimensional_wind_turbine.html">Multidimensional Wind Turbine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../turbine_library.html">Turbine Library</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_concepts.html">Advanced Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../heterogeneous_map.html">Heterogeneous Map</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../floating_wind_turbine.html">Floating Wind Turbine Modeling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../turbine_interaction.html">Turbine Library Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../operation_models_user.html">Turbine Operation Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../layout_optimization.html">Layout Optimization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../input_reference_main.html">Main Input File Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../input_reference_turbine.html">Turbine Input File Reference</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Theory and Background</span></p>
 <ul class="nav bd-sidenav">
@@ -369,7 +373,8 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../examples_get_flow/001_extract_wind_speed_at_turbines.html">Example: Extract wind speed at turbines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples_get_flow/002_extract_wind_speed_at_points.html">Example: Extract wind speed at points</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples_get_flow/003_plot_velocity_deficit_profiles.html">Example: Plot velocity deficit profiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_get_flow/003_extract_turbulence_intensity_at_points.html">Example: Extract turbulence intensity at points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_get_flow/004_plot_velocity_deficit_profiles.html">Example: Plot velocity deficit profiles</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Heterogeneous</span></p>
 <ul class="nav bd-sidenav">
@@ -393,8 +398,9 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Multidim</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../examples_multidim/001_multi_dimensional_cp_ct.html">Example: Multi-dimensional Cp/Ct data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples_multidim/002_multi_dimensional_cp_ct_2Hs.html">Example: Multi-dimensional Cp/Ct with 2 Hs values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_multidim/001_multi_dimensional_cp_ct.html">Example: Multi-dimensional power/thrust coefficient data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_multidim/002_multi_dimensional_cp_ct_2Hs.html">Example: Multi-dimensional power/thrust coefficient with 2 Hs values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_multidim/003_multi_dimensional_cp_ct_TI.html">Example: Multi-dimensional power/thrust coefficients with turbulence intensity</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Operation models</span></p>
 <ul class="nav bd-sidenav">
@@ -859,11 +865,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d8c7fe0a303e6ad030ba69226c3af7b35ce4958879a2659ab02264c70ce85066.png" src="../../_images/d8c7fe0a303e6ad030ba69226c3af7b35ce4958879a2659ab02264c70ce85066.png" />
-<img alt="../../_images/0792ed0a15aa20a85566cfa833ae8bfdb70121cb943678d2cfa0787b79355ee7.png" src="../../_images/0792ed0a15aa20a85566cfa833ae8bfdb70121cb943678d2cfa0787b79355ee7.png" />
-<img alt="../../_images/f1fd5d02481c2345dec3ab50b5524908d70c698f08a22959316d9eb39f99a0ea.png" src="../../_images/f1fd5d02481c2345dec3ab50b5524908d70c698f08a22959316d9eb39f99a0ea.png" />
-<img alt="../../_images/e626fd3667bde8e3ae73165740982b1df316aedc52c92c26903476ca3362f6ca.png" src="../../_images/e626fd3667bde8e3ae73165740982b1df316aedc52c92c26903476ca3362f6ca.png" />
-<img alt="../../_images/ee9b498936ad56e20e5ead6ae2a1f879f03b11fd13559a134f2c3cb8440a01c6.png" src="../../_images/ee9b498936ad56e20e5ead6ae2a1f879f03b11fd13559a134f2c3cb8440a01c6.png" />
+<img alt="../../_images/f70cea37bf3e163711afa709e84b669dac7788290fecad2deec68c7ead04b96c.png" src="../../_images/f70cea37bf3e163711afa709e84b669dac7788290fecad2deec68c7ead04b96c.png" />
+<img alt="../../_images/4b64a21a1d71aa0892353cce44df4639a086bf496fa7d0c54d51c539fa188ee2.png" src="../../_images/4b64a21a1d71aa0892353cce44df4639a086bf496fa7d0c54d51c539fa188ee2.png" />
+<img alt="../../_images/ae4acbccd79df53af37366f5d4686d62e016a3fb8617258ab890ceef0dcf5c3e.png" src="../../_images/ae4acbccd79df53af37366f5d4686d62e016a3fb8617258ab890ceef0dcf5c3e.png" />
+<img alt="../../_images/397f0c9ee6f31c54c971e8b0d08ec0d361850c14b2ab3c5757bab52bca0de7b1.png" src="../../_images/397f0c9ee6f31c54c971e8b0d08ec0d361850c14b2ab3c5757bab52bca0de7b1.png" />
+<img alt="../../_images/36cc3cb64744194ccf30b228cb6298d230c650026079ddd19e4852ec7dc0ebb7.png" src="../../_images/36cc3cb64744194ccf30b228cb6298d230c650026079ddd19e4852ec7dc0ebb7.png" />
 </div>
 </div>
 </section>

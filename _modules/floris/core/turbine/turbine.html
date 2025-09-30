@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -210,14 +210,18 @@ window.addEventListener("load", () => mermaid.run());
 <li class="toctree-l1"><a class="reference internal" href="../../../../wind_data_user.html">Wind Data Objects</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../../../../floris_models.html">FLORIS Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../input_reference_main.html">Main Input File Reference</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../turbine_models.html">Wind turbine models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../input_reference_turbine.html">Turbine Input File Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../operation_models_user.html">Turbine Operation Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../floating_wind_turbine.html">Floating Wind Turbine Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../multidimensional_wind_turbine.html">Multidimensional Wind Turbine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../turbine_library.html">Turbine Library</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../advanced_concepts.html">Advanced Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../heterogeneous_map.html">Heterogeneous Map</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../floating_wind_turbine.html">Floating Wind Turbine Modeling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../turbine_interaction.html">Turbine Library Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../operation_models_user.html">Turbine Operation Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../layout_optimization.html">Layout Optimization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../input_reference_main.html">Main Input File Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../input_reference_turbine.html">Turbine Input File Reference</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Theory and Background</span></p>
 <ul class="nav bd-sidenav">
@@ -376,7 +380,8 @@ window.addEventListener("load", () => mermaid.run());
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../../../examples/examples_get_flow/001_extract_wind_speed_at_turbines.html">Example: Extract wind speed at turbines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../examples/examples_get_flow/002_extract_wind_speed_at_points.html">Example: Extract wind speed at points</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/examples_get_flow/003_plot_velocity_deficit_profiles.html">Example: Plot velocity deficit profiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples/examples_get_flow/003_extract_turbulence_intensity_at_points.html">Example: Extract turbulence intensity at points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples/examples_get_flow/004_plot_velocity_deficit_profiles.html">Example: Plot velocity deficit profiles</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Heterogeneous</span></p>
 <ul class="nav bd-sidenav">
@@ -400,8 +405,9 @@ window.addEventListener("load", () => mermaid.run());
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Multidim</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/examples_multidim/001_multi_dimensional_cp_ct.html">Example: Multi-dimensional Cp/Ct data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/examples_multidim/002_multi_dimensional_cp_ct_2Hs.html">Example: Multi-dimensional Cp/Ct with 2 Hs values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples/examples_multidim/001_multi_dimensional_cp_ct.html">Example: Multi-dimensional power/thrust coefficient data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples/examples_multidim/002_multi_dimensional_cp_ct_2Hs.html">Example: Multi-dimensional power/thrust coefficient with 2 Hs values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples/examples_multidim/003_multi_dimensional_cp_ct_TI.html">Example: Multi-dimensional power/thrust coefficients with turbulence intensity</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Operation models</span></p>
 <ul class="nav bd-sidenav">
@@ -646,25 +652,37 @@ document.write(`
 <span class="p">}</span>
 
 
-<div class="viewcode-block" id="select_multidim_condition">
-<a class="viewcode-back" href="../../../../_autosummary/floris.core.turbine.turbine.html#floris.core.turbine.turbine.select_multidim_condition">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">select_multidim_condition</span><span class="p">(</span>
-    <span class="n">condition</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">,</span>
-    <span class="n">specified_conditions</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_select_multidim_condition</span><span class="p">(</span>
+    <span class="n">condition</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+    <span class="n">specified_conditions</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">tuple</span><span class="p">],</span>
+    <span class="n">condition_keys</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert condition to the type expected by power_thrust_table and select</span>
 <span class="sd">    nearest specified condition</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">tuple</span><span class="p">:</span>
-        <span class="k">pass</span>
-    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">dict</span><span class="p">:</span>
-        <span class="n">condition</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">condition</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="c1"># Check valid keys</span>
+        <span class="k">if</span> <span class="nb">set</span><span class="p">(</span><span class="n">condition</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">!=</span> <span class="nb">set</span><span class="p">(</span><span class="n">condition_keys</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;The provided condition keys </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">condition</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s2"> do not match the &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;expected keys </span><span class="si">{</span><span class="n">condition_keys</span><span class="si">}</span><span class="s2">. A single value should be provided for &quot;</span>
+                <span class="s2">&quot;each dimension of the multidimensional power/thrust_coefficient table.&quot;</span>
+            <span class="p">)</span>
+        <span class="c1"># Create a tuple of the condition values in the correct order</span>
+        <span class="n">condition</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">condition</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">condition_keys</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">condition</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;multidim_condition must be provided if using multidimensional &quot;</span>
+            <span class="s2">&quot;power/thrust_coefficient.&quot;</span>
+        <span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;condition should be of type dict or tuple.&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;condition should be of type dict.&quot;</span><span class="p">)</span>
 
     <span class="c1"># Find the nearest key to the specified conditions.</span>
     <span class="n">specified_conditions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">specified_conditions</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">specified_conditions</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="c1"># Single specified condition</span>
+        <span class="n">specified_conditions</span> <span class="o">=</span> <span class="n">specified_conditions</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
     <span class="c1"># Find the nearest key to the specified conditions.</span>
     <span class="n">nearest_condition</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span>
@@ -673,8 +691,7 @@ document.write(`
             <span class="n">specified_conditions</span><span class="p">[:,</span> <span class="n">i</span><span class="p">][</span><span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">specified_conditions</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">c</span><span class="p">)</span><span class="o">.</span><span class="n">argmin</span><span class="p">()]</span>
         <span class="p">)</span>
 
-    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">nearest_condition</span><span class="p">)</span></div>
-
+    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">nearest_condition</span><span class="p">)</span><span class="c1"># if len(specified_conditions)</span>
 
 
 <div class="viewcode-block" id="power">
@@ -696,7 +713,7 @@ document.write(`
     <span class="n">average_method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;cubic-mean&quot;</span><span class="p">,</span>
     <span class="n">cubature_weights</span><span class="p">:</span> <span class="n">NDArrayFloat</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">correct_cp_ct_for_tilt</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="n">multidim_condition</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="c1"># Assuming only one condition at a time?</span>
+    <span class="n">multidim_condition</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NDArrayFloat</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Power produced by a turbine adjusted for yaw and tilt. Value</span>
 <span class="sd">    given in Watts.</span>
@@ -730,7 +747,7 @@ document.write(`
 <span class="sd">            to determine a rotor-average wind speed. Defaults to &quot;cubic-mean&quot;.</span>
 <span class="sd">        cubature_weights (NDArrayFloat | None): Weights for cubature averaging methods. Defaults to</span>
 <span class="sd">            None.</span>
-<span class="sd">        multidim_condition (tuple | None): The condition tuple used to select the appropriate</span>
+<span class="sd">        multidim_condition (dict | None): The condition dictionary used to select the appropriate</span>
 <span class="sd">            thrust coefficient relationship for multidimensional power/thrust tables. Defaults to</span>
 <span class="sd">            None.</span>
 
@@ -763,9 +780,10 @@ document.write(`
         <span class="k">else</span><span class="p">:</span> <span class="c1"># assumed multidimensional, use multidim lookup</span>
             <span class="c1"># Currently, only works for single mutlidim condition. May need to</span>
             <span class="c1"># loop in the case where there are multiple conditions.</span>
-            <span class="n">multidim_condition</span> <span class="o">=</span> <span class="n">select_multidim_condition</span><span class="p">(</span>
+            <span class="n">multidim_condition</span> <span class="o">=</span> <span class="n">_select_multidim_condition</span><span class="p">(</span>
                 <span class="n">multidim_condition</span><span class="p">,</span>
-                <span class="nb">list</span><span class="p">(</span><span class="n">turbine_power_thrust_tables</span><span class="p">[</span><span class="n">turb_type</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+                <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">turbine_power_thrust_tables</span><span class="p">[</span><span class="n">turb_type</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="s2">&quot;condition_keys&quot;</span><span class="p">],</span>
+                <span class="n">turbine_power_thrust_tables</span><span class="p">[</span><span class="n">turb_type</span><span class="p">][</span><span class="s2">&quot;condition_keys&quot;</span><span class="p">]</span>
             <span class="p">)</span>
             <span class="n">power_thrust_table</span> <span class="o">=</span> <span class="n">turbine_power_thrust_tables</span><span class="p">[</span><span class="n">turb_type</span><span class="p">][</span><span class="n">multidim_condition</span><span class="p">]</span>
 
@@ -813,7 +831,7 @@ document.write(`
     <span class="n">ix_filter</span><span class="p">:</span> <span class="n">NDArrayFilter</span> <span class="o">|</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">average_method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;cubic-mean&quot;</span><span class="p">,</span>
     <span class="n">cubature_weights</span><span class="p">:</span> <span class="n">NDArrayFloat</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">multidim_condition</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="c1"># Assuming only one condition at a time?</span>
+    <span class="n">multidim_condition</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NDArrayFloat</span><span class="p">:</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Thrust coefficient of a turbine.</span>
@@ -849,7 +867,7 @@ document.write(`
 <span class="sd">            to determine a rotor-average wind speed. Defaults to &quot;cubic-mean&quot;.</span>
 <span class="sd">        cubature_weights (NDArrayFloat | None): Weights for cubature averaging methods. Defaults to</span>
 <span class="sd">            None.</span>
-<span class="sd">        multidim_condition (tuple | None): The condition tuple used to select the appropriate</span>
+<span class="sd">        multidim_condition (dict | None): The condition dictionary used to select the appropriate</span>
 <span class="sd">            thrust coefficient relationship for multidimensional power/thrust tables. Defaults to</span>
 <span class="sd">            None.</span>
 
@@ -882,9 +900,10 @@ document.write(`
         <span class="k">else</span><span class="p">:</span> <span class="c1"># assumed multidimensional, use multidim lookup</span>
             <span class="c1"># Currently, only works for single mutlidim condition. May need to</span>
             <span class="c1"># loop in the case where there are multiple conditions.</span>
-            <span class="n">multidim_condition</span> <span class="o">=</span> <span class="n">select_multidim_condition</span><span class="p">(</span>
+            <span class="n">multidim_condition</span> <span class="o">=</span> <span class="n">_select_multidim_condition</span><span class="p">(</span>
                 <span class="n">multidim_condition</span><span class="p">,</span>
-                <span class="nb">list</span><span class="p">(</span><span class="n">turbine_power_thrust_tables</span><span class="p">[</span><span class="n">turb_type</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+                <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">turbine_power_thrust_tables</span><span class="p">[</span><span class="n">turb_type</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="s2">&quot;condition_keys&quot;</span><span class="p">],</span>
+                <span class="n">turbine_power_thrust_tables</span><span class="p">[</span><span class="n">turb_type</span><span class="p">][</span><span class="s2">&quot;condition_keys&quot;</span><span class="p">]</span>
             <span class="p">)</span>
             <span class="n">power_thrust_table</span> <span class="o">=</span> <span class="n">turbine_power_thrust_tables</span><span class="p">[</span><span class="n">turb_type</span><span class="p">][</span><span class="n">multidim_condition</span><span class="p">]</span>
 
@@ -935,7 +954,7 @@ document.write(`
     <span class="n">ix_filter</span><span class="p">:</span> <span class="n">NDArrayFilter</span> <span class="o">|</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">average_method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;cubic-mean&quot;</span><span class="p">,</span>
     <span class="n">cubature_weights</span><span class="p">:</span> <span class="n">NDArrayFloat</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">multidim_condition</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="c1"># Assuming only one condition at a time?</span>
+    <span class="n">multidim_condition</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NDArrayFloat</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Axial induction factor of the turbine incorporating</span>
 <span class="sd">    the thrust coefficient and yaw angle.</span>
@@ -967,7 +986,7 @@ document.write(`
 <span class="sd">            to determine a rotor-average wind speed. Defaults to &quot;cubic-mean&quot;.</span>
 <span class="sd">        cubature_weights (NDArrayFloat | None): Weights for cubature averaging methods. Defaults to</span>
 <span class="sd">            None.</span>
-<span class="sd">        multidim_condition (tuple | None): The condition tuple used to select the appropriate</span>
+<span class="sd">        multidim_condition (dict | None): The condition dictionary used to select the appropriate</span>
 <span class="sd">            thrust coefficient relationship for multidimensional power/thrust tables. Defaults to</span>
 <span class="sd">            None.</span>
 
@@ -999,10 +1018,10 @@ document.write(`
             <span class="n">power_thrust_table</span> <span class="o">=</span> <span class="n">turbine_power_thrust_tables</span><span class="p">[</span><span class="n">turb_type</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span> <span class="c1"># assumed multidimensional, use multidim lookup</span>
             <span class="c1"># Currently, only works for single mutlidim condition. May need to</span>
-            <span class="c1"># loop in the case where there are multiple conditions.</span>
-            <span class="n">multidim_condition</span> <span class="o">=</span> <span class="n">select_multidim_condition</span><span class="p">(</span>
+            <span class="n">multidim_condition</span> <span class="o">=</span> <span class="n">_select_multidim_condition</span><span class="p">(</span>
                 <span class="n">multidim_condition</span><span class="p">,</span>
-                <span class="nb">list</span><span class="p">(</span><span class="n">turbine_power_thrust_tables</span><span class="p">[</span><span class="n">turb_type</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+                <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">turbine_power_thrust_tables</span><span class="p">[</span><span class="n">turb_type</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="s2">&quot;condition_keys&quot;</span><span class="p">],</span>
+                <span class="n">turbine_power_thrust_tables</span><span class="p">[</span><span class="n">turb_type</span><span class="p">][</span><span class="s2">&quot;condition_keys&quot;</span><span class="p">]</span>
             <span class="p">)</span>
             <span class="n">power_thrust_table</span> <span class="o">=</span> <span class="n">turbine_power_thrust_tables</span><span class="p">[</span><span class="n">turb_type</span><span class="p">][</span><span class="n">multidim_condition</span><span class="p">]</span>
 
@@ -1201,6 +1220,8 @@ document.write(`
         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">df2</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
             <span class="c1"># Select the correct ws/Cp/Ct data</span>
             <span class="n">data</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">tuple</span><span class="p">:</span>
+                <span class="n">key</span> <span class="o">=</span> <span class="p">(</span><span class="n">key</span><span class="p">,)</span>
 
             <span class="c1"># Build the interpolants</span>
             <span class="n">power_thrust_table_</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
@@ -1215,7 +1236,8 @@ document.write(`
             <span class="p">)</span>
             <span class="c1"># Add reference information at the lower level</span>
 
-        <span class="c1"># Set on-object version</span>
+        <span class="c1"># Save names of dimensions and set on-object version</span>
+        <span class="n">power_thrust_table_</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;condition_keys&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">condition_keys</span><span class="p">})</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">power_thrust_table</span> <span class="o">=</span> <span class="n">power_thrust_table_</span>
 
 <div class="viewcode-block" id="Turbine.check_power_thrust_table">
@@ -1228,14 +1250,16 @@ document.write(`
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">multi_dimensional_cp_ct</span><span class="p">:</span>
-            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">):</span>
-                <span class="n">value</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># Check the first entry of multidim</span>
-            <span class="k">elif</span> <span class="s2">&quot;power_thrust_data_file&quot;</span> <span class="ow">in</span> <span class="n">value</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">if</span> <span class="s2">&quot;power_thrust_data_file&quot;</span> <span class="ow">in</span> <span class="n">value</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
                 <span class="k">return</span> <span class="kc">None</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                    <span class="s2">&quot;power_thrust_data_file must be defined if multi_dimensional_cp_ct is True.&quot;</span>
-                <span class="p">)</span>
+                <span class="n">key_types</span> <span class="o">=</span> <span class="p">[</span><span class="nb">type</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">value</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
+                <span class="k">if</span> <span class="n">key_types</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># Check the first entry of multidim</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                        <span class="s2">&quot;power_thrust_data_file must be defined if multi_dimensional_cp_ct is True.&quot;</span>
+                    <span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="p">{</span><span class="s2">&quot;wind_speed&quot;</span><span class="p">,</span> <span class="s2">&quot;power&quot;</span><span class="p">,</span> <span class="s2">&quot;thrust_coefficient&quot;</span><span class="p">}</span> <span class="o">&lt;=</span> <span class="nb">set</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>

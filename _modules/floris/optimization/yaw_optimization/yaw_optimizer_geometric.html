@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -210,14 +210,18 @@ window.addEventListener("load", () => mermaid.run());
 <li class="toctree-l1"><a class="reference internal" href="../../../../wind_data_user.html">Wind Data Objects</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../../../../floris_models.html">FLORIS Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../input_reference_main.html">Main Input File Reference</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../turbine_models.html">Wind turbine models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../input_reference_turbine.html">Turbine Input File Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../operation_models_user.html">Turbine Operation Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../floating_wind_turbine.html">Floating Wind Turbine Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../multidimensional_wind_turbine.html">Multidimensional Wind Turbine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../turbine_library.html">Turbine Library</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../advanced_concepts.html">Advanced Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../heterogeneous_map.html">Heterogeneous Map</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../floating_wind_turbine.html">Floating Wind Turbine Modeling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../turbine_interaction.html">Turbine Library Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../operation_models_user.html">Turbine Operation Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../layout_optimization.html">Layout Optimization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../input_reference_main.html">Main Input File Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../input_reference_turbine.html">Turbine Input File Reference</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Theory and Background</span></p>
 <ul class="nav bd-sidenav">
@@ -376,7 +380,8 @@ window.addEventListener("load", () => mermaid.run());
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../../../examples/examples_get_flow/001_extract_wind_speed_at_turbines.html">Example: Extract wind speed at turbines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../examples/examples_get_flow/002_extract_wind_speed_at_points.html">Example: Extract wind speed at points</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/examples_get_flow/003_plot_velocity_deficit_profiles.html">Example: Plot velocity deficit profiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples/examples_get_flow/003_extract_turbulence_intensity_at_points.html">Example: Extract turbulence intensity at points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples/examples_get_flow/004_plot_velocity_deficit_profiles.html">Example: Plot velocity deficit profiles</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Heterogeneous</span></p>
 <ul class="nav bd-sidenav">
@@ -400,8 +405,9 @@ window.addEventListener("load", () => mermaid.run());
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Multidim</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/examples_multidim/001_multi_dimensional_cp_ct.html">Example: Multi-dimensional Cp/Ct data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/examples_multidim/002_multi_dimensional_cp_ct_2Hs.html">Example: Multi-dimensional Cp/Ct with 2 Hs values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples/examples_multidim/001_multi_dimensional_cp_ct.html">Example: Multi-dimensional power/thrust coefficient data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples/examples_multidim/002_multi_dimensional_cp_ct_2Hs.html">Example: Multi-dimensional power/thrust coefficient with 2 Hs values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples/examples_multidim/003_multi_dimensional_cp_ct_TI.html">Example: Multi-dimensional power/thrust coefficients with turbulence intensity</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Operation models</span></p>
 <ul class="nav bd-sidenav">
@@ -611,7 +617,7 @@ document.write(`
 <span class="sd">    used to provide a rough estimate of optimal yaw angles based purely on the</span>
 <span class="sd">    wind farm geometry. Main use case is for coupled layout and yaw optimization.</span>
 
-<span class="sd">    See Stanely et al. (2023) for details: https://wes.copernicus.org/articles/8/1341/2023/</span>
+<span class="sd">    See Stanley et al. (2023) for details: https://wes.copernicus.org/articles/8/1341/2023/</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
@@ -688,23 +694,30 @@ document.write(`
     <span class="n">bottom_right_yaw_lower</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    turbine_x: unrotated x turbine coords</span>
-<span class="sd">    turbine_y: unrotated y turbine coords</span>
-<span class="sd">    wind_direction: float, degrees</span>
-<span class="sd">    rotor_diameter: float</span>
-<span class="sd">    left_x: where we start the trapezoid. Should be left as 0.</span>
-<span class="sd">    top_left_y: trapezoid top left coord</span>
-<span class="sd">    right_x: where to stop the trapezoid downstream.</span>
-<span class="sd">        Max coord after which the upstream turbine won&#39;t yaw.</span>
-<span class="sd">    top_right_y: trapezoid top right coord</span>
-<span class="sd">    top_left_yaw_upper: yaw angle associated with top left point (upper trapezoid)</span>
-<span class="sd">    top_right_yaw_upper: yaw angle associated with top right point</span>
-<span class="sd">    bottom_left_yaw_upper: yaw angle associated with bottom left point</span>
-<span class="sd">    bottom_right_yaw_upper: yaw angle associated with bottom right point</span>
-<span class="sd">    top_left_yaw_lower: yaw angle associated with top left point (lower trapezoid)</span>
-<span class="sd">    top_right_yaw_lower: yaw angle associated with top right point</span>
-<span class="sd">    bottom_left_yaw_lower: yaw angle associated with bottom left point</span>
-<span class="sd">    bottom_right_yaw_lower: yaw angle associated with bottom right point</span>
+<span class="sd">    Main function to compute geometric yaw angles based on wind farm layout for a single wind</span>
+<span class="sd">    direction.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        turbine_x: unrotated x turbine coords</span>
+<span class="sd">        turbine_y: unrotated y turbine coords</span>
+<span class="sd">        wind_direction: float, degrees</span>
+<span class="sd">        rotor_diameter: float</span>
+<span class="sd">        left_x: where we start the trapezoid. Should be left as 0.</span>
+<span class="sd">        top_left_y: trapezoid top left coord</span>
+<span class="sd">        right_x: where to stop the trapezoid downstream.</span>
+<span class="sd">            Max coord after which the upstream turbine won&#39;t yaw.</span>
+<span class="sd">        top_right_y: trapezoid top right coord</span>
+<span class="sd">        top_left_yaw_upper: yaw angle associated with top left point (upper trapezoid)</span>
+<span class="sd">        top_right_yaw_upper: yaw angle associated with top right point</span>
+<span class="sd">        bottom_left_yaw_upper: yaw angle associated with bottom left point</span>
+<span class="sd">        bottom_right_yaw_upper: yaw angle associated with bottom right point</span>
+<span class="sd">        top_left_yaw_lower: yaw angle associated with top left point (lower trapezoid)</span>
+<span class="sd">        top_right_yaw_lower: yaw angle associated with top right point</span>
+<span class="sd">        bottom_left_yaw_lower: yaw angle associated with bottom left point</span>
+<span class="sd">        bottom_right_yaw_lower: yaw angle associated with bottom right point</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        yaw_array: yaw angles for all turbines for the present wind direction.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">nturbs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">turbine_x</span><span class="p">)</span>
@@ -747,55 +760,36 @@ document.write(`
     <span class="n">spread</span><span class="o">=</span><span class="mf">0.1</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    returns the distance from each turbine to the nearest downstream waked turbine</span>
-<span class="sd">    normalized by the rotor diameter. Right now &quot;waked&quot; is determind by a Jensen-like</span>
+<span class="sd">    Returns the distance from each turbine to the nearest downstream waked turbine</span>
+<span class="sd">    normalized by the rotor diameter. Right now &quot;waked&quot; is determined by a Jensen-like</span>
 <span class="sd">    wake spread, but this could/should be modified to be the same as the trapezoid rule</span>
 <span class="sd">    used to determine the yaw angles.</span>
 
-<span class="sd">    turbine_x: turbine x coords (rotated)</span>
-<span class="sd">    turbine_y: turbine y coords (rotated)</span>
-<span class="sd">    rotor_diameter: turbine rotor diameter (float)</span>
-<span class="sd">    spread=0.1: Jensen alpha wake spread value</span>
+<span class="sd">    Arguments:</span>
+<span class="sd">        turbine_x: turbine x coords (rotated)</span>
+<span class="sd">        turbine_y: turbine y coords (rotated)</span>
+<span class="sd">        rotor_diameter: turbine rotor diameter (float)</span>
+<span class="sd">        spread=0.1: Jensen alpha wake spread value</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dx: distance to nearest downstream turbine in rotor diameters for all turbines</span>
+<span class="sd">        dy: lateral distance to nearest downstream turbine in rotor diameters for all turbines</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="nb">len</span><span class="p">(</span><span class="n">turbine_x</span><span class="p">)</span>
-
-    <span class="c1"># # Intialize storage</span>
-    <span class="c1"># dx = np.zeros(nturbs) + 1E10</span>
-    <span class="c1"># dy = np.zeros(nturbs)</span>
-
-    <span class="c1"># for waking_index in range(nturbs):</span>
-    <span class="c1">#     for waked_index in range(nturbs):</span>
-    <span class="c1">#         if turbine_x[waked_index] &gt; turbine_x[waking_index]:</span>
-    <span class="c1">#             r = spread*(turbine_x[waked_index]-turbine_x[waking_index]) + rotor_diameter/2.0</span>
-    <span class="c1">#             if abs(turbine_y[waked_index]-turbine_y[waking_index]) &lt; (r+rotor_diameter/2.0):</span>
-    <span class="c1">#                 if (turbine_x[waked_index] - turbine_x[waking_index]) &lt; dx[waking_index]:</span>
-    <span class="c1">#                     dx[waking_index] = turbine_x[waked_index] - turbine_x[waking_index]</span>
-    <span class="c1">#                     dy[waking_index] = turbine_y[waked_index]- turbine_y[waking_index]</span>
-    <span class="c1">#     if dx[waking_index] == 1E10:</span>
-    <span class="c1">#         dx[waking_index] = 0.0</span>
-
-    <span class="c1"># dx_ = dx</span>
-    <span class="c1"># dy_ = dy</span>
 
     <span class="c1"># Compute distances</span>
     <span class="n">x_dists</span> <span class="o">=</span> <span class="n">turbine_x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span> <span class="o">-</span> <span class="n">turbine_x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">y_dists</span> <span class="o">=</span> <span class="n">turbine_y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span> <span class="o">-</span> <span class="n">turbine_y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 
-    <span class="c1"># Any turbines upstream or at the turbine location are ineligble</span>
+    <span class="c1"># Any turbines upstream or at the turbine location are ineligible</span>
     <span class="n">x_dists</span><span class="p">[</span><span class="n">x_dists</span> <span class="o">&lt;=</span> <span class="mf">0.</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
 
     <span class="c1"># Check within Jensen model spread</span>
-    <span class="n">in_Jensen_wake</span> <span class="o">=</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">y_dists</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">spread</span> <span class="o">*</span> <span class="n">x_dists</span> <span class="o">+</span> <span class="n">rotor_diameter</span><span class="p">)</span>
+    <span class="n">in_Jensen_wake</span> <span class="o">=</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">y_dists</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">spread</span> <span class="o">*</span> <span class="n">x_dists</span> <span class="o">+</span> <span class="n">rotor_diameter</span><span class="o">/</span><span class="mf">2.0</span><span class="p">)</span>
     <span class="n">x_dists</span><span class="p">[</span><span class="o">~</span><span class="n">in_Jensen_wake</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
 
     <span class="c1"># Get minimums (and arguments to select the correct y values also)</span>
     <span class="n">dx</span> <span class="o">=</span> <span class="n">x_dists</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">dy</span> <span class="o">=</span> <span class="n">y_dists</span><span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">turbine_x</span><span class="p">)),</span> <span class="n">x_dists</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
-
-    <span class="c1"># Handle last turbine downstream</span>
-    <span class="n">furthest_ds_turb_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">dx</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">dx</span><span class="p">[</span><span class="n">furthest_ds_turb_idx</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.</span>
-    <span class="n">dy</span><span class="p">[</span><span class="n">furthest_ds_turb_idx</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.</span>
 
     <span class="k">return</span> <span class="n">dx</span><span class="o">/</span><span class="n">rotor_diameter</span><span class="p">,</span> <span class="n">dy</span><span class="o">/</span><span class="n">rotor_diameter</span>
 
@@ -817,46 +811,46 @@ document.write(`
     <span class="n">bottom_right_yaw_lower</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    _______2,5___________________________4,6</span>
-<span class="sd">    |.......................................</span>
-<span class="sd">    |......1,7...........................3,8</span>
-<span class="sd">    |.......................................</span>
-<span class="sd">    ________________________________________</span>
+<span class="sd">    For a given turbine, return the geometric yaw angle based on its position relative to the</span>
+<span class="sd">    nearest downstream turbine.</span>
 
-<span class="sd">    x and y: dx and dy to the nearest downstream turbine in rotor diameteters with</span>
+<span class="sd">    Arguments:</span>
+<span class="sd">        x: downstream distance to the nearest downstream turbine in rotor diameters with</span>
 <span class="sd">        turbines rotated so wind is coming left to right</span>
-<span class="sd">    left_x: where we start the trapezoid. Should be left as 0.</span>
-<span class="sd">    top_left_y: trapezoid top left coord</span>
-<span class="sd">    right_x: where to stop the trapezoid downstream.</span>
-<span class="sd">        Max coord after which the upstream turbine won&#39;t yaw.</span>
-<span class="sd">    top_right_y: trapezoid top right coord</span>
-<span class="sd">    top_left_yaw_upper: yaw angle associated with top left point (upper trapezoid)</span>
-<span class="sd">    top_right_yaw_upper: yaw angle associated with top right point</span>
-<span class="sd">    bottom_left_yaw_upper: yaw angle associated with bottom left point</span>
-<span class="sd">    bottom_right_yaw_upper: yaw angle associated with bottom right point</span>
-<span class="sd">    top_left_yaw_lower: yaw angle associated with top left point (lower trapezoid)</span>
-<span class="sd">    top_right_yaw_lower: yaw angle associated with top right point</span>
-<span class="sd">    bottom_left_yaw_lower: yaw angle associated with bottom left point</span>
-<span class="sd">    bottom_right_yaw_lower: yaw angle associated with bottom right point</span>
+<span class="sd">        y: lateral distance to the nearest downstream turbine in rotor diameters with</span>
+<span class="sd">        turbines rotated so wind is coming left to right</span>
+<span class="sd">        left_x: where we start the trapezoid. Should be left as 0.</span>
+<span class="sd">        top_left_y: trapezoid top left coord</span>
+<span class="sd">        right_x: where to stop the trapezoid downstream.</span>
+<span class="sd">            Max coord after which the upstream turbine won&#39;t yaw.</span>
+<span class="sd">        top_right_y: trapezoid top right coord</span>
+<span class="sd">        top_left_yaw_upper: yaw angle associated with top left point (upper trapezoid)</span>
+<span class="sd">        top_right_yaw_upper: yaw angle associated with top right point</span>
+<span class="sd">        bottom_left_yaw_upper: yaw angle associated with bottom left point</span>
+<span class="sd">        bottom_right_yaw_upper: yaw angle associated with bottom right point</span>
+<span class="sd">        top_left_yaw_lower: yaw angle associated with top left point (lower trapezoid)</span>
+<span class="sd">        top_right_yaw_lower: yaw angle associated with top right point</span>
+<span class="sd">        bottom_left_yaw_lower: yaw angle associated with bottom left point</span>
+<span class="sd">        bottom_right_yaw_lower: yaw angle associated with bottom right point</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (yaw angle): float, geometric yaw angle for the given turbine</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">left_x</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">right_x</span><span class="o">-</span><span class="n">left_x</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">dx</span> <span class="o">&gt;=</span> <span class="mf">1.0</span><span class="p">:</span>
         <span class="k">return</span> <span class="mf">0.0</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">dx</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">left_x</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">right_x</span><span class="o">-</span><span class="n">left_x</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">dx</span> <span class="o">&gt;=</span> <span class="mf">1.0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="mf">0.0</span>
-        <span class="n">edge_y</span> <span class="o">=</span> <span class="n">top_left_y</span> <span class="o">+</span> <span class="p">(</span><span class="n">top_right_y</span><span class="o">-</span><span class="n">top_left_y</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span>
-        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">edge_y</span><span class="p">:</span>
-            <span class="k">return</span> <span class="mf">0.0</span>
-        <span class="k">elif</span> <span class="n">y</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mf">0.01</span><span class="p">:</span> <span class="c1"># Tolerance to handle numerical issues</span>
-            <span class="n">top_yaw</span> <span class="o">=</span> <span class="n">top_left_yaw_upper</span> <span class="o">+</span> <span class="p">(</span><span class="n">top_right_yaw_upper</span><span class="o">-</span><span class="n">top_left_yaw_upper</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span>
-            <span class="n">bottom_yaw</span> <span class="o">=</span> <span class="n">bottom_left_yaw_upper</span> <span class="o">+</span> <span class="p">(</span><span class="n">bottom_right_yaw_upper</span><span class="o">-</span><span class="n">bottom_left_yaw_upper</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span>
-            <span class="k">return</span> <span class="n">bottom_yaw</span> <span class="o">+</span> <span class="p">(</span><span class="n">top_yaw</span><span class="o">-</span><span class="n">bottom_yaw</span><span class="p">)</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="n">edge_y</span>
-        <span class="k">elif</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">0.01</span><span class="p">:</span>
-            <span class="n">top_yaw</span> <span class="o">=</span> <span class="n">top_left_yaw_lower</span> <span class="o">+</span> <span class="p">(</span><span class="n">top_right_yaw_lower</span><span class="o">-</span><span class="n">top_left_yaw_lower</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span>
-            <span class="n">bottom_yaw</span> <span class="o">=</span> <span class="n">bottom_left_yaw_lower</span> <span class="o">+</span> <span class="p">(</span><span class="n">bottom_right_yaw_lower</span><span class="o">-</span><span class="n">bottom_left_yaw_lower</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span>
-            <span class="k">return</span> <span class="n">bottom_yaw</span> <span class="o">+</span> <span class="p">(</span><span class="n">top_yaw</span><span class="o">-</span><span class="n">bottom_yaw</span><span class="p">)</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="n">edge_y</span>
+    <span class="n">edge_y</span> <span class="o">=</span> <span class="n">top_left_y</span> <span class="o">+</span> <span class="p">(</span><span class="n">top_right_y</span><span class="o">-</span><span class="n">top_left_y</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span>
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">edge_y</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+    <span class="k">elif</span> <span class="n">y</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mf">0.01</span><span class="p">:</span> <span class="c1"># Tolerance to handle numerical issues</span>
+        <span class="n">top_yaw</span> <span class="o">=</span> <span class="n">top_left_yaw_upper</span> <span class="o">+</span> <span class="p">(</span><span class="n">top_right_yaw_upper</span><span class="o">-</span><span class="n">top_left_yaw_upper</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span>
+        <span class="n">bottom_yaw</span> <span class="o">=</span> <span class="n">bottom_left_yaw_upper</span> <span class="o">+</span> <span class="p">(</span><span class="n">bottom_right_yaw_upper</span><span class="o">-</span><span class="n">bottom_left_yaw_upper</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span>
+        <span class="k">return</span> <span class="n">bottom_yaw</span> <span class="o">+</span> <span class="p">(</span><span class="n">top_yaw</span><span class="o">-</span><span class="n">bottom_yaw</span><span class="p">)</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="n">edge_y</span>
+    <span class="k">elif</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">0.01</span><span class="p">:</span>
+        <span class="n">top_yaw</span> <span class="o">=</span> <span class="n">top_left_yaw_lower</span> <span class="o">+</span> <span class="p">(</span><span class="n">top_right_yaw_lower</span><span class="o">-</span><span class="n">top_left_yaw_lower</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span>
+        <span class="n">bottom_yaw</span> <span class="o">=</span> <span class="n">bottom_left_yaw_lower</span> <span class="o">+</span> <span class="p">(</span><span class="n">bottom_right_yaw_lower</span><span class="o">-</span><span class="n">bottom_left_yaw_lower</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span>
+        <span class="k">return</span> <span class="n">bottom_yaw</span> <span class="o">+</span> <span class="p">(</span><span class="n">top_yaw</span><span class="o">-</span><span class="n">bottom_yaw</span><span class="p">)</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="n">edge_y</span>
 </pre></div>
 
                 </article>

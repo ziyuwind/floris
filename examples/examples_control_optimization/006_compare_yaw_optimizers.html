@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -203,14 +203,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../../wind_data_user.html">Wind Data Objects</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../../floris_models.html">FLORIS Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../input_reference_main.html">Main Input File Reference</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../turbine_models.html">Wind turbine models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../input_reference_turbine.html">Turbine Input File Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operation_models_user.html">Turbine Operation Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../floating_wind_turbine.html">Floating Wind Turbine Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../multidimensional_wind_turbine.html">Multidimensional Wind Turbine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../turbine_library.html">Turbine Library</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_concepts.html">Advanced Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../heterogeneous_map.html">Heterogeneous Map</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../floating_wind_turbine.html">Floating Wind Turbine Modeling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../turbine_interaction.html">Turbine Library Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../operation_models_user.html">Turbine Operation Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../layout_optimization.html">Layout Optimization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../input_reference_main.html">Main Input File Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../input_reference_turbine.html">Turbine Input File Reference</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Theory and Background</span></p>
 <ul class="nav bd-sidenav">
@@ -369,7 +373,8 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../examples_get_flow/001_extract_wind_speed_at_turbines.html">Example: Extract wind speed at turbines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples_get_flow/002_extract_wind_speed_at_points.html">Example: Extract wind speed at points</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples_get_flow/003_plot_velocity_deficit_profiles.html">Example: Plot velocity deficit profiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_get_flow/003_extract_turbulence_intensity_at_points.html">Example: Extract turbulence intensity at points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_get_flow/004_plot_velocity_deficit_profiles.html">Example: Plot velocity deficit profiles</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Heterogeneous</span></p>
 <ul class="nav bd-sidenav">
@@ -393,8 +398,9 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Multidim</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../examples_multidim/001_multi_dimensional_cp_ct.html">Example: Multi-dimensional Cp/Ct data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples_multidim/002_multi_dimensional_cp_ct_2Hs.html">Example: Multi-dimensional Cp/Ct with 2 Hs values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_multidim/001_multi_dimensional_cp_ct.html">Example: Multi-dimensional power/thrust coefficient data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_multidim/002_multi_dimensional_cp_ct_2Hs.html">Example: Multi-dimensional power/thrust coefficient with 2 Hs values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_multidim/003_multi_dimensional_cp_ct_TI.html">Example: Multi-dimensional power/thrust coefficients with turbulence intensity</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Operation models</span></p>
 <ul class="nav bd-sidenav">
@@ -945,25 +951,23 @@ Optimization terminated successfully    (Exit mode 0)
             Iterations: 1
             Function evaluations: 3
             Gradient evaluations: 1
+  NIT    FC           OBJFUN            GNORM
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
-    1     4    -1.003155E+00     6.242130E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    1     4    -1.003155E+00     6.242130E-02
+    2     7    -1.093049E+00     1.020444E-01
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    2     7    -1.093049E+00     1.020444E-01
-    3    10    -1.203810E+00     1.954488E-01
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    3    10    -1.203810E+00     1.954488E-01
+    4    13    -1.211961E+00     1.281127E-01
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    4    13    -1.211961E+00     1.281127E-01
-    5    16    -1.214226E+00     1.153093E-01
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    5    16    -1.214226E+00     1.153093E-01
+    6    19    -1.214237E+00     1.015314E-01
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    6    19    -1.214237E+00     1.015314E-01
-    7    22    -1.214237E+00     1.013118E-01
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    8    24    -1.214237E+00     1.013095E-01
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    7    22    -1.214237E+00     1.013118E-01
+    8    24    -1.214237E+00     1.013095E-01
 Optimization terminated successfully    (Exit mode 0)
             Current function value: -1.2142370269715685
             Iterations: 8
@@ -1399,15 +1403,15 @@ Performing optimizations with Geometric Yaw...
 
  Time spent, Geometric Yaw: 0.02 s.
  Time spent, Serial Refine: 0.65 s.
- Time spent, SciPy (SLSQP): 31.31 s.
+ Time spent, SciPy (SLSQP): 31.78 s.
 </pre></div>
 </div>
-<img alt="../../_images/ae71d96f07f18a1b52028dad87ad44ed99bd040e9a5c035c6a1b1594355c0afd.png" src="../../_images/ae71d96f07f18a1b52028dad87ad44ed99bd040e9a5c035c6a1b1594355c0afd.png" />
-<img alt="../../_images/63520d7ab844f6c60c6bd03d88a6f7a5174154035e8f3026761a106a7db3dd45.png" src="../../_images/63520d7ab844f6c60c6bd03d88a6f7a5174154035e8f3026761a106a7db3dd45.png" />
-<img alt="../../_images/1ce4254b3cc2ba5eb531fcd95cca867ceb7ffaeb1c9f76071dae3af91d0c9416.png" src="../../_images/1ce4254b3cc2ba5eb531fcd95cca867ceb7ffaeb1c9f76071dae3af91d0c9416.png" />
-<img alt="../../_images/80c4626bd5fc7b8f89e51431415883f8d5591f8bcff4a1a8b8366ad5023d5f2a.png" src="../../_images/80c4626bd5fc7b8f89e51431415883f8d5591f8bcff4a1a8b8366ad5023d5f2a.png" />
-<img alt="../../_images/fffc4ab04dc8eae977d126ea85f41b6a2c7146079c80edef1517b3b5be144ce3.png" src="../../_images/fffc4ab04dc8eae977d126ea85f41b6a2c7146079c80edef1517b3b5be144ce3.png" />
-<img alt="../../_images/3c00606002ec8e0916f2b1a531acb6ecfdaf4d5676ee59b3a4467d7d64cf08ee.png" src="../../_images/3c00606002ec8e0916f2b1a531acb6ecfdaf4d5676ee59b3a4467d7d64cf08ee.png" />
+<img alt="../../_images/a2fa68873cf0f0cd1839fedbc75e69b1aef407e7ae81de0f855e81b9b5468539.png" src="../../_images/a2fa68873cf0f0cd1839fedbc75e69b1aef407e7ae81de0f855e81b9b5468539.png" />
+<img alt="../../_images/969bbb19a977ae4071acd759d5f9586636dfa359e59fb265c60c29c6dd3870ab.png" src="../../_images/969bbb19a977ae4071acd759d5f9586636dfa359e59fb265c60c29c6dd3870ab.png" />
+<img alt="../../_images/888f7b241e0c466e89209fbc822fd80b3185c3954e38ec51d48f56b58f2a1644.png" src="../../_images/888f7b241e0c466e89209fbc822fd80b3185c3954e38ec51d48f56b58f2a1644.png" />
+<img alt="../../_images/75406eac4bfda131bf24bc447b24916f88abc6c6b12d1020ee09749a979b4955.png" src="../../_images/75406eac4bfda131bf24bc447b24916f88abc6c6b12d1020ee09749a979b4955.png" />
+<img alt="../../_images/7585838b1f69d17521dcfc146ad633aaaa20a11c7d7fe21ba8127cb764eeed87.png" src="../../_images/7585838b1f69d17521dcfc146ad633aaaa20a11c7d7fe21ba8127cb764eeed87.png" />
+<img alt="../../_images/802b559d0a8131044037c58f33e5473e4b67f801a421f9cdfc77f4c76d57f595.png" src="../../_images/802b559d0a8131044037c58f33e5473e4b67f801a421f9cdfc77f4c76d57f595.png" />
 </div>
 </div>
 </section>

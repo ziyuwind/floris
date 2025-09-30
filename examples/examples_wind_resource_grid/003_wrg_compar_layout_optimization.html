@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -202,14 +202,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../../wind_data_user.html">Wind Data Objects</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../../floris_models.html">FLORIS Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../input_reference_main.html">Main Input File Reference</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../turbine_models.html">Wind turbine models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../input_reference_turbine.html">Turbine Input File Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../operation_models_user.html">Turbine Operation Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../floating_wind_turbine.html">Floating Wind Turbine Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../multidimensional_wind_turbine.html">Multidimensional Wind Turbine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../turbine_library.html">Turbine Library</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_concepts.html">Advanced Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../heterogeneous_map.html">Heterogeneous Map</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../floating_wind_turbine.html">Floating Wind Turbine Modeling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../turbine_interaction.html">Turbine Library Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../operation_models_user.html">Turbine Operation Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../layout_optimization.html">Layout Optimization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../input_reference_main.html">Main Input File Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../input_reference_turbine.html">Turbine Input File Reference</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Theory and Background</span></p>
 <ul class="nav bd-sidenav">
@@ -368,7 +372,8 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../examples_get_flow/001_extract_wind_speed_at_turbines.html">Example: Extract wind speed at turbines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples_get_flow/002_extract_wind_speed_at_points.html">Example: Extract wind speed at points</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples_get_flow/003_plot_velocity_deficit_profiles.html">Example: Plot velocity deficit profiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_get_flow/003_extract_turbulence_intensity_at_points.html">Example: Extract turbulence intensity at points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_get_flow/004_plot_velocity_deficit_profiles.html">Example: Plot velocity deficit profiles</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Heterogeneous</span></p>
 <ul class="nav bd-sidenav">
@@ -392,8 +397,9 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Multidim</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../examples_multidim/001_multi_dimensional_cp_ct.html">Example: Multi-dimensional Cp/Ct data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples_multidim/002_multi_dimensional_cp_ct_2Hs.html">Example: Multi-dimensional Cp/Ct with 2 Hs values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_multidim/001_multi_dimensional_cp_ct.html">Example: Multi-dimensional power/thrust coefficient data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_multidim/002_multi_dimensional_cp_ct_2Hs.html">Example: Multi-dimensional power/thrust coefficient with 2 Hs values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_multidim/003_multi_dimensional_cp_ct_TI.html">Example: Multi-dimensional power/thrust coefficients with turbulence intensity</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Operation models</span></p>
 <ul class="nav bd-sidenav">
@@ -908,22 +914,22 @@ Optimization time: 0.0 s / 120.0 s
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=======================================
 Optimization step +1.0
-Optimization time = +30.2 [s]
-Mean AEP = 40.8 [GWh] (+0.47%)
-Median AEP = 40.8 [GWh] (+0.44%)
-Max AEP = 40.9 [GWh] (+0.54%)
-Min AEP = 40.8 [GWh] (+0.43%)
+Optimization time = +30.3 [s]
+Mean AEP = 40.9 [GWh] (+0.52%)
+Median AEP = 40.9 [GWh] (+0.55%)
+Max AEP = 40.9 [GWh] (+0.55%)
+Min AEP = 40.8 [GWh] (+0.44%)
 =======================================
-Optimization time: 30.2 s / 120.0 s
+Optimization time: 30.3 s / 120.0 s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=======================================
 Optimization step +2.0
 Optimization time = +60.5 [s]
-Mean AEP = 40.9 [GWh] (+0.52%)
+Mean AEP = 40.9 [GWh] (+0.56%)
 Median AEP = 40.9 [GWh] (+0.55%)
-Max AEP = 40.9 [GWh] (+0.56%)
-Min AEP = 40.8 [GWh] (+0.45%)
+Max AEP = 40.9 [GWh] (+0.58%)
+Min AEP = 40.9 [GWh] (+0.55%)
 =======================================
 Optimization time: 60.5 s / 120.0 s
 </pre></div>
@@ -931,31 +937,31 @@ Optimization time: 60.5 s / 120.0 s
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=======================================
 Optimization step +3.0
 Optimization time = +90.9 [s]
-Mean AEP = 40.9 [GWh] (+0.56%)
-Median AEP = 40.9 [GWh] (+0.56%)
+Mean AEP = 40.9 [GWh] (+0.57%)
+Median AEP = 40.9 [GWh] (+0.57%)
 Max AEP = 40.9 [GWh] (+0.58%)
-Min AEP = 40.9 [GWh] (+0.54%)
+Min AEP = 40.9 [GWh] (+0.56%)
 =======================================
 Optimization time: 90.9 s / 120.0 s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=======================================
 Optimization step +4.0
-Optimization time = +121.4 [s]
-Mean AEP = 40.9 [GWh] (+0.57%)
-Median AEP = 40.9 [GWh] (+0.57%)
+Optimization time = +121.2 [s]
+Mean AEP = 40.9 [GWh] (+0.58%)
+Median AEP = 40.9 [GWh] (+0.58%)
 Max AEP = 40.9 [GWh] (+0.58%)
-Min AEP = 40.9 [GWh] (+0.55%)
+Min AEP = 40.9 [GWh] (+0.57%)
 =======================================
 Final AEP = 40.9 [GWh] (+0.58%)
 =====================================
 Objective log array (WRG):
 (5, 4)
-[[0.99423641 0.99423641 0.99423641 0.99423641]
- [0.99961806 0.998515   0.99861664 0.99868979]
- [0.9997466  0.9997715  0.99866619 0.99961806]
- [0.99978083 0.9997466  0.99963512 0.99997454]
- [0.99999788 0.9998458  0.99975112 1.        ]]
+[[0.99421067 0.99421067 0.99421067 0.99421067]
+ [0.99967948 0.99968437 0.9985806  0.9997004 ]
+ [0.99971891 0.99997694 0.9997168  0.99972539]
+ [0.99997694 0.99975083 0.99975366 0.99997694]
+ [1.         0.99997694 0.99990134 0.99999738]]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using supplied initial layout for 4 individuals.
@@ -973,46 +979,46 @@ Optimization time: 0.0 s / 120.0 s
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=======================================
 Optimization step +1.0
-Optimization time = +30.3 [s]
-Mean AEP = 44.0 [GWh] (+0.62%)
-Median AEP = 44.0 [GWh] (+0.58%)
-Max AEP = 44.0 [GWh] (+0.76%)
-Min AEP = 44.0 [GWh] (+0.56%)
+Optimization time = +30.2 [s]
+Mean AEP = 44.0 [GWh] (+0.57%)
+Median AEP = 44.0 [GWh] (+0.57%)
+Max AEP = 44.0 [GWh] (+0.66%)
+Min AEP = 43.9 [GWh] (+0.50%)
 =======================================
-Optimization time: 30.3 s / 120.0 s
+Optimization time: 30.2 s / 120.0 s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=======================================
 Optimization step +2.0
-Optimization time = +60.5 [s]
-Mean AEP = 44.0 [GWh] (+0.67%)
-Median AEP = 44.0 [GWh] (+0.68%)
-Max AEP = 44.0 [GWh] (+0.76%)
-Min AEP = 44.0 [GWh] (+0.56%)
+Optimization time = +60.4 [s]
+Mean AEP = 44.0 [GWh] (+0.66%)
+Median AEP = 44.0 [GWh] (+0.66%)
+Max AEP = 44.0 [GWh] (+0.72%)
+Min AEP = 44.0 [GWh] (+0.59%)
 =======================================
-Optimization time: 60.5 s / 120.0 s
+Optimization time: 60.4 s / 120.0 s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=======================================
 Optimization step +3.0
-Optimization time = +91.2 [s]
-Mean AEP = 44.0 [GWh] (+0.74%)
-Median AEP = 44.0 [GWh] (+0.76%)
-Max AEP = 44.0 [GWh] (+0.76%)
-Min AEP = 44.0 [GWh] (+0.70%)
+Optimization time = +90.6 [s]
+Mean AEP = 44.0 [GWh] (+0.73%)
+Median AEP = 44.0 [GWh] (+0.73%)
+Max AEP = 44.0 [GWh] (+0.74%)
+Min AEP = 44.0 [GWh] (+0.71%)
 =======================================
-Optimization time: 91.2 s / 120.0 s
+Optimization time: 90.6 s / 120.0 s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=======================================
 Optimization step +4.0
-Optimization time = +122.3 [s]
-Mean AEP = 44.0 [GWh] (+0.76%)
-Median AEP = 44.0 [GWh] (+0.76%)
-Max AEP = 44.0 [GWh] (+0.76%)
-Min AEP = 44.0 [GWh] (+0.76%)
+Optimization time = +120.8 [s]
+Mean AEP = 44.0 [GWh] (+0.74%)
+Median AEP = 44.0 [GWh] (+0.74%)
+Max AEP = 44.0 [GWh] (+0.74%)
+Min AEP = 44.0 [GWh] (+0.74%)
 =======================================
-Final AEP = 44.0 [GWh] (+0.76%)
+Final AEP = 44.0 [GWh] (+0.74%)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using supplied initial layout for 4 individuals.
@@ -1030,13 +1036,13 @@ Optimization time: 0.0 s / 120.0 s
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=======================================
 Optimization step +1.0
-Optimization time = +30.2 [s]
-Mean AEP = 40.3 [GWh] (+0.63%)
-Median AEP = 40.3 [GWh] (+0.63%)
+Optimization time = +30.3 [s]
+Mean AEP = 40.3 [GWh] (+0.62%)
+Median AEP = 40.3 [GWh] (+0.64%)
 Max AEP = 40.3 [GWh] (+0.65%)
-Min AEP = 40.3 [GWh] (+0.62%)
+Min AEP = 40.3 [GWh] (+0.55%)
 =======================================
-Optimization time: 30.2 s / 120.0 s
+Optimization time: 30.3 s / 120.0 s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=======================================
@@ -1063,7 +1069,7 @@ Optimization time: 90.8 s / 120.0 s
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=======================================
 Optimization step +4.0
-Optimization time = +121.2 [s]
+Optimization time = +120.9 [s]
 Mean AEP = 40.3 [GWh] (+0.65%)
 Median AEP = 40.3 [GWh] (+0.65%)
 Max AEP = 40.3 [GWh] (+0.65%)
@@ -1073,16 +1079,16 @@ Final AEP = 40.3 [GWh] (+0.65%)
 =====================================
 Objective log array (HET):
 (5, 4)
-[[0.99245099 0.99245099 0.99245099 0.99245099]
- [0.99842989 0.99998503 0.99801656 0.99801918]
- [0.99998503 0.99848687 0.99804841 1.        ]
- [1.         0.99998503 0.99937566 1.        ]
- [1.         1.         0.99998503 1.        ]]
+[[0.99261537 0.99261537 0.99261537 0.99261537]
+ [0.99762363 0.99834475 0.99916545 0.99810817]
+ [0.99967591 0.99858526 0.99848763 0.99979939]
+ [0.99992941 0.99967591 0.99973873 0.99997949]
+ [0.99997949 0.99994323 0.99997093 1.        ]]
 </pre></div>
 </div>
-<img alt="../../_images/0760d241bb774c92067dc8a3c2819177d5afd43ab223e1fce30531f178affd3d.png" src="../../_images/0760d241bb774c92067dc8a3c2819177d5afd43ab223e1fce30531f178affd3d.png" />
-<img alt="../../_images/0b7f084ba19e348935f15a0b2e006e789f8ef8d6c58e317fbf1c6df37093362a.png" src="../../_images/0b7f084ba19e348935f15a0b2e006e789f8ef8d6c58e317fbf1c6df37093362a.png" />
-<img alt="../../_images/fd5da066b01230849fd2fc2d4f4be947d519eb19b729ee58487a9cd491ce4a81.png" src="../../_images/fd5da066b01230849fd2fc2d4f4be947d519eb19b729ee58487a9cd491ce4a81.png" />
+<img alt="../../_images/00af075f2ba69710f558557fcc45c3830998df6e8df050714098fe50a72cf976.png" src="../../_images/00af075f2ba69710f558557fcc45c3830998df6e8df050714098fe50a72cf976.png" />
+<img alt="../../_images/5884f1e229815071d2b9a62acd69f1748b755679dc7c2f9e739d3c19eea59baf.png" src="../../_images/5884f1e229815071d2b9a62acd69f1748b755679dc7c2f9e739d3c19eea59baf.png" />
+<img alt="../../_images/fb857fc0d9edb8e133a5f31dda1b179b505fcfa7b7979c52271f4d02369a2735.png" src="../../_images/fb857fc0d9edb8e133a5f31dda1b179b505fcfa7b7979c52271f4d02369a2735.png" />
 </div>
 </div>
 </section>

@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -203,14 +203,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../wind_data_user.html">Wind Data Objects</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../floris_models.html">FLORIS Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../input_reference_main.html">Main Input File Reference</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../turbine_models.html">Wind turbine models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../input_reference_turbine.html">Turbine Input File Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../operation_models_user.html">Turbine Operation Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../floating_wind_turbine.html">Floating Wind Turbine Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multidimensional_wind_turbine.html">Multidimensional Wind Turbine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../turbine_library.html">Turbine Library</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced_concepts.html">Advanced Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../heterogeneous_map.html">Heterogeneous Map</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../floating_wind_turbine.html">Floating Wind Turbine Modeling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../turbine_interaction.html">Turbine Library Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../operation_models_user.html">Turbine Operation Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../layout_optimization.html">Layout Optimization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../input_reference_main.html">Main Input File Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../input_reference_turbine.html">Turbine Input File Reference</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Theory and Background</span></p>
 <ul class="nav bd-sidenav">
@@ -369,7 +373,8 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../examples/examples_get_flow/001_extract_wind_speed_at_turbines.html">Example: Extract wind speed at turbines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/examples_get_flow/002_extract_wind_speed_at_points.html">Example: Extract wind speed at points</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/examples_get_flow/003_plot_velocity_deficit_profiles.html">Example: Plot velocity deficit profiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/examples_get_flow/003_extract_turbulence_intensity_at_points.html">Example: Extract turbulence intensity at points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/examples_get_flow/004_plot_velocity_deficit_profiles.html">Example: Plot velocity deficit profiles</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Heterogeneous</span></p>
 <ul class="nav bd-sidenav">
@@ -393,8 +398,9 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Multidim</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../examples/examples_multidim/001_multi_dimensional_cp_ct.html">Example: Multi-dimensional Cp/Ct data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/examples_multidim/002_multi_dimensional_cp_ct_2Hs.html">Example: Multi-dimensional Cp/Ct with 2 Hs values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/examples_multidim/001_multi_dimensional_cp_ct.html">Example: Multi-dimensional power/thrust coefficient data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/examples_multidim/002_multi_dimensional_cp_ct_2Hs.html">Example: Multi-dimensional power/thrust coefficient with 2 Hs values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/examples_multidim/003_multi_dimensional_cp_ct_TI.html">Example: Multi-dimensional power/thrust coefficients with turbulence intensity</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Operation models</span></p>
 <ul class="nav bd-sidenav">
@@ -675,9 +681,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.uncertain_floris_model.UncertainFlorisModel.n_turbines"><code class="docutils literal notranslate"><span class="pre">UncertainFlorisModel.n_turbines</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.uncertain_floris_model.UncertainFlorisModel.reference_wind_height"><code class="docutils literal notranslate"><span class="pre">UncertainFlorisModel.reference_wind_height</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.uncertain_floris_model.UncertainFlorisModel.core"><code class="docutils literal notranslate"><span class="pre">UncertainFlorisModel.core</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.uncertain_floris_model.UncertainFlorisModel.turbine_average_velocities"><code class="docutils literal notranslate"><span class="pre">UncertainFlorisModel.turbine_average_velocities</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.uncertain_floris_model.map_turbine_powers_uncertain"><code class="docutils literal notranslate"><span class="pre">map_turbine_powers_uncertain()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.uncertain_floris_model.map_turbine_values_uncertain"><code class="docutils literal notranslate"><span class="pre">map_turbine_values_uncertain()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.uncertain_floris_model.ApproxFlorisModel"><code class="docutils literal notranslate"><span class="pre">ApproxFlorisModel</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.uncertain_floris_model.ApproxFlorisModel.secondary_init_kwargs"><code class="docutils literal notranslate"><span class="pre">ApproxFlorisModel.secondary_init_kwargs</span></code></a></li>
 </ul>
@@ -699,7 +707,10 @@ document.write(`
 <div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#floris.uncertain_floris_model.map_turbine_powers_uncertain" title="floris.uncertain_floris_model.map_turbine_powers_uncertain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">map_turbine_powers_uncertain</span></code></a>(...)</p></td>
-<td><p>Calculates the power at each turbine in the wind farm based on uncertainty weights.</p></td>
+<td><p>Alias for map_turbine_values_uncertain.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#floris.uncertain_floris_model.map_turbine_values_uncertain" title="floris.uncertain_floris_model.map_turbine_values_uncertain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">map_turbine_values_uncertain</span></code></a>(...)</p></td>
+<td><p>Calculates values at each turbine in the wind farm based on uncertainty weights.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1241,19 +1252,30 @@ param_idx (Optional[int], optional): The index to set the value at. Defaults to 
 </dl>
 </dd></dl>
 
+<dl class="py property">
+<dt class="sig sig-object py" id="floris.uncertain_floris_model.UncertainFlorisModel.turbine_average_velocities">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">turbine_average_velocities</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#floris.uncertain_floris_model.UncertainFlorisModel.turbine_average_velocities" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="floris.uncertain_floris_model.map_turbine_powers_uncertain">
 <span class="sig-prename descclassname"><span class="pre">floris.uncertain_floris_model.</span></span><span class="sig-name descname"><span class="pre">map_turbine_powers_uncertain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unique_turbine_powers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_to_expanded_inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_unexpanded</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_sample_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_turbines</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/floris/uncertain_floris_model.html#map_turbine_powers_uncertain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#floris.uncertain_floris_model.map_turbine_powers_uncertain" title="Link to this definition">#</a></dt>
-<dd><p>Calculates the power at each turbine in the wind farm based on uncertainty weights.</p>
-<p>This function calculates the power at each turbine in the wind farm, considering
-the underlying turbine powers and applying a weighted sum to handle uncertainty.</p>
+<dd><p>Alias for map_turbine_values_uncertain.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="floris.uncertain_floris_model.map_turbine_values_uncertain">
+<span class="sig-prename descclassname"><span class="pre">floris.uncertain_floris_model.</span></span><span class="sig-name descname"><span class="pre">map_turbine_values_uncertain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unique_turbine_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_to_expanded_inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_unexpanded</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_sample_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_turbines</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/floris/uncertain_floris_model.html#map_turbine_values_uncertain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#floris.uncertain_floris_model.map_turbine_values_uncertain" title="Link to this definition">#</a></dt>
+<dd><p>Calculates values at each turbine in the wind farm based on uncertainty weights.</p>
+<p>This function calculates the values (e.g. power, velocity) at each turbine in the wind farm,
+considering the underlying turbine values and applying a weighted sum to handle uncertainty.</p>
 <dl>
 <dt>Args:</dt><dd><dl class="simple">
-<dt>unique_turbine_powers (NDArrayFloat): An array of unique turbine powers from the</dt><dd><p>underlying FlorisModel</p>
+<dt>unique_turbine_values (NDArrayFloat): An array of unique turbine powers, velocities, etc</dt><dd><p>from the underlying FlorisModel</p>
 </dd>
-<dt>map_to_expanded_inputs (NDArrayFloat): An array of indices mapping the unique powers to</dt><dd><p>the expanded powers</p>
+<dt>map_to_expanded_inputs (NDArrayFloat): An array of indices mapping the unique values to</dt><dd><p>the expanded values</p>
 </dd>
 </dl>
 <p>weights (NDArrayFloat): An array of weights for each wind direction sample point
@@ -1261,7 +1283,7 @@ n_unexpanded (int): The number of unexpanded conditions
 n_sample_points (int): The number of wind direction sample points
 n_turbines (int): The number of turbines in the wind farm</p>
 </dd>
-<dt>Returns:</dt><dd><p>NDArrayFloat: An array containing the powers at each turbine for each findex.</p>
+<dt>Returns:</dt><dd><p>NDArrayFloat: An array containing the values at each turbine for each findex.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1380,9 +1402,11 @@ result computed</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.uncertain_floris_model.UncertainFlorisModel.n_turbines"><code class="docutils literal notranslate"><span class="pre">UncertainFlorisModel.n_turbines</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.uncertain_floris_model.UncertainFlorisModel.reference_wind_height"><code class="docutils literal notranslate"><span class="pre">UncertainFlorisModel.reference_wind_height</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.uncertain_floris_model.UncertainFlorisModel.core"><code class="docutils literal notranslate"><span class="pre">UncertainFlorisModel.core</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.uncertain_floris_model.UncertainFlorisModel.turbine_average_velocities"><code class="docutils literal notranslate"><span class="pre">UncertainFlorisModel.turbine_average_velocities</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.uncertain_floris_model.map_turbine_powers_uncertain"><code class="docutils literal notranslate"><span class="pre">map_turbine_powers_uncertain()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.uncertain_floris_model.map_turbine_values_uncertain"><code class="docutils literal notranslate"><span class="pre">map_turbine_values_uncertain()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.uncertain_floris_model.ApproxFlorisModel"><code class="docutils literal notranslate"><span class="pre">ApproxFlorisModel</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.uncertain_floris_model.ApproxFlorisModel.secondary_init_kwargs"><code class="docutils literal notranslate"><span class="pre">ApproxFlorisModel.secondary_init_kwargs</span></code></a></li>
 </ul>

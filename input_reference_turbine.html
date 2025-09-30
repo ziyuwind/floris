@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -73,8 +73,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'input_reference_turbine';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Wake Models" href="wake_models.html" />
-    <link rel="prev" title="Main Input File Reference" href="input_reference_main.html" />
+    <link rel="next" title="Turbine Operation Models" href="operation_models_user.html" />
+    <link rel="prev" title="Wind turbine models" href="turbine_models.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="python"/>
   </head>
@@ -203,14 +203,18 @@
 <li class="toctree-l1"><a class="reference internal" href="wind_data_user.html">Wind Data Objects</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="floris_models.html">FLORIS Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input_reference_main.html">Main Input File Reference</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="turbine_models.html">Wind turbine models</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Turbine Input File Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operation_models_user.html">Turbine Operation Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="floating_wind_turbine.html">Floating Wind Turbine Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multidimensional_wind_turbine.html">Multidimensional Wind Turbine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="turbine_library.html">Turbine Library</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="advanced_concepts.html">Advanced Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="heterogeneous_map.html">Heterogeneous Map</a></li>
-<li class="toctree-l1"><a class="reference internal" href="floating_wind_turbine.html">Floating Wind Turbine Modeling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="turbine_interaction.html">Turbine Library Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="operation_models_user.html">Turbine Operation Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="layout_optimization.html">Layout Optimization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="input_reference_main.html">Main Input File Reference</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Turbine Input File Reference</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Theory and Background</span></p>
 <ul class="nav bd-sidenav">
@@ -369,7 +373,8 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="examples/examples_get_flow/001_extract_wind_speed_at_turbines.html">Example: Extract wind speed at turbines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/examples_get_flow/002_extract_wind_speed_at_points.html">Example: Extract wind speed at points</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/examples_get_flow/003_plot_velocity_deficit_profiles.html">Example: Plot velocity deficit profiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples_get_flow/003_extract_turbulence_intensity_at_points.html">Example: Extract turbulence intensity at points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples_get_flow/004_plot_velocity_deficit_profiles.html">Example: Plot velocity deficit profiles</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Heterogeneous</span></p>
 <ul class="nav bd-sidenav">
@@ -393,8 +398,9 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Multidim</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="examples/examples_multidim/001_multi_dimensional_cp_ct.html">Example: Multi-dimensional Cp/Ct data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/examples_multidim/002_multi_dimensional_cp_ct_2Hs.html">Example: Multi-dimensional Cp/Ct with 2 Hs values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples_multidim/001_multi_dimensional_cp_ct.html">Example: Multi-dimensional power/thrust coefficient data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples_multidim/002_multi_dimensional_cp_ct_2Hs.html">Example: Multi-dimensional power/thrust coefficient with 2 Hs values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples_multidim/003_multi_dimensional_cp_ct_TI.html">Example: Multi-dimensional power/thrust coefficients with turbulence intensity</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Operation models</span></p>
 <ul class="nav bd-sidenav">
@@ -657,49 +663,78 @@ The file must be YAML format with either &quot;yaml&quot; or &quot;yml&quot; ext
 for more information on inspecting and creating the turbine definition.</p>
 <dl class="simple">
 <dt>turbine_type</dt><dd><p>An ID for this type of turbine definition.
-This is not currently used, but it will be enabled in the future. This should typically
-match the root name of the file.</p>
+This is used to uniquely identify different turbines in the simulation, so should be different
+for each different turbine definition being used in the same simulation.
+String type.</p>
 </dd>
-<dt>hub_height</dt><dd><p>Hub height.</p>
+<dt>hub_height</dt><dd><p>Turbine hub height in meters. Float type.</p>
 </dd>
-<dt>rotor_diameter</dt><dd><p>Rotor diameter.</p>
+<dt>rotor_diameter</dt><dd><p>Turbine rotor diameter in meters. Float type.</p>
 </dd>
-<dt>TSR</dt><dd><p>Tip speed ratio defined as linear blade tip speed normalized by the incoming wind speed.</p>
+<dt>TSR</dt><dd><p>Nominal wind turbine tip-speed ratio for below-rated operation. Only used in some wake models.
+Float type.</p>
 </dd>
-<dt>operation_model</dt><dd><p>Model for power and thrust curve interpretation.</p>
+<dt>operation_model</dt><dd><p>Model for power and thrust curve interpretation. See floris.core.turbine.operation_models for
+details. String type.</p>
 </dd>
 <dt>power_thrust_table</dt><dd><dl class="simple">
-<p>Parameters needed to evaluate the power and thrust produced by the turbine.</p>
-<dt>ref_air_density</dt><dd><p>The air density at which the power and thrust_coefficient curves are defined.</p>
+<p>Group of parameters needed to evaluate the power and thrust produced by the turbine.</p>
+<dt>ref_air_density</dt><dd><p>Air density at which the power and thrust_coefficient curves are defined (kg / m^3). Float type.</p>
 </dd>
-<dt>ref_tilt</dt><dd><p>The tilt angle at which the Cp and Ct curves are defined. This is used to capture
-the effects of a floating platform on a turbine's power and wake.</p>
+<dt>ref_tilt</dt><dd><p>Tilt angle at which the power and thrust_coefficient curves are defined (degrees).
+Used to capture the effects of a floating platform on a turbine's power and wake.
+Float type.</p>
 </dd>
-<dt>cosine_loss_exponent_tilt</dt><dd><p>Cosine exponent for power loss due to tilt.</p>
+<dt>cosine_loss_exponent_tilt</dt><dd><p>Cosine exponent for power loss due to tilt. Float type.</p>
 </dd>
-<dt>cosine_loss_exponent_yaw</dt><dd><p>Cosine exponent for power loss due to yaw misalignment.</p>
+<dt>cosine_loss_exponent_yaw</dt><dd><p>Cosine exponent for power loss due to yaw misalignment. Float type.</p>
 </dd>
-<dt>helix_a</dt><dd><p>Helix parameters</p>
+<dt>helix_a</dt><dd><p>Helix parameter a. See documentation for details. Float type.</p>
 </dd>
-<dt>peak_shaving_fraction</dt><dd><p>Fraction of peak thrust by which to reduce</p>
+<dt>helix_power_b</dt><dd><p>Helix parameter b for power calculation. See documentation for details. Float type.</p>
 </dd>
-<dt>controller_dependent_turbine_parameters</dt><dd></dd>
-<dt>wind_speed</dt><dd><p>wind speeds for look-up tables of power and thrust_coefficient</p>
+<dt>helix_power_c</dt><dd><p>Helix parameter c for power calculation. See documentation for details. Float type.</p>
 </dd>
-<dt>power</dt><dd><p>power values (specified in kW) for lookup by wind speed</p>
+<dt>helix_thrust_b</dt><dd><p>Helix parameter b for thrust calculation. See documentation for details. Float type.</p>
 </dd>
-<dt>thrust_coefficient</dt><dd><p>thrust coefficient values (unitless) for lookup by wind speed</p>
+<dt>helix_thrust_c</dt><dd><p>Helix parameter c for thrust calculation. See documentation for details. Float type.</p>
+</dd>
+<dt>peak_shaving_fraction</dt><dd><p>Fraction of peak thrust by which to reduce (specified as a decimal). Float type.</p>
+</dd>
+<dt>peak_shaving_TI_threshold</dt><dd><p>Threshold turbulence intensity above which to apply peak shaving (specified as a decimal).
+Float tpe.</p>
+</dd>
+<dt>controller_dependent_turbine_parameters</dt><dd><p>Parameters for the 'controller-dependenter-dependent' operation model. See
+floris.core.turbine.controller_dependent_operation_model and documentation for details.</p>
+</dd>
+<dt>wind_speed</dt><dd><p>Wind speeds for look-up tables of power and thrust_coefficient. List of float type.</p>
+</dd>
+<dt>power</dt><dd><p>Power values (specified in kW) for lookup by wind speed. List of float type.</p>
+</dd>
+<dt>thrust_coefficient</dt><dd><p>Thrust coefficient values (unitless) for lookup by wind speed. List of float type.</p>
 </dd>
 </dl>
 </dd>
-<dt>multi_dimensional_cp_ct</dt><dd><p>A boolean flag used when the user wants FLORIS to use the user-supplied multi-dimensional
-Cp/Ct information.</p>
+<dt>multi_dimensional_cp_ct</dt><dd><p>Boolean flag used when the user wants FLORIS to use the user-supplied multi-dimensional
+power/thrust coefficient information information. Boolean type.</p>
 </dd>
-<dt>power_thrust_data_file</dt><dd><p>The path to the .csv file that contains the multi-dimensional Cp/Ct data. The format of this
-file is such that any external conditions, such as wave height or wave period, that the
-Cp/Ct data is dependent on come first, in column format. The last three columns of the .csv
-file must be <code class="docutils literal notranslate"><span class="pre">ws</span></code>, <code class="docutils literal notranslate"><span class="pre">Cp</span></code>, and <code class="docutils literal notranslate"><span class="pre">Ct</span></code>, in that order. An example of fictional data is given
-in <code class="docutils literal notranslate"><span class="pre">floris/turbine_library/iea_15MW_multi_dim_Tp_Hs.csv</span></code>.</p>
+<dt>power_thrust_data_file</dt><dd><p>Path to the .csv file that contains the multi-dimensional power/thrust coefficient data.
+The format of this file is such that any external conditions, such as wave height or wave period,
+that the power/thrust data is dependent on come first, in column format. The last three columns
+of the .csv file must be <code class="docutils literal notranslate"><span class="pre">ws</span></code>, <code class="docutils literal notranslate"><span class="pre">power</span></code>, and <code class="docutils literal notranslate"><span class="pre">thrust_coefficient</span></code>, in that order. An example
+of fictional data is given in <code class="docutils literal notranslate"><span class="pre">floris/turbine_library/iea_15MW_multi_dim_Tp_Hs.csv</span></code>.
+String type.</p>
+</dd>
+<dt>floating_tilt_table</dt><dd><dl class="simple">
+<p>Group of parameters needed to evaluate the tilt angle of a floating turbine across wind speeds.</p>
+<dt>wind_speed</dt><dd><p>Wind speeds at which steady tilt angles are defined (m/s). List of float type.</p>
+</dd>
+<dt>tilt</dt><dd><p>Tilt angle for each wind speed (degrees, positive &quot;tilted back&quot;). List of float type.</p>
+</dd>
+</dl>
+</dd>
+<dt>correct_cp_ct_for_tilt</dt><dd><p>Flag for whether to apply the floating tilt table to correct turbine power and thrust curves.
+Boolean type.</p>
 </dd>
 </dl>
 </section>
@@ -735,20 +770,20 @@ in <code class="docutils literal notranslate"><span class="pre">floris/turbine_l
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="input_reference_main.html"
+       href="turbine_models.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Main Input File Reference</p>
+        <p class="prev-next-title">Wind turbine models</p>
       </div>
     </a>
     <a class="right-next"
-       href="wake_models.html"
+       href="operation_models_user.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Wake Models</p>
+        <p class="prev-next-title">Turbine Operation Models</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

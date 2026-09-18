@@ -16,47 +16,56 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../../_static/documentation_options.js?v=30a733bc"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-JV2SK7CNPR"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
                 gtag('js', new Date());
                 gtag('config', 'G-JV2SK7CNPR');
             </script>
@@ -66,45 +75,48 @@
     <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
                 gtag('js', new Date());
                 gtag('config', 'G-JV2SK7CNPR');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'examples/examples_layout_optimization/001_optimize_layout';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Example: Layout optimization with heterogeneous inflow" href="002_optimize_layout_with_heterogeneity.html" />
     <link rel="prev" title="Example: Heterogeneous Inflow in 2D and 3D" href="../examples_heterogeneous/004_heterogeneous_2d_and_3d.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="python"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -112,7 +124,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -120,15 +131,55 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
     </header>
   
 
@@ -137,7 +188,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -167,21 +219,17 @@
     
     
     <img src="../../_static/docs_image.png" class="logo__image only-light" alt="FLORIS - Home"/>
-    <script>document.write(`<img src="../../_static/docs_image.png" class="logo__image only-dark" alt="FLORIS - Home"/>`);</script>
+    <img src="../../_static/docs_image.png" class="logo__image only-dark pst-js-only" alt="FLORIS - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -408,7 +456,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Turbine</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../examples_turbine/001_check_turbine.html">Example: Check turbine power curves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_turbine/001_reference_turbines.html">Example: Reference turbines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples_turbine/002_multiple_turbine_types.html">Example: Multiple turbine types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples_turbine/003_specify_turbine_power_curve.html">Example: Specify turbine power curve</a></li>
 </ul>
@@ -450,9 +498,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -496,7 +549,7 @@
       
       
       
-      <li><a href="https://github.com/NREL/floris" target="_blank"
+      <li><a href="https://github.com/NatLabRockies/floris" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -513,7 +566,7 @@
       
       
       
-      <li><a href="https://github.com/NREL/floris/edit/main/docs/examples/examples_layout_optimization/001_optimize_layout.ipynb" target="_blank"
+      <li><a href="https://github.com/NatLabRockies/floris/edit/main/docs/examples/examples_layout_optimization/001_optimize_layout.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -530,7 +583,7 @@
       
       
       
-      <li><a href="https://github.com/NREL/floris/issues/new?title=Issue%20on%20page%20%2Fexamples/examples_layout_optimization/001_optimize_layout.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/NatLabRockies/floris/issues/new?title=Issue%20on%20page%20%2Fexamples/examples_layout_optimization/001_optimize_layout.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -599,7 +652,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -613,24 +666,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 
 </div></div>
       
@@ -660,7 +705,7 @@ document.write(`
 <h1>Example: Optimize Layout<a class="headerlink" href="#example-optimize-layout" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Example: Optimize Layout</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">"""Example: Optimize Layout</span>
 <span class="sd">This example shows a simple layout optimization using the python module Scipy, optimizing for both</span>
 <span class="sd">annual energy production (AEP) and annual value production (AVP).</span>
 
@@ -680,7 +725,7 @@ document.write(`
 <span class="sd">close in the y direction to avoid wake interactions for northerly and southerly winds. Although the</span>
 <span class="sd">layout results in large wake losses when the wind is from the east or west, these losses do not</span>
 <span class="sd">significantly impact the objective function because of the low value for those wind directions.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
@@ -696,15 +741,15 @@ document.write(`
 
 <span class="c1"># Define scipy optimization parameters</span>
 <span class="n">opt_options</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;maxiter&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-    <span class="s2">&quot;disp&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="s2">&quot;iprint&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="s2">&quot;ftol&quot;</span><span class="p">:</span> <span class="mf">1e-12</span><span class="p">,</span>
-    <span class="s2">&quot;eps&quot;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span>
+    <span class="s2">"maxiter"</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s2">"disp"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">"iprint"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"ftol"</span><span class="p">:</span> <span class="mf">1e-12</span><span class="p">,</span>
+    <span class="s2">"eps"</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="c1"># Initialize the FLORIS interface fi</span>
-<span class="n">fmodel</span> <span class="o">=</span> <span class="n">FlorisModel</span><span class="p">(</span><span class="s1">&#39;../inputs/gch.yaml&#39;</span><span class="p">)</span>
+<span class="n">fmodel</span> <span class="o">=</span> <span class="n">FlorisModel</span><span class="p">(</span><span class="s1">'../inputs/gch.yaml'</span><span class="p">)</span>
 
 <span class="c1"># Setup 72 wind directions with a 1 wind speed and frequency distribution</span>
 <span class="n">wind_directions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">360.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">)</span>
@@ -751,7 +796,7 @@ document.write(`
 <span class="n">sol</span> <span class="o">=</span> <span class="n">layout_opt</span><span class="o">.</span><span class="n">optimize</span><span class="p">()</span>
 
 <span class="c1"># Get the resulting improvement in AEP</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;... calculating improvement in AEP&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'... calculating improvement in AEP'</span><span class="p">)</span>
 <span class="n">fmodel</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 <span class="n">base_aep</span> <span class="o">=</span> <span class="n">fmodel</span><span class="o">.</span><span class="n">get_farm_AEP</span><span class="p">()</span> <span class="o">/</span> <span class="mf">1e6</span>
 <span class="n">fmodel</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">layout_x</span><span class="o">=</span><span class="n">sol</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">layout_y</span><span class="o">=</span><span class="n">sol</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
@@ -761,10 +806,10 @@ document.write(`
 <span class="n">percent_gain</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="n">opt_aep</span> <span class="o">-</span> <span class="n">base_aep</span><span class="p">)</span> <span class="o">/</span> <span class="n">base_aep</span>
 
 <span class="c1"># Print and plot the results</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Optimal layout: </span><span class="si">{</span><span class="n">sol</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Optimal layout: </span><span class="si">{</span><span class="n">sol</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span>
-    <span class="sa">f</span><span class="s1">&#39;Optimal layout improves AEP by </span><span class="si">{</span><span class="n">percent_gain</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">% &#39;</span>
-    <span class="sa">f</span><span class="s1">&#39;from </span><span class="si">{</span><span class="n">base_aep</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> MWh to </span><span class="si">{</span><span class="n">opt_aep</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> MWh&#39;</span>
+    <span class="sa">f</span><span class="s1">'Optimal layout improves AEP by </span><span class="si">{</span><span class="n">percent_gain</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">% '</span>
+    <span class="sa">f</span><span class="s1">'from </span><span class="si">{</span><span class="n">base_aep</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> MWh to </span><span class="si">{</span><span class="n">opt_aep</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> MWh'</span>
 <span class="p">)</span>
 <span class="n">layout_opt</span><span class="o">.</span><span class="n">plot_layout_opt_results</span><span class="p">()</span>
 
@@ -779,7 +824,7 @@ document.write(`
 <span class="n">sol</span> <span class="o">=</span> <span class="n">layout_opt</span><span class="o">.</span><span class="n">optimize</span><span class="p">()</span>
 
 <span class="c1"># Get the resulting improvement in AVP</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;... calculating improvement in annual value production (AVP)&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'... calculating improvement in annual value production (AVP)'</span><span class="p">)</span>
 <span class="n">fmodel</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 <span class="n">base_avp</span> <span class="o">=</span> <span class="n">fmodel</span><span class="o">.</span><span class="n">get_farm_AVP</span><span class="p">()</span> <span class="o">/</span> <span class="mf">1e6</span>
 <span class="n">fmodel</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">layout_x</span><span class="o">=</span><span class="n">sol</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">layout_y</span><span class="o">=</span><span class="n">sol</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
@@ -789,16 +834,16 @@ document.write(`
 <span class="n">percent_gain</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="n">opt_avp</span> <span class="o">-</span> <span class="n">base_avp</span><span class="p">)</span> <span class="o">/</span> <span class="n">base_avp</span>
 
 <span class="c1"># Print and plot the results</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Optimal layout: </span><span class="si">{</span><span class="n">sol</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Optimal layout: </span><span class="si">{</span><span class="n">sol</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span>
-    <span class="sa">f</span><span class="s1">&#39;Optimal layout improves AVP by </span><span class="si">{</span><span class="n">percent_gain</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">% &#39;</span>
-    <span class="sa">f</span><span class="s1">&#39;from </span><span class="si">{</span><span class="n">base_avp</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> dollars to </span><span class="si">{</span><span class="n">opt_avp</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> dollars&#39;</span>
+    <span class="sa">f</span><span class="s1">'Optimal layout improves AVP by </span><span class="si">{</span><span class="n">percent_gain</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">% '</span>
+    <span class="sa">f</span><span class="s1">'from </span><span class="si">{</span><span class="n">base_avp</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> dollars to </span><span class="si">{</span><span class="n">opt_avp</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> dollars'</span>
 <span class="p">)</span>
 <span class="n">layout_opt</span><span class="o">.</span><span class="n">plot_layout_opt_results</span><span class="p">()</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -813,172 +858,161 @@ Number of parameters to optimize =  8
     1    10    -1.014190E+00     1.590506E-01
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    2    19    -1.033878E+00     1.487938E-01
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    2    19    -1.033877E+00     1.487813E-01
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    3    28    -1.035668E+00     9.299390E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    3    28    -1.036182E+00     9.296611E-02
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    5    37    -1.037371E+00     7.983400E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    4    37    -1.042594E+00     7.891520E-02
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    6    46    -1.039440E+00     7.833980E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    5    46    -1.043001E+00     6.370244E-02
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    7    55    -1.043899E+00     7.648929E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    6    55    -1.044099E+00     6.605868E-02
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    8    64    -1.044036E+00     7.533211E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    8    64    -1.044500E+00     6.425955E-02
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    9    73    -1.044508E+00     7.493584E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    9    73    -1.044809E+00     6.475439E-02
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   10    82    -1.044977E+00     7.143634E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   10    82    -1.044875E+00     6.534080E-02
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   11    91    -1.044983E+00     6.620466E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   11    91    -1.044851E+00     6.605135E-02
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   12   100    -1.044983E+00     6.618600E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   12   101    -1.044299E+00     6.554215E-02
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   13   110    -1.044692E+00     6.628350E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   13   113    -1.044821E+00     6.536059E-02
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   14   123    -1.044480E+00     6.631552E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   14   132    -1.044330E+00     6.538646E-02
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   15   136    -1.044976E+00     6.629878E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   15   151    -1.044319E+00     6.540604E-02
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   16   154    -1.044963E+00     6.632497E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   16   170    -1.044923E+00     6.543479E-02
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   17   165    -1.044576E+00     6.633323E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   17   179    -1.044955E+00     6.506073E-02
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   18   178    -1.044704E+00     6.641474E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   18   188    -1.044952E+00     6.689755E-02
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   19   191    -1.044787E+00     6.655421E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   19   199    -1.044954E+00     6.642316E-02
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   20   204    -1.044674E+00     6.640570E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   20   218    -1.043374E+00     6.642206E-02
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration limit reached    (Exit mode 9)
-            Current function value: -1.0449921414604417
+            Current function value: -1.044955676444861
             Iterations: 20
-            Function evaluations: 222
+            Function evaluations: 231
             Gradient evaluations: 20
 Optimization complete.
 ... calculating improvement in AEP
-Optimal layout: [[np.float64(1.0126986533061487e-09), np.float64(139.40913621355836), np.float64(828.8074479415609), np.float64(1000.0)], [np.float64(8.525106779335187e-14), np.float64(999.9999999999976), np.float64(5.420204787594427e-15), np.float64(999.9999999999998)]]
-Optimal layout improves AEP by 4.5% from 56299.2 MWh to 58832.2 MWh
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=====================================================
+Optimal layout: [[np.float64(8.115230313286393e-14), np.float64(126.6000047438575), np.float64(834.6275315290491), np.float64(1000.0)], [np.float64(9.450171415847777e-13), np.float64(1000.0), np.float64(0.004323237713109257), np.float64(1000.0)]]
+Optimal layout improves AEP by 4.5% from 56299.2 MWh to 58830.1 MWh
+=====================================================
 Optimizing turbine layout...
 Number of parameters to optimize =  8
 =====================================================
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
-    1    10    -1.177117E+00     7.500783E-01
+    1    10    -1.177119E+00     7.500783E-01
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    2    19    -1.159174E+00     5.490016E-01
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    2    19    -1.159176E+00     5.490685E-01
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    3    29    -1.219928E+00     3.414312E-01
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    3    29    -1.219927E+00     3.413702E-01
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    4    38    -1.228825E+00     2.198388E-01
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    4    38    -1.228825E+00     2.198403E-01
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    5    47    -1.237281E+00     2.754909E-01
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    5    47    -1.237282E+00     2.755116E-01
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    6    56    -1.251593E+00     2.648790E-01
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    6    56    -1.251593E+00     2.648850E-01
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    7    65    -1.252715E+00     1.030022E-01
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    7    65    -1.252715E+00     1.030257E-01
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    8    74    -1.252415E+00     4.626872E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    8    74    -1.252416E+00     4.621743E-02
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    9    83    -1.252492E+00     7.546713E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    9    83    -1.252492E+00     7.541273E-02
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   10    93    -1.252222E+00     7.541156E-02
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   11   112    -1.251525E+00     7.541214E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   10    93    -1.252222E+00     7.536735E-02
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">floris.floris_model.FlorisModel</span> <span class=" -Color -Color-Bold -Color-Bold-Black">WARNING</span> <span class=" -Color -Color-Yellow">Some velocities at the rotor are negative.</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   12   131    -1.183569E+00     7.541253E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   11   112    -1.241842E+00     7.536776E-02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   12   131    -1.251858E+00     7.536807E-02
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">floris.floris_model.FlorisModel</span> <span class=" -Color -Color-Bold -Color-Bold-Black">WARNING</span> <span class=" -Color -Color-Yellow">Some velocities at the rotor are negative.</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   13   150    -1.199530E+00     7.541307E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   13   150    -1.169352E+00     7.536822E-02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   14   169    -1.251688E+00     7.536849E-02
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">floris.floris_model.FlorisModel</span> <span class=" -Color -Color-Bold -Color-Bold-Black">WARNING</span> <span class=" -Color -Color-Yellow">Some velocities at the rotor are negative.</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   14   169    -1.172708E+00     7.541357E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   15   188    -1.188740E+00     7.536868E-02
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   15   188    -1.251251E+00     7.541408E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   16   207    -1.250575E+00     7.536900E-02
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">floris.floris_model.FlorisModel</span> <span class=" -Color -Color-Bold -Color-Bold-Black">WARNING</span> <span class=" -Color -Color-Yellow">Some velocities at the rotor are negative.</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   17   226    -1.252292E+00     7.536912E-02
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   16   207    -1.198442E+00     7.541437E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   18   245    -1.249759E+00     7.536952E-02
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">floris.floris_model.FlorisModel</span> <span class=" -Color -Color-Bold -Color-Bold-Black">WARNING</span> <span class=" -Color -Color-Yellow">Some velocities at the rotor are negative.</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   17   226    -1.192432E+00     7.541480E-02
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   18   245    -1.251521E+00     7.541522E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   19   264    -1.252054E+00     7.536983E-02
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">floris.floris_model.FlorisModel</span> <span class=" -Color -Color-Bold -Color-Bold-Black">WARNING</span> <span class=" -Color -Color-Yellow">Some velocities at the rotor are negative.</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   19   264    -1.241486E+00     7.541547E-02
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">floris.floris_model.FlorisModel</span> <span class=" -Color -Color-Bold -Color-Bold-Black">WARNING</span> <span class=" -Color -Color-Yellow">Some velocities at the rotor are negative.</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   20   283    -1.203152E+00     7.541581E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   20   283    -1.239257E+00     7.537025E-02
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration limit reached    (Exit mode 9)
-            Current function value: -1.2524483818738177
+            Current function value: -1.2524487221626492
             Iterations: 20
             Function evaluations: 301
             Gradient evaluations: 21
 Optimization complete.
 ... calculating improvement in annual value production (AVP)
-Optimal layout: [[np.float64(4.349185250586373e-14), np.float64(219.01373041552145), np.float64(494.14792005529495), np.float64(999.3112036528747)], [np.float64(150.67184261333048), np.float64(278.7012372145299), np.float64(226.50376999557804), np.float64(698.5623393971276)]]
-Optimal layout improves AVP by 25.2% from 1527164.8 dollars to 1912695.1 dollars
+Optimal layout: [[np.float64(1.2380895896793916e-14), np.float64(219.02017774454228), np.float64(494.1565101680186), np.float64(999.3184849987883)], [np.float64(150.63799787162753), np.float64(278.64212610114237), np.float64(226.54094749886292), np.float64(698.6125329022806)]]
+Optimal layout improves AVP by 25.2% from 1527164.8 dollars to 1912695.6 dollars
 </pre></div>
 </div>
-<img alt="../../_images/82e599b2e2505fde7479a2335c7518a3b21341444e9a4e9ca1eb60d6f8a6e426.png" src="../../_images/82e599b2e2505fde7479a2335c7518a3b21341444e9a4e9ca1eb60d6f8a6e426.png" />
-<img alt="../../_images/3a948ebbf2c8661339f29d1f92add5e057eaa09379883718b3609730f3918897.png" src="../../_images/3a948ebbf2c8661339f29d1f92add5e057eaa09379883718b3609730f3918897.png" />
+<img alt="../../_images/803ea55d84a11f34d60fa2a997a7284b9ccb0fe2c1ee7827fa55b7900a6e1e53.png" src="../../_images/803ea55d84a11f34d60fa2a997a7284b9ccb0fe2c1ee7827fa55b7900a6e1e53.png" />
+<img alt="../../_images/937d5b8f4e6834e1b368943f8009a5c4cae3285bbe10c606cd82ce14bd84ab11.png" src="../../_images/937d5b8f4e6834e1b368943f8009a5c4cae3285bbe10c606cd82ce14bd84ab11.png" />
 </div>
 </div>
 </section>
@@ -1047,7 +1081,7 @@ Optimal layout improves AVP by 25.2% from 1527164.8 dollars to 1912695.1 dollars
   <div class="footer-item">
     
 <p class="component-author">
-By National Renewable Energy Laboratory
+By National Laboratory of the Rockies
 </p>
 
   </div>
@@ -1057,7 +1091,7 @@ By National Renewable Energy Laboratory
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>
@@ -1081,8 +1115,8 @@ By National Renewable Energy Laboratory
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

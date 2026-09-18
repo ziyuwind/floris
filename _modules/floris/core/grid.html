@@ -15,47 +15,56 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../../../_static/documentation_options.js?v=30a733bc"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-JV2SK7CNPR"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
                 gtag('js', new Date());
                 gtag('config', 'G-JV2SK7CNPR');
             </script>
@@ -65,51 +74,404 @@
     <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
                 gtag('js', new Date());
                 gtag('config', 'G-JV2SK7CNPR');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@10.8/dist/mermaid.esm.min.mjs"></script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
-    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10.8/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
-    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
-    <script type="module">
-import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10.8/dist/mermaid.esm.min.mjs";
-window.addEventListener("load", () => mermaid.run());
-</script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10.8/dist/mermaid.esm.min.mjs";
+
+
+
+
+
+const initStyles = () => {
+    const defaultStyle = document.createElement('style');
+    defaultStyle.textContent = "pre.mermaid {\n    /* Same as .mermaid-container > pre */\n    display: block;\n    width: 100%;\n}\n\npre.mermaid > svg {\n    /* Same as .mermaid-container > pre > svg */\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}";
+    document.head.appendChild(defaultStyle);
+
+    const fullscreenStyle = document.createElement('style');
+    fullscreenStyle.textContent = ".mermaid-container {\n    position: relative;\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.mermaid-container > pre {\n    display: block;\n    width: 100%;\n}\n\n.mermaid-container > pre > svg {\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}\n\n.mermaid-fullscreen-btn {\n    position: absolute;\n    width: 28px;\n    height: 28px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.3);\n    border-radius: 4px;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    transition: all 0.2s;\n    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);\n    font-size: 14px;\n    line-height: 1;\n    padding: 0;\n    color: #333;\n}\n\n.mermaid-fullscreen-btn:hover {\n    opacity: 100% !important;\n    background: rgba(255, 255, 255, 1);\n    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-btn.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.3);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-btn.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal {\n    display: none;\n    position: fixed !important;\n    top: 0 !important;\n    left: 0 !important;\n    width: 95vw;\n    height: 100vh;\n    background: rgba(255, 255, 255, 0.98);\n    z-index: 9999;\n    padding: 20px;\n    overflow: auto;\n}\n\n.mermaid-fullscreen-modal.dark-theme {\n    background: rgba(0, 0, 0, 0.98);\n}\n\n.mermaid-fullscreen-modal.active {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen {\n    position: relative;\n    width: 95vw;\n    height: 90vh;\n    max-width: 95vw;\n    max-height: 90vh;\n    background: white;\n    border-radius: 8px;\n    padding: 20px;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);\n    overflow: auto;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen.dark-theme {\n    background: #1a1a1a;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);\n}\n\n.mermaid-container-fullscreen pre.mermaid {\n    width: 100%;\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen .mermaid svg {\n    height: 100% !important;\n    width: 100% !important;\n    cursor: grab;\n}\n\n.mermaid-fullscreen-close {\n    position: fixed !important;\n    top: 20px !important;\n    right: 20px !important;\n    width: 40px;\n    height: 40px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.2);\n    border-radius: 50%;\n    cursor: pointer;\n    z-index: 10000;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);\n    transition: all 0.2s;\n    font-size: 24px;\n    line-height: 1;\n    color: #333;\n}\n\n.mermaid-fullscreen-close:hover {\n    background: white;\n    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-close.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.2);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-close.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal .mermaid-fullscreen-btn {\n    display: none !important;\n}";
+    document.head.appendChild(fullscreenStyle);
+}
+
+// Detect if page has dark background
+const isDarkTheme = () => {
+    // We use a set of heuristics:
+    // 1. Check for common dark mode classes or attributes
+    // 2. Check computed background color brightness
+    if (document.documentElement.classList.contains('dark') ||
+        document.documentElement.getAttribute('data-theme') === 'dark' ||
+        document.body.classList.contains('dark') ||
+        document.body.getAttribute('data-theme') === 'dark') {
+        // console.log("Dark theme detected via class/attribute");
+        return true;
+    }
+    if (document.documentElement.classList.contains('light') ||
+        document.documentElement.getAttribute('data-theme') === 'light' ||
+        document.body.classList.contains('light') ||
+        document.body.getAttribute('data-theme') === 'light') {
+        // console.log("Light theme detected via class/attribute");
+        return false;
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // console.log("Dark theme detected via prefers-color-scheme");
+        return true;
+    }
+    const bgColor = window.getComputedStyle(document.body).backgroundColor;
+    const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)/);
+    if (match) {
+        const r = parseInt(match[1]);
+        const g = parseInt(match[2]);
+        const b = parseInt(match[3]);
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        // console.log("Background color brightness:", brightness);
+        return brightness < 128;
+    }
+    // console.log("No dark or light theme detected, defaulting to light theme");
+    return false;
+};
+
+let darkTheme = isDarkTheme();
+let modal = null;
+let modalContent = null;
+let previousScrollOffset = [window.scrollX, window.scrollY];
+let _lazyObserver = null;
+let _renderQueue = Promise.resolve();
+let closeModal = () => {};
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('active')) {
+        closeModal();
+    }
+});
+
+// Apply d3 zoom to each SVG. Idempotent: an SVG already wrapped is skipped,
+// so this is safe to call both for the initial batch and for diagrams that
+// render lazily once they become visible.
+const addZoomToSvgs = (svgs) => {
+    svgs.each(function() {
+        if (this.getAttribute('data-zoom-applied') === 'true') return;
+        var svg = d3.select(this);
+        svg.html("<g class='wrapper'>" + svg.html() + "</g>");
+        var inner = svg.select("g");
+        var zoom = d3.zoom().on("zoom", function(event) {
+            inner.attr("transform", event.transform);
+        });
+        svg.call(zoom);
+        this.setAttribute('data-zoom-applied', 'true');
+    });
+};
+
+const runMermaid = async (rerun) => {
+    console.log("Running mermaid diagrams, rerun =", rerun);
+    // clear all existing mermaid charts
+    let all_mermaids = document.querySelectorAll(".mermaid");
+
+    if (rerun) {
+        // Disconnect any previous lazy rendering observer
+        if (_lazyObserver) {
+            _lazyObserver.disconnect();
+            _lazyObserver = null;
+        }
+
+        all_mermaids.forEach((el) => {
+            el.removeAttribute('data-mermaid-deferred');
+            el.removeAttribute('data-mermaid-render-failed');
+            if(!el.hasAttribute("data-original-code")) {
+                // store original code
+                // console.log(`Storing original code for first run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+            if(el.getAttribute("data-processed") === "true") {
+                // remove and restore original
+                el.removeAttribute("data-processed");
+                // console.log(`Restoring original code for re-run: `, el.getAttribute('data-original-code'));
+                el.innerHTML = el.getAttribute('data-original-code');
+            } else {
+                // store original code
+                // console.log(`Storing original code for re-run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+        });
+
+        // Separate visible and hidden elements. Mermaid's layout engine measures
+        // text dimensions via the DOM, which fails for elements hidden by a parent
+        // (e.g., Reveal.js non-active slides, sphinx-design unopened tabs),
+        // producing broken SVGs. Render visible elements now, defer hidden ones.
+        const visible = [];
+        const hidden = [];
+        all_mermaids.forEach((el) => {
+            // offsetParent is null for display:none ancestors.
+            // getClientRects().length > 0 catches position:fixed elements
+            // (which also have null offsetParent but are still visible).
+            if (el.offsetParent !== null || el.getClientRects().length > 0) {
+                visible.push(el);
+            } else {
+                hidden.push(el);
+                el.setAttribute('data-mermaid-deferred', 'true');
+            }
+        });
+
+        if (visible.length > 0) {
+            try {
+                await mermaid.run({ nodes: visible });
+            } catch (e) {
+                console.error("Mermaid rendering failed:", e);
+            }
+        }
+
+        // Lazily render hidden elements when they become visible.
+        // Uses a promise chain (_renderQueue) to serialize rendering,
+        // since IntersectionObserver may report multiple entries at once
+        // and mermaid.run() is not safe to call concurrently.
+        if (hidden.length > 0) {
+            if (typeof IntersectionObserver === 'undefined') {
+                console.warn("IntersectionObserver not available; hidden mermaid diagrams will not render.");
+            } else {
+                _renderQueue = Promise.resolve();
+                _lazyObserver = new IntersectionObserver((entries) => {
+                    for (const entry of entries) {
+                        if (entry.isIntersecting && entry.target.getAttribute("data-processed") !== "true") {
+                            _lazyObserver.unobserve(entry.target);
+                            const el = entry.target;
+                            _renderQueue = _renderQueue.then(async () => {
+                                try {
+                                    await mermaid.run({ nodes: [el] });
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    // Apply zoom to the now-rendered diagram, matching
+                                    // the decoration visible diagrams receive.
+                                    if (false) {
+                                        addZoomToSvgs(d3.selectAll("").select(function() {
+                                            return this.querySelector("svg");
+                                        }));
+                                    }
+                                } catch (e) {
+                                    console.error("Mermaid deferred rendering failed:", e);
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    el.setAttribute('data-mermaid-render-failed', 'true');
+                                }
+                            });
+                        }
+                    }
+                });
+                hidden.forEach((el) => _lazyObserver.observe(el));
+            }
+        }
+    }
+
+    all_mermaids = document.querySelectorAll(".mermaid");
+    // Exclude deferred (hidden) and render-failed elements from completion checks
+    const mermaids_active = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])");
+    const mermaids_processed = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])[data-processed='true']");
+
+    if (false) {
+        const mermaids_to_add_zoom = 0 === -1 ? mermaids_active.length : 0;
+        if(mermaids_to_add_zoom > 0) {
+            var svgs = d3.selectAll("").select(function() {
+                return this.querySelector("svg");
+            });
+            // Wait until every active (visible) diagram has rendered. Deferred
+            // diagrams are excluded, so a fixed d3_node_count that counts a
+            // hidden diagram no longer loops forever waiting for its SVG.
+            if(mermaids_active.length !== mermaids_processed.length) {
+                setTimeout(() => runMermaid(false), 200);
+                return;
+            }
+            addZoomToSvgs(svgs);
+        }
+    } else if(mermaids_active.length !== mermaids_processed.length) {
+        // Wait for mermaid to process all diagrams
+        setTimeout(() => runMermaid(false), 200);
+        return;
+    }
+
+    // Stop here if not adding fullscreen capability
+    if (!true) return;
+
+    if (modal !== null ) {
+        // Destroy existing modal
+        modal.remove();
+        modal = null;
+        modalContent = null;
+    }
+
+    modal = document.createElement('div');
+    modal.className = 'mermaid-fullscreen-modal' + (darkTheme ? ' dark-theme' : '');
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Fullscreen diagram viewer');
+    modal.innerHTML = `
+        <button class="mermaid-fullscreen-close${darkTheme ? ' dark-theme' : ''}" aria-label="Close fullscreen">✕</button>
+        <div class="mermaid-container-fullscreen${darkTheme ? ' dark-theme' : ''}"></div>
+    `;
+    document.body.appendChild(modal);
+
+    modalContent = modal.querySelector('.mermaid-container-fullscreen');
+    const closeBtn = modal.querySelector('.mermaid-fullscreen-close');
+
+    closeModal = () => {
+        modal.classList.remove('active');
+        modalContent.innerHTML = '';
+        document.body.style.overflow = ''
+        window.scrollTo({left: previousScrollOffset[0], top: previousScrollOffset[1], behavior: 'instant'});
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    document.querySelectorAll('.mermaid').forEach((mermaidDiv) => {
+        if (mermaidDiv.parentNode.classList.contains('mermaid-container') ||
+            mermaidDiv.closest('.mermaid-fullscreen-modal')) {
+            // Already processed, adjust button class if needed
+            const existingBtn = mermaidDiv.parentNode.querySelector('.mermaid-fullscreen-btn');
+            if (existingBtn) {
+                existingBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+            }
+            return;
+        }
+
+        const container = document.createElement('div');
+        container.className = 'mermaid-container';
+        mermaidDiv.parentNode.insertBefore(container, mermaidDiv);
+        container.appendChild(mermaidDiv);
+
+        const fullscreenBtn = document.createElement('button');
+        fullscreenBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+        fullscreenBtn.setAttribute('aria-label', 'View diagram in fullscreen');
+        fullscreenBtn.textContent = "\u26f6";
+        fullscreenBtn.style.opacity = "50%";
+
+        // Calculate dynamic position based on diagram's margin and padding
+        const diagramStyle = window.getComputedStyle(mermaidDiv);
+        const marginTop = parseFloat(diagramStyle.marginTop) || 0;
+        const marginRight = parseFloat(diagramStyle.marginRight) || 0;
+        const paddingTop = parseFloat(diagramStyle.paddingTop) || 0;
+        const paddingRight = parseFloat(diagramStyle.paddingRight) || 0;
+        fullscreenBtn.style.top = `${marginTop + paddingTop + 4}px`;
+        fullscreenBtn.style.right = `${marginRight + paddingRight + 4}px`;
+
+        fullscreenBtn.addEventListener('click', () => {
+            previousScrollOffset = [window.scrollX, window.scrollY];
+            const clone = mermaidDiv.cloneNode(true);
+            modalContent.innerHTML = '';
+            modalContent.appendChild(clone);
+
+            const svg = clone.querySelector('svg');
+            if (svg) {
+                svg.removeAttribute('width');
+                svg.removeAttribute('height');
+                svg.style.width = '100%';
+                svg.style.height = 'auto';
+                svg.style.maxWidth = '100%';
+                svg.style.display = 'block';
+
+                if (false) {
+                    setTimeout(() => {
+                        const g = svg.querySelector('g');
+                        if (g) {
+                            var svgD3 = d3.select(svg);
+                            svgD3.html("<g class='wrapper'>" + svgD3.html() + "</g>");
+                            var inner = svgD3.select("g");
+                            var zoom = d3.zoom().on("zoom", function(event) {
+                                inner.attr("transform", event.transform);
+                            });
+                            svgD3.call(zoom);
+                        }
+                    }, 100);
+                }
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        container.appendChild(fullscreenBtn);
+    });
+};
+
+
+
+const load = async () => {
+    initStyles();
+
+
+    await runMermaid(true);
+
+    const reRunIfThemeChanges = async () => {
+        const newDarkTheme = isDarkTheme();
+        if (newDarkTheme !== darkTheme) {
+            darkTheme = newDarkTheme;
+            console.log("Theme change detected, re-running mermaid with", darkTheme ? "dark" : "default", "theme");
+            await mermaid.initialize(
+                {...{"startOnLoad": false},
+                ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+                }
+            );
+            await runMermaid(true);
+        }
+    };
+
+    // Update theme classes when theme changes
+    const themeObserver = new MutationObserver(reRunIfThemeChanges);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+    themeObserver.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+};
+
+
+
+
+
+console.log("Initializing mermaid with", darkTheme ? "dark" : "default", "theme");
+mermaid.initialize(
+    {...{"startOnLoad": false},
+    ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+    }
+);
+
+window.addEventListener("load", load);
+window.runMermaid = runMermaid;</script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/floris/core/grid';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="python"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../_static/searchtools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../../search.html"
       method="get">
@@ -117,7 +479,6 @@ window.addEventListener("load", () => mermaid.run());
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -125,15 +486,55 @@ window.addEventListener("load", () => mermaid.run());
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
     </header>
   
 
@@ -144,7 +545,8 @@ window.addEventListener("load", () => mermaid.run());
       
         
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -174,21 +576,17 @@ window.addEventListener("load", () => mermaid.run());
     
     
     <img src="../../../_static/docs_image.png" class="logo__image only-light" alt="FLORIS - Home"/>
-    <script>document.write(`<img src="../../../_static/docs_image.png" class="logo__image only-dark" alt="FLORIS - Home"/>`);</script>
+    <img src="../../../_static/docs_image.png" class="logo__image only-dark pst-js-only" alt="FLORIS - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -415,7 +813,7 @@ window.addEventListener("load", () => mermaid.run());
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Turbine</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../examples/examples_turbine/001_check_turbine.html">Example: Check turbine power curves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/examples_turbine/001_reference_turbines.html">Example: Reference turbines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../examples/examples_turbine/002_multiple_turbine_types.html">Example: Multiple turbine types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../examples/examples_turbine/003_specify_turbine_power_curve.html">Example: Specify turbine power curve</a></li>
 </ul>
@@ -457,9 +855,14 @@ window.addEventListener("load", () => mermaid.run());
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -503,7 +906,7 @@ window.addEventListener("load", () => mermaid.run());
       
       
       
-      <li><a href="https://github.com/NREL/floris" target="_blank"
+      <li><a href="https://github.com/NatLabRockies/floris" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -520,7 +923,7 @@ window.addEventListener("load", () => mermaid.run());
       
       
       
-      <li><a href="https://github.com/NREL/floris/issues/new?title=Issue%20on%20page%20%2F_modules/floris/core/grid.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/NatLabRockies/floris/issues/new?title=Issue%20on%20page%20%2F_modules/floris/core/grid.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -541,7 +944,7 @@ window.addEventListener("load", () => mermaid.run());
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -555,24 +958,16 @@ window.addEventListener("load", () => mermaid.run());
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 
 </div></div>
       
@@ -599,10 +994,7 @@ document.write(`
                 <article class="bd-article">
                   
   <h1>Source code for floris.core.grid</h1><div class="highlight"><pre>
-<span></span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
-
-<span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Iterable</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">attrs</span>
@@ -626,7 +1018,7 @@ document.write(`
 <a class="viewcode-back" href="../../../_autosummary/floris.core.grid.html#floris.core.grid.Grid">[docs]</a>
 <span class="nd">@define</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Grid</span><span class="p">(</span><span class="n">ABC</span><span class="p">,</span> <span class="n">BaseClass</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Grid should establish domain bounds based on given criteria,</span>
 <span class="sd">    and develop three arrays to contain components of the grid</span>
 <span class="sd">    locations in space. This could be generalized to any number</span>
@@ -650,7 +1042,7 @@ document.write(`
 <span class="sd">        wind_directions (:py:obj:`NDArrayFloat`): Wind directions supplied by the user.</span>
 <span class="sd">        grid_resolution (:py:obj:`int` | :py:obj:`Iterable(int,)`): Grid resolution with values</span>
 <span class="sd">            specific to each grid type.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">turbine_coordinates</span><span class="p">:</span> <span class="n">NDArrayFloat</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">converter</span><span class="o">=</span><span class="n">floris_array_converter</span><span class="p">)</span>
     <span class="n">turbine_diameters</span><span class="p">:</span> <span class="n">NDArrayFloat</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">converter</span><span class="o">=</span><span class="n">floris_array_converter</span><span class="p">)</span>
     <span class="n">wind_directions</span><span class="p">:</span> <span class="n">NDArrayFloat</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">converter</span><span class="o">=</span><span class="n">floris_array_converter</span><span class="p">)</span>
@@ -670,15 +1062,15 @@ document.write(`
 <a class="viewcode-back" href="../../../_autosummary/floris.core.grid.html#floris.core.grid.Grid.check_coordinates">[docs]</a>
     <span class="nd">@turbine_coordinates</span><span class="o">.</span><span class="n">validator</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">check_coordinates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">:</span> <span class="n">attrs</span><span class="o">.</span><span class="n">Attribute</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Ensures all elements are Numpy arrays and keeps the `n_turbines`</span>
 <span class="sd">        attribute up to date.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">types</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">([</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">value</span><span class="p">])</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">types</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-                <span class="s2">&quot;&#39;turbine_coordinates&#39; must be `np.array` objects &quot;</span>
-                <span class="s2">&quot;with three components of type `float`.&quot;</span>
+                <span class="s2">"'turbine_coordinates' must be `np.array` objects "</span>
+                <span class="s2">"with three components of type `float`."</span>
             <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">n_turbines</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
@@ -688,35 +1080,28 @@ document.write(`
 <a class="viewcode-back" href="../../../_autosummary/floris.core.grid.html#floris.core.grid.Grid.wind_directions_validator">[docs]</a>
     <span class="nd">@wind_directions</span><span class="o">.</span><span class="n">validator</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">wind_directions_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">:</span> <span class="n">attrs</span><span class="o">.</span><span class="n">Attribute</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">NDArrayFloat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Using the validator method to keep the `n_findex` attribute up to date.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Using the validator method to keep the `n_findex` attribute up to date."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_findex</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">size</span></div>
 
 
-<div class="viewcode-block" id="Grid.grid_resolution_validator">
-<a class="viewcode-back" href="../../../_autosummary/floris.core.grid.html#floris.core.grid.Grid.grid_resolution_validator">[docs]</a>
-    <span class="nd">@grid_resolution</span><span class="o">.</span><span class="n">validator</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">grid_resolution_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">:</span> <span class="n">attrs</span><span class="o">.</span><span class="n">Attribute</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">Iterable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="c1"># TODO move this to the grid types and off of the base class</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check that grid resolution is given as appropriate for the chosen Grid-type.&quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> \
-            <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">(</span><span class="n">TurbineGrid</span><span class="p">,</span> <span class="n">TurbineCubatureGrid</span><span class="p">,</span> <span class="n">PointsGrid</span><span class="p">)):</span>
-            <span class="k">return</span>
-        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">FlowFieldPlanarGrid</span><span class="p">):</span>
-            <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">int</span>
-            <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">int</span>
-        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">FlowFieldGrid</span><span class="p">):</span>
-            <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">int</span>
-            <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">int</span>
-            <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">int</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;`grid_resolution` must be of type int or Iterable(int,)&quot;</span><span class="p">)</span></div>
+<div class="viewcode-block" id="Grid.z_sorted_validator">
+<a class="viewcode-back" href="../../../_autosummary/floris.core.grid.html#floris.core.grid.Grid.z_sorted_validator">[docs]</a>
+    <span class="nd">@z_sorted</span><span class="o">.</span><span class="n">validator</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">z_sorted_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">:</span> <span class="n">attrs</span><span class="o">.</span><span class="n">Attribute</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">NDArrayFloat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Check that the z coordinates are above the ground."""</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="s2">"Non-positive z coordinates detected. "</span>
+                <span class="s2">"This may cause issues with the flow model calculations. "</span>
+                <span class="s2">"To fix this, consider adjusting the z coordinates to be positive."</span>
+            <span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="Grid.set_grid">
 <a class="viewcode-back" href="../../../_autosummary/floris.core.grid.html#floris.core.grid.Grid.set_grid">[docs]</a>
     <span class="nd">@abstractmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">set_grid</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Grid.set_grid&quot;</span><span class="p">)</span></div>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Grid.set_grid"</span><span class="p">)</span></div>
 </div>
 
 
@@ -724,7 +1109,7 @@ document.write(`
 <a class="viewcode-back" href="../../../_autosummary/floris.core.grid.html#floris.core.grid.TurbineGrid">[docs]</a>
 <span class="nd">@define</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">TurbineGrid</span><span class="p">(</span><span class="n">Grid</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;See `Grid` for more details.</span>
+<span class="w">    </span><span class="sd">"""See `Grid` for more details.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        turbine_coordinates (:py:obj:`NDArrayFloat`): The arrays of turbine coordinates as Numpy</span>
@@ -734,22 +1119,25 @@ document.write(`
 <span class="sd">        grid_resolution (:py:obj:`int`): The number of points in each</span>
 <span class="sd">            direction of the square grid on the rotor plane. For example, grid_resolution=3</span>
 <span class="sd">            creates a 3x3 grid within the rotor swept area.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="c1"># TODO: describe these and the differences between `sorted_indices` and `sorted_coord_indices`</span>
     <span class="n">sorted_indices</span><span class="p">:</span> <span class="n">NDArrayInt</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">sorted_coord_indices</span><span class="p">:</span> <span class="n">NDArrayInt</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">unsorted_indices</span><span class="p">:</span> <span class="n">NDArrayInt</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">x_center_of_rotation</span><span class="p">:</span> <span class="n">NDArrayFloat</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">y_center_of_rotation</span><span class="p">:</span> <span class="n">NDArrayFloat</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">average_method</span> <span class="o">=</span> <span class="s2">&quot;cubic-mean&quot;</span>
+    <span class="n">average_method</span> <span class="o">=</span> <span class="s2">"cubic-mean"</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">__attrs_post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grid_resolution</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"grid_resolution must be of type 'int' for TurbineGrid"</span><span class="p">)</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">set_grid</span><span class="p">()</span>
 
 <div class="viewcode-block" id="TurbineGrid.set_grid">
 <a class="viewcode-back" href="../../../_autosummary/floris.core.grid.html#floris.core.grid.TurbineGrid.set_grid">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">set_grid</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Create grid points at each turbine for each wind direction and wind speed in the simulation.</span>
 <span class="sd">        This creates the underlying data structure for the calculation.</span>
 
@@ -789,7 +1177,7 @@ document.write(`
 
 <span class="sd">        In a y-z plane on the rotor swept area, the -2 dimension is a column of</span>
 <span class="sd">        points and the -1 dimension is the row number.</span>
-<span class="sd">        So the following line prints the 0&#39;th column of the the 0&#39;th turbine&#39;s grid:</span>
+<span class="sd">        So the following line prints the 0'th column of the the 0'th turbine's grid:</span>
 <span class="sd">        print(grid.y_sorted[0,0,0,0,:])</span>
 <span class="sd">        print(grid.z_sorted[0,0,0,0,:])</span>
 <span class="sd">        And this line prints a single point</span>
@@ -797,9 +1185,7 @@ document.write(`
 <span class="sd">        print(grid.z_sorted[0,0,0,0,0])</span>
 <span class="sd">        Note that the x coordinates are all the same for the rotor plane.</span>
 
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># TODO: Where should we locate the coordinate system? Currently, its at</span>
-        <span class="c1"># the foot of the turbine where the tower meets the ground.</span>
+<span class="sd">        """</span>
 
         <span class="c1"># These are the rotated coordinates of the wind turbines based on the wind direction</span>
         <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_center_of_rotation</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_center_of_rotation</span> <span class="o">=</span> <span class="n">rotate_coordinates_rel_west</span><span class="p">(</span>
@@ -882,7 +1268,7 @@ document.write(`
 <a class="viewcode-back" href="../../../_autosummary/floris.core.grid.html#floris.core.grid.TurbineCubatureGrid">[docs]</a>
 <span class="nd">@define</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">TurbineCubatureGrid</span><span class="p">(</span><span class="n">Grid</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    This grid type arranges points throughout the swept area of the rotor based on the cubature</span>
 <span class="sd">    of a unit circle. The number of points is set by the user, and then the location of the</span>
 <span class="sd">    points and their weighting in integration is automatically set. This type of grid</span>
@@ -897,22 +1283,25 @@ document.write(`
 <span class="sd">        grid_resolution (:py:obj:`int`): The number of points to</span>
 <span class="sd">            include in the cubature method. This value must be in the range [1, 10], and the</span>
 <span class="sd">            corresponding cubature weights are set automatically.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">sorted_indices</span><span class="p">:</span> <span class="n">NDArrayInt</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">sorted_coord_indices</span><span class="p">:</span> <span class="n">NDArrayInt</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">unsorted_indices</span><span class="p">:</span> <span class="n">NDArrayInt</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">x_center_of_rotation</span><span class="p">:</span> <span class="n">NDArrayFloat</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">y_center_of_rotation</span><span class="p">:</span> <span class="n">NDArrayFloat</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">average_method</span> <span class="o">=</span> <span class="s2">&quot;simple-cubature&quot;</span>
+    <span class="n">average_method</span> <span class="o">=</span> <span class="s2">"simple-cubature"</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">__attrs_post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grid_resolution</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"grid_resolution must be of type 'int' for TurbineCubatureGrid"</span><span class="p">)</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">set_grid</span><span class="p">()</span>
 
 <div class="viewcode-block" id="TurbineCubatureGrid.set_grid">
 <a class="viewcode-back" href="../../../_autosummary/floris.core.grid.html#floris.core.grid.TurbineCubatureGrid.set_grid">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">set_grid</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        """</span>
         <span class="c1"># These are the rotated coordinates of the wind turbines based on the wind direction</span>
         <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_center_of_rotation</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_center_of_rotation</span> <span class="o">=</span> <span class="n">rotate_coordinates_rel_west</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">wind_directions</span><span class="p">,</span>
@@ -923,13 +1312,13 @@ document.write(`
         <span class="n">cubature_coefficients</span> <span class="o">=</span> <span class="n">TurbineCubatureGrid</span><span class="o">.</span><span class="n">get_cubature_coefficients</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grid_resolution</span><span class="p">)</span>
 
         <span class="c1"># Generate grid points</span>
-        <span class="n">yv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">cubature_coefficients</span><span class="p">[</span><span class="s2">&quot;r&quot;</span><span class="p">],</span> <span class="n">cubature_coefficients</span><span class="p">[</span><span class="s2">&quot;q&quot;</span><span class="p">])</span>
-        <span class="n">zv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">cubature_coefficients</span><span class="p">[</span><span class="s2">&quot;r&quot;</span><span class="p">],</span> <span class="n">cubature_coefficients</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">])</span>
+        <span class="n">yv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">cubature_coefficients</span><span class="p">[</span><span class="s2">"r"</span><span class="p">],</span> <span class="n">cubature_coefficients</span><span class="p">[</span><span class="s2">"q"</span><span class="p">])</span>
+        <span class="n">zv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">cubature_coefficients</span><span class="p">[</span><span class="s2">"r"</span><span class="p">],</span> <span class="n">cubature_coefficients</span><span class="p">[</span><span class="s2">"t"</span><span class="p">])</span>
 
         <span class="c1"># Calculate weighting terms for the grid points</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cubature_weights</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">cubature_coefficients</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid_resolution</span><span class="p">)))</span>
-            <span class="o">*</span> <span class="n">cubature_coefficients</span><span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">cubature_coefficients</span><span class="p">[</span><span class="s2">"A"</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid_resolution</span><span class="p">)))</span>
+            <span class="o">*</span> <span class="n">cubature_coefficients</span><span class="p">[</span><span class="s2">"B"</span><span class="p">]</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
         <span class="p">)</span>
 
         <span class="c1"># Here, the coordinates are already rotated to the correct orientation for each</span>
@@ -989,7 +1378,7 @@ document.write(`
 <a class="viewcode-back" href="../../../_autosummary/floris.core.grid.html#floris.core.grid.TurbineCubatureGrid.get_cubature_coefficients">[docs]</a>
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_cubature_coefficients</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">N</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Retrieve cubature integration coefficients. This is a class-method, and therefore</span>
 <span class="sd">        the coefficients can be accessed without creating an instance of the class.</span>
 
@@ -999,12 +1388,12 @@ document.write(`
 
 <span class="sd">        Returns:</span>
 <span class="sd">            cubature_coefficients (dict): A dictionary containing the cubature</span>
-<span class="sd">            integration coefficients, &quot;r&quot;, &quot;t&quot;, &quot;q&quot;, &quot;A&quot; and &quot;B&quot;.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">            integration coefficients, "r", "t", "q", "A" and "B".</span>
+<span class="sd">        """</span>
 
         <span class="k">if</span> <span class="n">N</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">N</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;Order of cubature integration must be between &#39;1&#39; and &#39;10&#39;, given </span><span class="si">{</span><span class="n">N</span><span class="si">}</span><span class="s2">.&quot;</span>
+                <span class="sa">f</span><span class="s2">"Order of cubature integration must be between '1' and '10', given </span><span class="si">{</span><span class="n">N</span><span class="si">}</span><span class="s2">."</span>
             <span class="p">)</span>
 
         <span class="k">elif</span> <span class="n">N</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
@@ -1059,87 +1448,12 @@ document.write(`
             <span class="n">A</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">0.0592317212640472718785660</span><span class="p">,</span> <span class="mf">0.1196571676248416170103229</span><span class="p">,</span> <span class="mf">0.1422222222222222222222222</span><span class="p">,</span> <span class="mf">0.1196571676248416170103229</span><span class="p">,</span> <span class="mf">0.0592317212640472718785660</span><span class="p">,</span> <span class="mf">0.0592317212640472718785660</span><span class="p">,</span> <span class="mf">0.1196571676248416170103229</span><span class="p">,</span> <span class="mf">0.1422222222222222222222222</span><span class="p">,</span> <span class="mf">0.1196571676248416170103229</span><span class="p">,</span> <span class="mf">0.0592317212640472718785660</span><span class="p">]</span>  <span class="c1"># noqa: E501</span>
 
         <span class="k">return</span> <span class="p">{</span>
-            <span class="s2">&quot;r&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
-            <span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
-            <span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
-            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
-            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">N</span><span class="p">,</span>
+            <span class="s2">"r"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
+            <span class="s2">"t"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
+            <span class="s2">"q"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
+            <span class="s2">"A"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
+            <span class="s2">"B"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">N</span><span class="p">,</span>
         <span class="p">}</span></div>
-</div>
-
-
-<div class="viewcode-block" id="FlowFieldGrid">
-<a class="viewcode-back" href="../../../_autosummary/floris.core.grid.html#floris.core.grid.FlowFieldGrid">[docs]</a>
-<span class="nd">@define</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">FlowFieldGrid</span><span class="p">(</span><span class="n">Grid</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Args:</span>
-<span class="sd">        turbine_coordinates (:py:obj:`NDArrayFloat`): The arrays of turbine coordinates as Numpy</span>
-<span class="sd">            arrays with shape (N coordinates, 3).</span>
-<span class="sd">        turbine_diameters (:py:obj:`NDArrayFloat`): The rotor diameters of each turbine.</span>
-<span class="sd">        wind_directions (:py:obj:`NDArrayFloat`): Wind directions supplied by the user.</span>
-<span class="sd">        grid_resolution (:py:obj:`Iterable(int,)`): The number of grid points to create in each</span>
-<span class="sd">            planar direction. Must be 3 components for resolution in the x, y, and z directions.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">x_center_of_rotation</span><span class="p">:</span> <span class="n">NDArrayFloat</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">y_center_of_rotation</span><span class="p">:</span> <span class="n">NDArrayFloat</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">__attrs_post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">set_grid</span><span class="p">()</span>
-
-<div class="viewcode-block" id="FlowFieldGrid.set_grid">
-<a class="viewcode-back" href="../../../_autosummary/floris.core.grid.html#floris.core.grid.FlowFieldGrid.set_grid">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">set_grid</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Create a structured grid for the entire flow field domain.</span>
-
-<span class="sd">        Calculates the domain bounds for the current wake model. The bounds</span>
-<span class="sd">        are calculated based on preset extents from the</span>
-<span class="sd">        given layout. The bounds consist of the minimum and maximum values</span>
-<span class="sd">        in the x-, y-, and z-directions.</span>
-
-<span class="sd">        If the Curl model is used, the predefined bounds are always set.</span>
-
-<span class="sd">        First, sort the turbines so that we know the bounds in the correct orientation.</span>
-<span class="sd">        Then, create the grid based on this wind-from-left orientation</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="c1"># These are the rotated coordinates of the wind turbines based on the wind direction</span>
-        <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_center_of_rotation</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_center_of_rotation</span> <span class="o">=</span> <span class="n">rotate_coordinates_rel_west</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">wind_directions</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">turbine_coordinates</span>
-        <span class="p">)</span>
-
-        <span class="c1"># Construct the arrays storing the grid points</span>
-        <span class="n">eps</span> <span class="o">=</span> <span class="mf">0.01</span>
-        <span class="n">xmin</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">turbine_diameters</span>
-        <span class="n">xmax</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">turbine_diameters</span>
-        <span class="n">ymin</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">turbine_diameters</span>
-        <span class="n">ymax</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">turbine_diameters</span>
-        <span class="n">zmin</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">+</span> <span class="n">eps</span>
-        <span class="n">zmax</span> <span class="o">=</span> <span class="mi">6</span> <span class="o">*</span> <span class="nb">max</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
-
-        <span class="n">x_points</span><span class="p">,</span> <span class="n">y_points</span><span class="p">,</span> <span class="n">z_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grid_resolution</span><span class="p">[</span><span class="mi">0</span><span class="p">])),</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grid_resolution</span><span class="p">[</span><span class="mi">1</span><span class="p">])),</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">zmin</span><span class="p">,</span> <span class="n">zmax</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grid_resolution</span><span class="p">[</span><span class="mi">2</span><span class="p">])),</span>
-            <span class="n">indexing</span><span class="o">=</span><span class="s2">&quot;ij&quot;</span>
-        <span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">x_sorted</span> <span class="o">=</span> <span class="n">x_points</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">y_sorted</span> <span class="o">=</span> <span class="n">y_points</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">z_sorted</span> <span class="o">=</span> <span class="n">z_points</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span>
-
-        <span class="c1"># Now calculate grid coordinates in original frame (from 270 deg perspective)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">x_sorted_inertial_frame</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_sorted_inertial_frame</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z_sorted_inertial_frame</span> <span class="o">=</span> \
-            <span class="n">reverse_rotate_coordinates_rel_west</span><span class="p">(</span>
-                <span class="n">wind_directions</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">wind_directions</span><span class="p">,</span>
-                <span class="n">grid_x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">x_sorted</span><span class="p">,</span>
-                <span class="n">grid_y</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">y_sorted</span><span class="p">,</span>
-                <span class="n">grid_z</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">z_sorted</span><span class="p">,</span>
-                <span class="n">x_center_of_rotation</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">x_center_of_rotation</span><span class="p">,</span>
-                <span class="n">y_center_of_rotation</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">y_center_of_rotation</span><span class="p">,</span>
-            <span class="p">)</span></div>
 </div>
 
 
@@ -1147,7 +1461,7 @@ document.write(`
 <a class="viewcode-back" href="../../../_autosummary/floris.core.grid.html#floris.core.grid.FlowFieldPlanarGrid">[docs]</a>
 <span class="nd">@define</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">FlowFieldPlanarGrid</span><span class="p">(</span><span class="n">Grid</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Args:</span>
 <span class="sd">        turbine_coordinates (:py:obj:`NDArrayFloat`): The arrays of turbine coordinates as Numpy</span>
 <span class="sd">            arrays with shape (N coordinates, 3).</span>
@@ -1157,7 +1471,7 @@ document.write(`
 <span class="sd">            planar direction. Must be 2 components for resolution in the x and y directions.</span>
 <span class="sd">            The z direction is set to 3 planes at -10.0, 0.0, and +10.0 relative to the</span>
 <span class="sd">            `planar_coordinate`.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">normal_vector</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">()</span>
     <span class="n">planar_coordinate</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">field</span><span class="p">()</span>
     <span class="n">x1_bounds</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
@@ -1168,12 +1482,20 @@ document.write(`
     <span class="n">unsorted_indices</span><span class="p">:</span> <span class="n">NDArrayInt</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">__attrs_post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grid_resolution</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">)</span>
+            <span class="ow">or</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grid_resolution</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="ow">or</span> <span class="nb">any</span><span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid_resolution</span><span class="p">)</span>
+        <span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s2">"grid_resolution must be an Iterable of length 2 for FlowFieldPlanarGrid"</span>
+            <span class="p">)</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">set_grid</span><span class="p">()</span>
 
 <div class="viewcode-block" id="FlowFieldPlanarGrid.set_grid">
 <a class="viewcode-back" href="../../../_autosummary/floris.core.grid.html#floris.core.grid.FlowFieldPlanarGrid.set_grid">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">set_grid</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Create a structured grid for the entire flow field domain.</span>
 
 <span class="sd">        Calculates the domain bounds for the current wake model. The bounds</span>
@@ -1183,7 +1505,7 @@ document.write(`
 
 <span class="sd">        First, sort the turbines so that we know the bounds in the correct orientation.</span>
 <span class="sd">        Then, create the grid based on this wind-from-left orientation</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="c1"># These are the rotated coordinates of the wind turbines based on the wind direction</span>
         <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_center_of_rotation</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_center_of_rotation</span> <span class="o">=</span> <span class="n">rotate_coordinates_rel_west</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">wind_directions</span><span class="p">,</span>
@@ -1191,7 +1513,7 @@ document.write(`
         <span class="p">)</span>
         <span class="n">max_diameter</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">turbine_diameters</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">normal_vector</span> <span class="o">==</span> <span class="s2">&quot;z&quot;</span><span class="p">:</span>  <span class="c1"># Rules of thumb for horizontal plane</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">normal_vector</span> <span class="o">==</span> <span class="s2">"z"</span><span class="p">:</span>  <span class="c1"># Rules of thumb for horizontal plane</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">x1_bounds</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">x1_bounds</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">max_diameter</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">max_diameter</span><span class="p">)</span>
 
@@ -1207,14 +1529,14 @@ document.write(`
                     <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">planar_coordinate</span><span class="p">),</span>
                     <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">planar_coordinate</span><span class="p">)</span> <span class="o">+</span> <span class="mf">10.0</span>
                 <span class="p">]),</span>
-                <span class="n">indexing</span><span class="o">=</span><span class="s2">&quot;ij&quot;</span>
+                <span class="n">indexing</span><span class="o">=</span><span class="s2">"ij"</span>
             <span class="p">)</span>
 
             <span class="bp">self</span><span class="o">.</span><span class="n">x_sorted</span> <span class="o">=</span> <span class="n">x_points</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">y_sorted</span> <span class="o">=</span> <span class="n">y_points</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">z_sorted</span> <span class="o">=</span> <span class="n">z_points</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span>
 
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">normal_vector</span> <span class="o">==</span> <span class="s2">&quot;x&quot;</span><span class="p">:</span>  <span class="c1"># Rules of thumb for cross plane</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">normal_vector</span> <span class="o">==</span> <span class="s2">"x"</span><span class="p">:</span>  <span class="c1"># Rules of thumb for cross plane</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">x1_bounds</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">x1_bounds</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">max_diameter</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">max_diameter</span><span class="p">)</span>
 
@@ -1225,14 +1547,14 @@ document.write(`
                 <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">planar_coordinate</span><span class="p">)]),</span>
                 <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x1_bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">x1_bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grid_resolution</span><span class="p">[</span><span class="mi">0</span><span class="p">])),</span>
                 <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x2_bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">x2_bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grid_resolution</span><span class="p">[</span><span class="mi">1</span><span class="p">])),</span>
-                <span class="n">indexing</span><span class="o">=</span><span class="s2">&quot;ij&quot;</span>
+                <span class="n">indexing</span><span class="o">=</span><span class="s2">"ij"</span>
             <span class="p">)</span>
 
             <span class="bp">self</span><span class="o">.</span><span class="n">x_sorted</span> <span class="o">=</span> <span class="n">x_points</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">y_sorted</span> <span class="o">=</span> <span class="n">y_points</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">z_sorted</span> <span class="o">=</span> <span class="n">z_points</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span>
 
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">normal_vector</span> <span class="o">==</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span>  <span class="c1"># Rules of thumb for y plane</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">normal_vector</span> <span class="o">==</span> <span class="s2">"y"</span><span class="p">:</span>  <span class="c1"># Rules of thumb for y plane</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">x1_bounds</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">x1_bounds</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">max_diameter</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">max_diameter</span><span class="p">)</span>
 
@@ -1243,7 +1565,7 @@ document.write(`
                 <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x1_bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">x1_bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grid_resolution</span><span class="p">[</span><span class="mi">0</span><span class="p">])),</span>
                 <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">planar_coordinate</span><span class="p">)]),</span>
                 <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x2_bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">x2_bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grid_resolution</span><span class="p">[</span><span class="mi">1</span><span class="p">])),</span>
-                <span class="n">indexing</span><span class="o">=</span><span class="s2">&quot;ij&quot;</span>
+                <span class="n">indexing</span><span class="o">=</span><span class="s2">"ij"</span>
             <span class="p">)</span>
 
             <span class="bp">self</span><span class="o">.</span><span class="n">x_sorted</span> <span class="o">=</span> <span class="n">x_points</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span>
@@ -1267,7 +1589,7 @@ document.write(`
 <a class="viewcode-back" href="../../../_autosummary/floris.core.grid.html#floris.core.grid.PointsGrid">[docs]</a>
 <span class="nd">@define</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">PointsGrid</span><span class="p">(</span><span class="n">Grid</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Args:</span>
 <span class="sd">        turbine_coordinates (:py:obj:`NDArrayFloat`): Not used for PointsGrid, but</span>
 <span class="sd">            required for the `Grid` super-class.</span>
@@ -1288,7 +1610,7 @@ document.write(`
 <span class="sd">            farm or area of interest. The PointsGrid will be rotated around this center</span>
 <span class="sd">            of rotation to account for wind direction changes. If not supplied, the center</span>
 <span class="sd">            of rotation will be the centroid of the points in the PointsGrid.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">points_x</span><span class="p">:</span> <span class="n">NDArrayFloat</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">converter</span><span class="o">=</span><span class="n">floris_array_converter</span><span class="p">)</span>
     <span class="n">points_y</span><span class="p">:</span> <span class="n">NDArrayFloat</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">converter</span><span class="o">=</span><span class="n">floris_array_converter</span><span class="p">)</span>
     <span class="n">points_z</span><span class="p">:</span> <span class="n">NDArrayFloat</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">converter</span><span class="o">=</span><span class="n">floris_array_converter</span><span class="p">)</span>
@@ -1296,14 +1618,17 @@ document.write(`
     <span class="n">y_center_of_rotation</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">__attrs_post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grid_resolution</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"grid_resolution must be of type 'int' for PointsGrid"</span><span class="p">)</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">set_grid</span><span class="p">()</span>
 
 <div class="viewcode-block" id="PointsGrid.set_grid">
 <a class="viewcode-back" href="../../../_autosummary/floris.core.grid.html#floris.core.grid.PointsGrid.set_grid">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">set_grid</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Set points for calculation based on a series of user-supplied coordinates.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">point_coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">points_x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">points_y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">points_z</span><span class="p">)))</span>
 
         <span class="c1"># These are the rotated coordinates of the wind turbines based on the wind direction</span>
@@ -1346,7 +1671,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By National Renewable Energy Laboratory
+By National Laboratory of the Rockies
 </p>
 
   </div>
@@ -1356,7 +1681,7 @@ By National Renewable Energy Laboratory
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>
@@ -1380,8 +1705,8 @@ By National Renewable Energy Laboratory
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

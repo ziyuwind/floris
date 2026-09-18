@@ -16,47 +16,56 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="_static/documentation_options.js?v=30a733bc"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-JV2SK7CNPR"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
                 gtag('js', new Date());
                 gtag('config', 'G-JV2SK7CNPR');
             </script>
@@ -66,55 +75,408 @@
     <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
                 gtag('js', new Date());
                 gtag('config', 'G-JV2SK7CNPR');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@10.8/dist/mermaid.esm.min.mjs"></script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
-    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10.8/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
-    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
-    <script type="module">
-import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10.8/dist/mermaid.esm.min.mjs";
-window.addEventListener("load", () => mermaid.run());
-</script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10.8/dist/mermaid.esm.min.mjs";
+
+
+
+
+
+const initStyles = () => {
+    const defaultStyle = document.createElement('style');
+    defaultStyle.textContent = "pre.mermaid {\n    /* Same as .mermaid-container > pre */\n    display: block;\n    width: 100%;\n}\n\npre.mermaid > svg {\n    /* Same as .mermaid-container > pre > svg */\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}";
+    document.head.appendChild(defaultStyle);
+
+    const fullscreenStyle = document.createElement('style');
+    fullscreenStyle.textContent = ".mermaid-container {\n    position: relative;\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.mermaid-container > pre {\n    display: block;\n    width: 100%;\n}\n\n.mermaid-container > pre > svg {\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}\n\n.mermaid-fullscreen-btn {\n    position: absolute;\n    width: 28px;\n    height: 28px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.3);\n    border-radius: 4px;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    transition: all 0.2s;\n    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);\n    font-size: 14px;\n    line-height: 1;\n    padding: 0;\n    color: #333;\n}\n\n.mermaid-fullscreen-btn:hover {\n    opacity: 100% !important;\n    background: rgba(255, 255, 255, 1);\n    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-btn.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.3);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-btn.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal {\n    display: none;\n    position: fixed !important;\n    top: 0 !important;\n    left: 0 !important;\n    width: 95vw;\n    height: 100vh;\n    background: rgba(255, 255, 255, 0.98);\n    z-index: 9999;\n    padding: 20px;\n    overflow: auto;\n}\n\n.mermaid-fullscreen-modal.dark-theme {\n    background: rgba(0, 0, 0, 0.98);\n}\n\n.mermaid-fullscreen-modal.active {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen {\n    position: relative;\n    width: 95vw;\n    height: 90vh;\n    max-width: 95vw;\n    max-height: 90vh;\n    background: white;\n    border-radius: 8px;\n    padding: 20px;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);\n    overflow: auto;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen.dark-theme {\n    background: #1a1a1a;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);\n}\n\n.mermaid-container-fullscreen pre.mermaid {\n    width: 100%;\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen .mermaid svg {\n    height: 100% !important;\n    width: 100% !important;\n    cursor: grab;\n}\n\n.mermaid-fullscreen-close {\n    position: fixed !important;\n    top: 20px !important;\n    right: 20px !important;\n    width: 40px;\n    height: 40px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.2);\n    border-radius: 50%;\n    cursor: pointer;\n    z-index: 10000;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);\n    transition: all 0.2s;\n    font-size: 24px;\n    line-height: 1;\n    color: #333;\n}\n\n.mermaid-fullscreen-close:hover {\n    background: white;\n    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-close.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.2);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-close.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal .mermaid-fullscreen-btn {\n    display: none !important;\n}";
+    document.head.appendChild(fullscreenStyle);
+}
+
+// Detect if page has dark background
+const isDarkTheme = () => {
+    // We use a set of heuristics:
+    // 1. Check for common dark mode classes or attributes
+    // 2. Check computed background color brightness
+    if (document.documentElement.classList.contains('dark') ||
+        document.documentElement.getAttribute('data-theme') === 'dark' ||
+        document.body.classList.contains('dark') ||
+        document.body.getAttribute('data-theme') === 'dark') {
+        // console.log("Dark theme detected via class/attribute");
+        return true;
+    }
+    if (document.documentElement.classList.contains('light') ||
+        document.documentElement.getAttribute('data-theme') === 'light' ||
+        document.body.classList.contains('light') ||
+        document.body.getAttribute('data-theme') === 'light') {
+        // console.log("Light theme detected via class/attribute");
+        return false;
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // console.log("Dark theme detected via prefers-color-scheme");
+        return true;
+    }
+    const bgColor = window.getComputedStyle(document.body).backgroundColor;
+    const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)/);
+    if (match) {
+        const r = parseInt(match[1]);
+        const g = parseInt(match[2]);
+        const b = parseInt(match[3]);
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        // console.log("Background color brightness:", brightness);
+        return brightness < 128;
+    }
+    // console.log("No dark or light theme detected, defaulting to light theme");
+    return false;
+};
+
+let darkTheme = isDarkTheme();
+let modal = null;
+let modalContent = null;
+let previousScrollOffset = [window.scrollX, window.scrollY];
+let _lazyObserver = null;
+let _renderQueue = Promise.resolve();
+let closeModal = () => {};
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('active')) {
+        closeModal();
+    }
+});
+
+// Apply d3 zoom to each SVG. Idempotent: an SVG already wrapped is skipped,
+// so this is safe to call both for the initial batch and for diagrams that
+// render lazily once they become visible.
+const addZoomToSvgs = (svgs) => {
+    svgs.each(function() {
+        if (this.getAttribute('data-zoom-applied') === 'true') return;
+        var svg = d3.select(this);
+        svg.html("<g class='wrapper'>" + svg.html() + "</g>");
+        var inner = svg.select("g");
+        var zoom = d3.zoom().on("zoom", function(event) {
+            inner.attr("transform", event.transform);
+        });
+        svg.call(zoom);
+        this.setAttribute('data-zoom-applied', 'true');
+    });
+};
+
+const runMermaid = async (rerun) => {
+    console.log("Running mermaid diagrams, rerun =", rerun);
+    // clear all existing mermaid charts
+    let all_mermaids = document.querySelectorAll(".mermaid");
+
+    if (rerun) {
+        // Disconnect any previous lazy rendering observer
+        if (_lazyObserver) {
+            _lazyObserver.disconnect();
+            _lazyObserver = null;
+        }
+
+        all_mermaids.forEach((el) => {
+            el.removeAttribute('data-mermaid-deferred');
+            el.removeAttribute('data-mermaid-render-failed');
+            if(!el.hasAttribute("data-original-code")) {
+                // store original code
+                // console.log(`Storing original code for first run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+            if(el.getAttribute("data-processed") === "true") {
+                // remove and restore original
+                el.removeAttribute("data-processed");
+                // console.log(`Restoring original code for re-run: `, el.getAttribute('data-original-code'));
+                el.innerHTML = el.getAttribute('data-original-code');
+            } else {
+                // store original code
+                // console.log(`Storing original code for re-run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+        });
+
+        // Separate visible and hidden elements. Mermaid's layout engine measures
+        // text dimensions via the DOM, which fails for elements hidden by a parent
+        // (e.g., Reveal.js non-active slides, sphinx-design unopened tabs),
+        // producing broken SVGs. Render visible elements now, defer hidden ones.
+        const visible = [];
+        const hidden = [];
+        all_mermaids.forEach((el) => {
+            // offsetParent is null for display:none ancestors.
+            // getClientRects().length > 0 catches position:fixed elements
+            // (which also have null offsetParent but are still visible).
+            if (el.offsetParent !== null || el.getClientRects().length > 0) {
+                visible.push(el);
+            } else {
+                hidden.push(el);
+                el.setAttribute('data-mermaid-deferred', 'true');
+            }
+        });
+
+        if (visible.length > 0) {
+            try {
+                await mermaid.run({ nodes: visible });
+            } catch (e) {
+                console.error("Mermaid rendering failed:", e);
+            }
+        }
+
+        // Lazily render hidden elements when they become visible.
+        // Uses a promise chain (_renderQueue) to serialize rendering,
+        // since IntersectionObserver may report multiple entries at once
+        // and mermaid.run() is not safe to call concurrently.
+        if (hidden.length > 0) {
+            if (typeof IntersectionObserver === 'undefined') {
+                console.warn("IntersectionObserver not available; hidden mermaid diagrams will not render.");
+            } else {
+                _renderQueue = Promise.resolve();
+                _lazyObserver = new IntersectionObserver((entries) => {
+                    for (const entry of entries) {
+                        if (entry.isIntersecting && entry.target.getAttribute("data-processed") !== "true") {
+                            _lazyObserver.unobserve(entry.target);
+                            const el = entry.target;
+                            _renderQueue = _renderQueue.then(async () => {
+                                try {
+                                    await mermaid.run({ nodes: [el] });
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    // Apply zoom to the now-rendered diagram, matching
+                                    // the decoration visible diagrams receive.
+                                    if (false) {
+                                        addZoomToSvgs(d3.selectAll("").select(function() {
+                                            return this.querySelector("svg");
+                                        }));
+                                    }
+                                } catch (e) {
+                                    console.error("Mermaid deferred rendering failed:", e);
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    el.setAttribute('data-mermaid-render-failed', 'true');
+                                }
+                            });
+                        }
+                    }
+                });
+                hidden.forEach((el) => _lazyObserver.observe(el));
+            }
+        }
+    }
+
+    all_mermaids = document.querySelectorAll(".mermaid");
+    // Exclude deferred (hidden) and render-failed elements from completion checks
+    const mermaids_active = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])");
+    const mermaids_processed = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])[data-processed='true']");
+
+    if (false) {
+        const mermaids_to_add_zoom = 0 === -1 ? mermaids_active.length : 0;
+        if(mermaids_to_add_zoom > 0) {
+            var svgs = d3.selectAll("").select(function() {
+                return this.querySelector("svg");
+            });
+            // Wait until every active (visible) diagram has rendered. Deferred
+            // diagrams are excluded, so a fixed d3_node_count that counts a
+            // hidden diagram no longer loops forever waiting for its SVG.
+            if(mermaids_active.length !== mermaids_processed.length) {
+                setTimeout(() => runMermaid(false), 200);
+                return;
+            }
+            addZoomToSvgs(svgs);
+        }
+    } else if(mermaids_active.length !== mermaids_processed.length) {
+        // Wait for mermaid to process all diagrams
+        setTimeout(() => runMermaid(false), 200);
+        return;
+    }
+
+    // Stop here if not adding fullscreen capability
+    if (!true) return;
+
+    if (modal !== null ) {
+        // Destroy existing modal
+        modal.remove();
+        modal = null;
+        modalContent = null;
+    }
+
+    modal = document.createElement('div');
+    modal.className = 'mermaid-fullscreen-modal' + (darkTheme ? ' dark-theme' : '');
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Fullscreen diagram viewer');
+    modal.innerHTML = `
+        <button class="mermaid-fullscreen-close${darkTheme ? ' dark-theme' : ''}" aria-label="Close fullscreen">✕</button>
+        <div class="mermaid-container-fullscreen${darkTheme ? ' dark-theme' : ''}"></div>
+    `;
+    document.body.appendChild(modal);
+
+    modalContent = modal.querySelector('.mermaid-container-fullscreen');
+    const closeBtn = modal.querySelector('.mermaid-fullscreen-close');
+
+    closeModal = () => {
+        modal.classList.remove('active');
+        modalContent.innerHTML = '';
+        document.body.style.overflow = ''
+        window.scrollTo({left: previousScrollOffset[0], top: previousScrollOffset[1], behavior: 'instant'});
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    document.querySelectorAll('.mermaid').forEach((mermaidDiv) => {
+        if (mermaidDiv.parentNode.classList.contains('mermaid-container') ||
+            mermaidDiv.closest('.mermaid-fullscreen-modal')) {
+            // Already processed, adjust button class if needed
+            const existingBtn = mermaidDiv.parentNode.querySelector('.mermaid-fullscreen-btn');
+            if (existingBtn) {
+                existingBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+            }
+            return;
+        }
+
+        const container = document.createElement('div');
+        container.className = 'mermaid-container';
+        mermaidDiv.parentNode.insertBefore(container, mermaidDiv);
+        container.appendChild(mermaidDiv);
+
+        const fullscreenBtn = document.createElement('button');
+        fullscreenBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+        fullscreenBtn.setAttribute('aria-label', 'View diagram in fullscreen');
+        fullscreenBtn.textContent = "\u26f6";
+        fullscreenBtn.style.opacity = "50%";
+
+        // Calculate dynamic position based on diagram's margin and padding
+        const diagramStyle = window.getComputedStyle(mermaidDiv);
+        const marginTop = parseFloat(diagramStyle.marginTop) || 0;
+        const marginRight = parseFloat(diagramStyle.marginRight) || 0;
+        const paddingTop = parseFloat(diagramStyle.paddingTop) || 0;
+        const paddingRight = parseFloat(diagramStyle.paddingRight) || 0;
+        fullscreenBtn.style.top = `${marginTop + paddingTop + 4}px`;
+        fullscreenBtn.style.right = `${marginRight + paddingRight + 4}px`;
+
+        fullscreenBtn.addEventListener('click', () => {
+            previousScrollOffset = [window.scrollX, window.scrollY];
+            const clone = mermaidDiv.cloneNode(true);
+            modalContent.innerHTML = '';
+            modalContent.appendChild(clone);
+
+            const svg = clone.querySelector('svg');
+            if (svg) {
+                svg.removeAttribute('width');
+                svg.removeAttribute('height');
+                svg.style.width = '100%';
+                svg.style.height = 'auto';
+                svg.style.maxWidth = '100%';
+                svg.style.display = 'block';
+
+                if (false) {
+                    setTimeout(() => {
+                        const g = svg.querySelector('g');
+                        if (g) {
+                            var svgD3 = d3.select(svg);
+                            svgD3.html("<g class='wrapper'>" + svgD3.html() + "</g>");
+                            var inner = svgD3.select("g");
+                            var zoom = d3.zoom().on("zoom", function(event) {
+                                inner.attr("transform", event.transform);
+                            });
+                            svgD3.call(zoom);
+                        }
+                    }, 100);
+                }
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        container.appendChild(fullscreenBtn);
+    });
+};
+
+
+
+const load = async () => {
+    initStyles();
+
+
+    await runMermaid(true);
+
+    const reRunIfThemeChanges = async () => {
+        const newDarkTheme = isDarkTheme();
+        if (newDarkTheme !== darkTheme) {
+            darkTheme = newDarkTheme;
+            console.log("Theme change detected, re-running mermaid with", darkTheme ? "dark" : "default", "theme");
+            await mermaid.initialize(
+                {...{"startOnLoad": false},
+                ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+                }
+            );
+            await runMermaid(true);
+        }
+    };
+
+    // Update theme classes when theme changes
+    const themeObserver = new MutationObserver(reRunIfThemeChanges);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+    themeObserver.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+};
+
+
+
+
+
+console.log("Initializing mermaid with", darkTheme ? "dark" : "default", "theme");
+mermaid.initialize(
+    {...{"startOnLoad": false},
+    ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+    }
+);
+
+window.addEventListener("load", load);
+window.runMermaid = runMermaid;</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'wake_models';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Empirical Gaussian model" href="empirical_gauss_model.html" />
     <link rel="prev" title="Layout Optimization" href="layout_optimization.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="python"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -122,7 +484,6 @@ window.addEventListener("load", () => mermaid.run());
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -130,15 +491,59 @@ window.addEventListener("load", () => mermaid.run());
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -147,7 +552,8 @@ window.addEventListener("load", () => mermaid.run());
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -177,21 +583,17 @@ window.addEventListener("load", () => mermaid.run());
     
     
     <img src="_static/docs_image.png" class="logo__image only-light" alt="FLORIS - Home"/>
-    <script>document.write(`<img src="_static/docs_image.png" class="logo__image only-dark" alt="FLORIS - Home"/>`);</script>
+    <img src="_static/docs_image.png" class="logo__image only-dark pst-js-only" alt="FLORIS - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -418,7 +820,7 @@ window.addEventListener("load", () => mermaid.run());
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Turbine</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="examples/examples_turbine/001_check_turbine.html">Example: Check turbine power curves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples_turbine/001_reference_turbines.html">Example: Reference turbines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/examples_turbine/002_multiple_turbine_types.html">Example: Multiple turbine types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/examples_turbine/003_specify_turbine_power_curve.html">Example: Specify turbine power curve</a></li>
 </ul>
@@ -460,9 +862,14 @@ window.addEventListener("load", () => mermaid.run());
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -506,7 +913,7 @@ window.addEventListener("load", () => mermaid.run());
       
       
       
-      <li><a href="https://github.com/NREL/floris" target="_blank"
+      <li><a href="https://github.com/NatLabRockies/floris" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -523,7 +930,7 @@ window.addEventListener("load", () => mermaid.run());
       
       
       
-      <li><a href="https://github.com/NREL/floris/edit/main/docs/wake_models.ipynb" target="_blank"
+      <li><a href="https://github.com/NatLabRockies/floris/edit/main/docs/wake_models.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -540,7 +947,7 @@ window.addEventListener("load", () => mermaid.run());
       
       
       
-      <li><a href="https://github.com/NREL/floris/issues/new?title=Issue%20on%20page%20%2Fwake_models.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/NatLabRockies/floris/issues/new?title=Issue%20on%20page%20%2Fwake_models.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -609,7 +1016,7 @@ window.addEventListener("load", () => mermaid.run());
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -623,25 +1030,17 @@ window.addEventListener("load", () => mermaid.run());
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -663,7 +1062,7 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jensen-and-jimenez">Jensen and Jimenez</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gauss-and-gch">Gauss and GCH</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-gaussian">Empirical Gaussian</a></li>
@@ -758,39 +1157,39 @@ in the corresponding input files found in the source code dropdowns.</p>
 <section id="jensen-and-jimenez">
 <h2>Jensen and Jimenez<a class="headerlink" href="#jensen-and-jimenez" title="Link to this heading">#</a></h2>
 <p>The Jensen model computes the wake velocity deficit based on the classic Jensen/Park model
-<span id="id1">Jensen [<a class="reference internal" href="bibliography.html#id19" title="Niels Otto Jensen. A note on wind generator interaction. Risø National Laboratory, 1983.">8</a>]</span>. It is often refered to as a &quot;top-hat&quot; model because the spanwise
+<span class="bibtex-citation" id="id1">Jensen [<a class="reference internal" href="bibliography.html#id19" title="Niels Otto Jensen. A note on wind generator interaction. Risø National Laboratory, 1983.">9</a>]</span>. It is often refered to as a &quot;top-hat&quot; model because the spanwise
 velocity profile is constant across the wake and abruptly jumps to freestream outside of the
 wake boundary line. The slope of the wake boundary line, or wake expansion, is a user parameter.</p>
-<p>The Jiménez wake deflection model is derived from <span id="id2">Jiménez <em>et al.</em> [<a class="reference internal" href="bibliography.html#id18" title="Ángel Jiménez, Antonio Crespo, and Emilio Migoya. Application of a les technique to characterize the wake deflection of a wind turbine in yaw. Wind energy, 13(6):559–572, 2010.">9</a>]</span>.</p>
+<p>The Jiménez wake deflection model is derived from <span class="bibtex-citation" id="id2">Jiménez <em>et al.</em> [<a class="reference internal" href="bibliography.html#id18" title="Ángel Jiménez, Antonio Crespo, and Emilio Migoya. Application of a les technique to characterize the wake deflection of a wind turbine in yaw. Wind energy, 13(6):559–572, 2010.">10</a>]</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_plot</span><span class="p">(</span><span class="s2">&quot;../examples/inputs/jensen.yaml&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_plot</span><span class="p">(</span><span class="s2">"../examples/inputs/jensen.yaml"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8295133df61af02aca426e236c0fcde2cdbb6b3061b6c8004b945d9f410e52e5.png" src="_images/8295133df61af02aca426e236c0fcde2cdbb6b3061b6c8004b945d9f410e52e5.png" />
+<img alt="_images/2f1768d69cb39bd6ef5adaf00000cb7908cc81450b383eeda33933639fea0252.png" src="_images/2f1768d69cb39bd6ef5adaf00000cb7908cc81450b383eeda33933639fea0252.png" />
 </div>
 </div>
 </section>
 <section id="gauss-and-gch">
 <h2>Gauss and GCH<a class="headerlink" href="#gauss-and-gch" title="Link to this heading">#</a></h2>
-<p>The Gaussian velocity model is implemented based on <span id="id3">Bastankhah and Porté-Agel [<a class="reference internal" href="bibliography.html#id4" title="Majid Bastankhah and Fernando Porté-Agel. Experimental and theoretical study of wind turbine wakes in yawed conditions. Journal of Fluid Mechanics, 806:506–541, 2016.">10</a>]</span> and
-<span id="id4">Niayifar and Porté-Agel [<a class="reference internal" href="bibliography.html#id5" title="Amin Niayifar and Fernando Porté-Agel. Analytical modeling of wind farms: a new approach for power prediction. Energies, 9(9):741, 2016.">11</a>]</span>. This model represents the velocity deficity as a gaussian
+<p>The Gaussian velocity model is implemented based on <span class="bibtex-citation" id="id3">Bastankhah and Porté-Agel [<a class="reference internal" href="bibliography.html#id4" title="Majid Bastankhah and Fernando Porté-Agel. Experimental and theoretical study of wind turbine wakes in yawed conditions. Journal of Fluid Mechanics, 806:506–541, 2016.">11</a>]</span> and
+<span class="bibtex-citation" id="id4">Niayifar and Porté-Agel [<a class="reference internal" href="bibliography.html#id5" title="Amin Niayifar and Fernando Porté-Agel. Analytical modeling of wind farms: a new approach for power prediction. Energies, 9(9):741, 2016.">12</a>]</span>. This model represents the velocity deficity as a gaussian
 distribution in the spanwise direction, and the gaussian profile is controlled by user parameters.
 There is a near wake zone and a far wake zone. Both maintain the gaussian profile in the spanwise
 direction, but they have different models for wake recovery.</p>
 <p>The Gauss deflection model is a blend of the models described in
-<span id="id5">Bastankhah and Porté-Agel [<a class="reference internal" href="bibliography.html#id4" title="Majid Bastankhah and Fernando Porté-Agel. Experimental and theoretical study of wind turbine wakes in yawed conditions. Journal of Fluid Mechanics, 806:506–541, 2016.">10</a>]</span> and <span id="id6">King <em>et al.</em> [<a class="reference internal" href="bibliography.html#id17" title="Jennifer King, Paul Fleming, Ryan King, and Luis A. Martinez-Tossas. Controls-oriented model to capture secondary effects of wake steering. Submitted to Wind Energy Science, 2019.">12</a>]</span> for calculating
+<span class="bibtex-citation" id="id5">Bastankhah and Porté-Agel [<a class="reference internal" href="bibliography.html#id4" title="Majid Bastankhah and Fernando Porté-Agel. Experimental and theoretical study of wind turbine wakes in yawed conditions. Journal of Fluid Mechanics, 806:506–541, 2016.">11</a>]</span> and <span class="bibtex-citation" id="id6">King <em>et al.</em> [<a class="reference internal" href="bibliography.html#id17" title="Jennifer King, Paul Fleming, Ryan King, and Luis A. Martinez-Tossas. Controls-oriented model to capture secondary effects of wake steering. Submitted to Wind Energy Science, 2019.">13</a>]</span> for calculating
 the deflection field in turbine wakes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_plot</span><span class="p">(</span><span class="s2">&quot;../examples/inputs/gch.yaml&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_plot</span><span class="p">(</span><span class="s2">"../examples/inputs/gch.yaml"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/dea9127f749b5f2ab0ba176149533f49541f9bf61dc29d0e5c820f4b7c1a0021.png" src="_images/dea9127f749b5f2ab0ba176149533f49541f9bf61dc29d0e5c820f4b7c1a0021.png" />
+<img alt="_images/2e9291356691a83ba3f72fea3bb63412875ca155635cdd8f8fc00bd1c34f8130.png" src="_images/2e9291356691a83ba3f72fea3bb63412875ca155635cdd8f8fc00bd1c34f8130.png" />
 </div>
 </div>
 </section>
@@ -802,45 +1201,45 @@ simpler tuning and data fitting.</p>
 <p>For more information, see <a class="reference internal" href="empirical_gauss_model.html#empirical-gauss-model"><span class="std std-ref">Empirical Gaussian model</span></a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_plot</span><span class="p">(</span><span class="s2">&quot;../examples/inputs/emgauss.yaml&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_plot</span><span class="p">(</span><span class="s2">"../examples/inputs/emgauss.yaml"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5dfc9ede9df70b44f380ee8a36fa9a750aa9ea3829454b8ce7f3f0ec207673fa.png" src="_images/5dfc9ede9df70b44f380ee8a36fa9a750aa9ea3829454b8ce7f3f0ec207673fa.png" />
+<img alt="_images/c6d64a311916239024f29e3fac817784d4d9d99b183c068269e2ee6e47dd273e.png" src="_images/c6d64a311916239024f29e3fac817784d4d9d99b183c068269e2ee6e47dd273e.png" />
 </div>
 </div>
 </section>
 <section id="cumulative-curl">
 <h2>Cumulative Curl<a class="headerlink" href="#cumulative-curl" title="Link to this heading">#</a></h2>
-<p>The cumulative curl model is an implementation of the model described in <span id="id7">Bay <em>et al.</em> [<a class="reference internal" href="bibliography.html#id27" title="C. J. Bay, P. Fleming, B. Doekemeijer, J. King, M. Churchfield, and R. Mudafort. Addressing deep array effects and impacts to wake steering with the cumulative-curl wake model. Wind Energy Science Discussions, 2022:1–28, 2022. URL: https://wes.copernicus.org/preprints/wes-2022-17/, doi:10.5194/wes-2022-17.">13</a>]</span>,
-which itself is based on the cumulative model of <span id="id8">Bastankhah <em>et al.</em> [<a class="reference internal" href="bibliography.html#id26" title="Majid Bastankhah, Bridget L. Welch, Luis A. Martínez-Tossas, Jennifer King, and Paul Fleming. Analytical solution for the cumulative wake of wind turbines in wind farms. Journal of Fluid Mechanics, 911:A53, 2021. doi:10.1017/jfm.2020.1037.">14</a>]</span></p>
+<p>The cumulative curl model is an implementation of the model described in <span class="bibtex-citation" id="id7">Bay <em>et al.</em> [<a class="reference internal" href="bibliography.html#id27" title="C. J. Bay, P. Fleming, B. Doekemeijer, J. King, M. Churchfield, and R. Mudafort. Addressing deep array effects and impacts to wake steering with the cumulative-curl wake model. Wind Energy Science Discussions, 2022:1–28, 2022. URL: https://wes.copernicus.org/preprints/wes-2022-17/, doi:10.5194/wes-2022-17.">14</a>]</span>,
+which itself is based on the cumulative model of <span class="bibtex-citation" id="id8">Bastankhah <em>et al.</em> [<a class="reference internal" href="bibliography.html#id26" title="Majid Bastankhah, Bridget L. Welch, Luis A. Martínez-Tossas, Jennifer King, and Paul Fleming. Analytical solution for the cumulative wake of wind turbines in wind farms. Journal of Fluid Mechanics, 911:A53, 2021. doi:10.1017/jfm.2020.1037.">15</a>]</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_plot</span><span class="p">(</span><span class="s2">&quot;../examples/inputs/cc.yaml&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_plot</span><span class="p">(</span><span class="s2">"../examples/inputs/cc.yaml"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f5474fa88bd4cbc97a087307ab641fb50e4fa3b3e825ee2f1225d4b75cba5791.png" src="_images/f5474fa88bd4cbc97a087307ab641fb50e4fa3b3e825ee2f1225d4b75cba5791.png" />
+<img alt="_images/376c2ace489ab6121a42818991acad70d22ddbee2cc1ca5ac70fc4db2ea9b8bf.png" src="_images/376c2ace489ab6121a42818991acad70d22ddbee2cc1ca5ac70fc4db2ea9b8bf.png" />
 </div>
 </div>
 </section>
 <section id="turbopark">
 <h2>TurbOPark<a class="headerlink" href="#turbopark" title="Link to this heading">#</a></h2>
-<p>The TurbOPark model is designed to model long wakes from large wind farm clusters. It was originally presented as a “top-hat” model in <span id="id9">Nygaard <em>et al.</em> [<a class="reference internal" href="bibliography.html#id25" title="Nicolai Gayle Nygaard, Søren Trads Steen, Lina Poulsen, and Jesper Grønnegaard Pedersen. Modelling cluster wakes and wind farm blockage. In Journal of Physics: Conference Series, volume 1618, 062072. IOP Publishing, 2020.">15</a>]</span> and was updated in <span id="id10">Pedersen <em>et al.</em> [<a class="reference internal" href="bibliography.html#id28" title="J G Pedersen, E Svensson, L Poulsen, and N G Nygaard. Turbulence optimized park model with gaussian wake profile. Journal of Physics: Conference Series, 2265(2):022063, may 2022. URL: https://dx.doi.org/10.1088/1742-6596/2265/2/022063.">16</a>]</span> to have a Gaussian profile. For the latter, Ørsted released the <a class="reference external" href="https://github.com/OrstedRD/TurbOPark">Matlab code with documentation</a>, which allows the verification of the implementation in FLORIS.</p>
+<p>The TurbOPark model is designed to model long wakes from large wind farm clusters. It was originally presented as a “top-hat” model in <span class="bibtex-citation" id="id9">Nygaard <em>et al.</em> [<a class="reference internal" href="bibliography.html#id25" title="Nicolai Gayle Nygaard, Søren Trads Steen, Lina Poulsen, and Jesper Grønnegaard Pedersen. Modelling cluster wakes and wind farm blockage. In Journal of Physics: Conference Series, volume 1618, 062072. IOP Publishing, 2020.">16</a>]</span> and was updated in <span class="bibtex-citation" id="id10">Pedersen <em>et al.</em> [<a class="reference internal" href="bibliography.html#id28" title="J G Pedersen, E Svensson, L Poulsen, and N G Nygaard. Turbulence optimized park model with gaussian wake profile. Journal of Physics: Conference Series, 2265(2):022063, may 2022. URL: https://dx.doi.org/10.1088/1742-6596/2265/2/022063.">17</a>]</span> to have a Gaussian profile. For the latter, Ørsted released the <a class="reference external" href="https://github.com/OrstedRD/TurbOPark">Matlab code with documentation</a>, which allows the verification of the implementation in FLORIS.</p>
 <p>The first implementation, the <a class="reference external" href="https://github.com/NREL/floris/blob/main/floris/core/wake_velocity/turbopark.py"><code class="docutils literal notranslate"><span class="pre">TurboparkVelocityDeficitModel</span></code></a>, was released in <a class="reference external" href="https://github.com/NREL/floris/releases/tag/v3.1">FLORIS v3.1</a>. The second implementation, the <a class="reference external" href="https://github.com/NREL/floris/blob/main/floris/core/wake_velocity/turboparkgauss.py"><code class="docutils literal notranslate"><span class="pre">TurboparkgaussVelocityDeficitModel</span></code></a>, was released in FLORIS v4.2 and shows a near-perfect match to the predictions of Ørsted’s Matlab implementation. As such, we will emphasize the use of the <code class="docutils literal notranslate"><span class="pre">TurboparkgaussVelocityDeficitModel</span></code> going forward, and suggest that new users use this model (by setting the <code class="docutils literal notranslate"><span class="pre">velocity_model</span></code> field of the FLORIS input file to <code class="docutils literal notranslate"><span class="pre">turboparkgauss</span></code> instead of the <code class="docutils literal notranslate"><span class="pre">TurboparkVelocityDeficitModel</span></code> (<code class="docutils literal notranslate"><span class="pre">velocity_model:</span> <span class="pre">turbopark</span></code>)) if they are interested in testing the TurbOPark model.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">TurboparkgaussVelocityDeficitModel</span></code> implementation was contributed by <a class="reference external" href="https://github.com/JasperShell">Jasper Kreeft</a>.</p>
-<p>Note that the original top-hat TurbOPark model (<span id="id11">Nygaard <em>et al.</em> [<a class="reference internal" href="bibliography.html#id25" title="Nicolai Gayle Nygaard, Søren Trads Steen, Lina Poulsen, and Jesper Grønnegaard Pedersen. Modelling cluster wakes and wind farm blockage. In Journal of Physics: Conference Series, volume 1618, 062072. IOP Publishing, 2020.">15</a>]</span>) is <em>not</em> available in FLORIS.</p>
+<p>Note that the original top-hat TurbOPark model (<span class="bibtex-citation" id="id11">Nygaard <em>et al.</em> [<a class="reference internal" href="bibliography.html#id25" title="Nicolai Gayle Nygaard, Søren Trads Steen, Lina Poulsen, and Jesper Grønnegaard Pedersen. Modelling cluster wakes and wind farm blockage. In Journal of Physics: Conference Series, volume 1618, 062072. IOP Publishing, 2020.">16</a>]</span>) is <em>not</em> available in FLORIS.</p>
 <p>The wakes as predicted by the <code class="docutils literal notranslate"><span class="pre">TurboparkgaussVelocityDeficit</span></code> model are demonstrated below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_plot</span><span class="p">(</span><span class="s2">&quot;../examples/inputs/turboparkgauss_cubature.yaml&quot;</span><span class="p">,</span> <span class="n">include_wake_deflection</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_plot</span><span class="p">(</span><span class="s2">"../examples/inputs/turboparkgauss_cubature.yaml"</span><span class="p">,</span> <span class="n">include_wake_deflection</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8fb98a20d64a225df6f5453f9c71e1d534cd49e066a716d5ce6774b497776862.png" src="_images/8fb98a20d64a225df6f5453f9c71e1d534cd49e066a716d5ce6774b497776862.png" />
+<img alt="_images/d84dd92e01eb01be4737d2c46a0ce07e58889e82dc8c98c7989f6b2a472f797d.png" src="_images/d84dd92e01eb01be4737d2c46a0ce07e58889e82dc8c98c7989f6b2a472f797d.png" />
 </div>
 </div>
 </section>
@@ -850,7 +1249,8 @@ which itself is based on the cumulative model of <span id="id8">Bastankhah <em>e
 <h3>Crespo-Hernandez<a class="headerlink" href="#crespo-hernandez" title="Link to this heading">#</a></h3>
 <p>CrespoHernandez is a wake-turbulence model that is used to compute additional variability introduced
 to the flow field by operation of a wind turbine. Implementation of the model follows the original
-formulation and limitations outlined in <span id="id12">Crespo and Hernandez [<a class="reference internal" href="bibliography.html#id15" title="A Crespo and J Hernandez. Turbulence characteristics in wind-turbine wakes. Journal of wind engineering and industrial aerodynamics, 61(1):71–85, 1996.">17</a>]</span>.</p>
+formulation and limitations outlined in <span class="bibtex-citation" id="id12">Crespo and Hernández [<a class="reference internal" href="bibliography.html#id15" title="A. Crespo and J. Hernández. Turbulence characteristics in wind-turbine wakes. Journal of wind engineering and industrial aerodynamics, 61(1):71–85, 1996.">18</a>]</span>.</p>
+<p>The default parameter values used in FLORIS for CrespoHernandez differ from those reported in <span class="bibtex-citation" id="id13">Crespo and Hernández [<a class="reference internal" href="bibliography.html#id15" title="A. Crespo and J. Hernández. Turbulence characteristics in wind-turbine wakes. Journal of wind engineering and industrial aerodynamics, 61(1):71–85, 1996.">18</a>]</span> following subsequent calibration. However, <span class="bibtex-citation" id="id14">Zehtabiyan-Rezaie and Abkar [<a class="reference internal" href="bibliography.html#id39" title="Navid Zehtabiyan-Rezaie and Mahdi Abkar. A short note on turbulence characteristics in wind-turbine wakes. Journal of Wind Engineering and Industrial Aerodynamics, 240:105504, 2023. doi:10.1016/j.jweia.2023.105504.">19</a>]</span> argue that the sign of certain parameters are not physically consistent (and also misreported in subsequent literature). See the <code class="docutils literal notranslate"><span class="pre">CrespoHernandez</span></code> class docstring for more details.</p>
 </section>
 </section>
 <section id="wake-combination-models">
@@ -873,9 +1273,9 @@ The lower plots show both turbines along with their wakes combined with the chos
     <span class="n">X1_BOUND</span> <span class="o">=</span> <span class="mi">1500</span>
 
     <span class="c1"># Set the combination method</span>
-    <span class="n">fmodel</span> <span class="o">=</span> <span class="n">FlorisModel</span><span class="p">(</span><span class="s2">&quot;../examples/inputs/jensen.yaml&quot;</span><span class="p">)</span>
+    <span class="n">fmodel</span> <span class="o">=</span> <span class="n">FlorisModel</span><span class="p">(</span><span class="s2">"../examples/inputs/jensen.yaml"</span><span class="p">)</span>
     <span class="n">settings</span> <span class="o">=</span> <span class="n">fmodel</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">as_dict</span><span class="p">()</span>
-    <span class="n">settings</span><span class="p">[</span><span class="s2">&quot;wake&quot;</span><span class="p">][</span><span class="s2">&quot;model_strings&quot;</span><span class="p">][</span><span class="s2">&quot;combination_model&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">method</span>
+    <span class="n">settings</span><span class="p">[</span><span class="s2">"wake"</span><span class="p">][</span><span class="s2">"model_strings"</span><span class="p">][</span><span class="s2">"combination_model"</span><span class="p">]</span> <span class="o">=</span> <span class="n">method</span>
     <span class="n">fmodel</span> <span class="o">=</span> <span class="n">FlorisModel</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
 
     <span class="c1"># Plot two turbines individually</span>
@@ -929,45 +1329,44 @@ The lower plots show both turbines along with their wakes combined with the chos
 flow field.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">combination_plot</span><span class="p">(</span><span class="s2">&quot;fls&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">combination_plot</span><span class="p">(</span><span class="s2">"fls"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/07b93d127c406d0c4bddaf2472882eaf9af1e9e35c56a810c6796a970ea10ef6.png" src="_images/07b93d127c406d0c4bddaf2472882eaf9af1e9e35c56a810c6796a970ea10ef6.png" />
-<img alt="_images/edc821fc7737d90f20df0be99b3a8e20b09a7e619912438911c3044a67466c22.png" src="_images/edc821fc7737d90f20df0be99b3a8e20b09a7e619912438911c3044a67466c22.png" />
+<img alt="_images/94a89dc46735d3725dc928bd4616a2eba88328b1f98c9d542ea7de67b26a3f08.png" src="_images/94a89dc46735d3725dc928bd4616a2eba88328b1f98c9d542ea7de67b26a3f08.png" />
+<img alt="_images/27dda4df7e7ede73c16bc542f99ae960abac80e5e7e7f19ec0d117cfa05bfbda.png" src="_images/27dda4df7e7ede73c16bc542f99ae960abac80e5e7e7f19ec0d117cfa05bfbda.png" />
 </div>
 </div>
 </section>
 <section id="max">
 <h3>Max<a class="headerlink" href="#max" title="Link to this heading">#</a></h3>
 <p>The MAX model incorporates the velocity deficits into the base flow field by selecting the
-maximum of the two for each point. For more information, refer to <span id="id13">Gunn <em>et al.</em> [<a class="reference internal" href="bibliography.html#id16" title="Kester Gunn, Clym Stock-Williams, M Burke, Richard Willden, C Vogel, W Hunter, T Stallard, N Robinson, and SR Schmidt. Limitations to the validity of single wake superposition in wind farm yield assessment. In Journal of Physics: Conference Series, number 1. IOP Publishing: Conference Series, 2016.">18</a>]</span>.</p>
+maximum of the two for each point. For more information, refer to <span class="bibtex-citation" id="id15">Gunn <em>et al.</em> [<a class="reference internal" href="bibliography.html#id16" title="Kester Gunn, Clym Stock-Williams, M Burke, Richard Willden, C Vogel, W Hunter, T Stallard, N Robinson, and SR Schmidt. Limitations to the validity of single wake superposition in wind farm yield assessment. In Journal of Physics: Conference Series, number 1. IOP Publishing: Conference Series, 2016.">20</a>]</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">combination_plot</span><span class="p">(</span><span class="s2">&quot;max&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">combination_plot</span><span class="p">(</span><span class="s2">"max"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/07b93d127c406d0c4bddaf2472882eaf9af1e9e35c56a810c6796a970ea10ef6.png" src="_images/07b93d127c406d0c4bddaf2472882eaf9af1e9e35c56a810c6796a970ea10ef6.png" />
-<img alt="_images/c85985d86bb7bc49d8f48296126b031f865ea469f2bc80c19d10bed837ab6418.png" src="_images/c85985d86bb7bc49d8f48296126b031f865ea469f2bc80c19d10bed837ab6418.png" />
+<img alt="_images/94a89dc46735d3725dc928bd4616a2eba88328b1f98c9d542ea7de67b26a3f08.png" src="_images/94a89dc46735d3725dc928bd4616a2eba88328b1f98c9d542ea7de67b26a3f08.png" />
+<img alt="_images/59f4fea742eb5e2852c54f4095aaf81788ed3f99ae738c07d52f89a27b87f180.png" src="_images/59f4fea742eb5e2852c54f4095aaf81788ed3f99ae738c07d52f89a27b87f180.png" />
 </div>
 </div>
 </section>
 <section id="sum-of-squares-freestream-superposition-sosfs">
 <h3>Sum of Squares Freestream Superposition (SOSFS)<a class="headerlink" href="#sum-of-squares-freestream-superposition-sosfs" title="Link to this heading">#</a></h3>
-<p>This model combines the wakes via a sum of squares of the new wake to add and the existing
-flow field.</p>
+<p>This model combines the wakes via a sum of squares of the new wake to add and the existing flow field. For more information, refer to :cite:<code class="docutils literal notranslate"><span class="pre">katic_sos_1986</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">combination_plot</span><span class="p">(</span><span class="s2">&quot;sosfs&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">combination_plot</span><span class="p">(</span><span class="s2">"sosfs"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/07b93d127c406d0c4bddaf2472882eaf9af1e9e35c56a810c6796a970ea10ef6.png" src="_images/07b93d127c406d0c4bddaf2472882eaf9af1e9e35c56a810c6796a970ea10ef6.png" />
-<img alt="_images/7f288b0ed0673ce83dee6c7aa02829344576a688d8f3d0236d730cfeed72ba1f.png" src="_images/7f288b0ed0673ce83dee6c7aa02829344576a688d8f3d0236d730cfeed72ba1f.png" />
+<img alt="_images/94a89dc46735d3725dc928bd4616a2eba88328b1f98c9d542ea7de67b26a3f08.png" src="_images/94a89dc46735d3725dc928bd4616a2eba88328b1f98c9d542ea7de67b26a3f08.png" />
+<img alt="_images/e20998ece74411ea2fa1ef8b0d25992bacfabf2015792324f280ec25a0ffe6e7.png" src="_images/e20998ece74411ea2fa1ef8b0d25992bacfabf2015792324f280ec25a0ffe6e7.png" />
 </div>
 </div>
 </section>
@@ -1031,15 +1430,17 @@ flow field.</p>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jensen-and-jimenez">Jensen and Jimenez</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gauss-and-gch">Gauss and GCH</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-gaussian">Empirical Gaussian</a></li>
@@ -1069,7 +1470,7 @@ flow field.</p>
   <div class="footer-item">
     
 <p class="component-author">
-By National Renewable Energy Laboratory
+By National Laboratory of the Rockies
 </p>
 
   </div>
@@ -1079,7 +1480,7 @@ By National Renewable Energy Laboratory
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>
@@ -1103,8 +1504,8 @@ By National Renewable Energy Laboratory
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

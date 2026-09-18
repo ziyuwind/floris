@@ -16,47 +16,56 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../../_static/documentation_options.js?v=30a733bc"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-JV2SK7CNPR"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
                 gtag('js', new Date());
                 gtag('config', 'G-JV2SK7CNPR');
             </script>
@@ -66,45 +75,48 @@
     <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
                 gtag('js', new Date());
                 gtag('config', 'G-JV2SK7CNPR');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'examples/examples_control_optimization/006_compare_yaw_optimizers';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Example: Optimize yaw with neighbor farm" href="007_optimize_yaw_with_neighbor_farms.html" />
     <link rel="prev" title="Example: Optimize yaw and compare AEP in parallel" href="005_optimize_yaw_aep_parallel.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="python"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -112,7 +124,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -120,15 +131,55 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
     </header>
   
 
@@ -137,7 +188,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -167,21 +219,17 @@
     
     
     <img src="../../_static/docs_image.png" class="logo__image only-light" alt="FLORIS - Home"/>
-    <script>document.write(`<img src="../../_static/docs_image.png" class="logo__image only-dark" alt="FLORIS - Home"/>`);</script>
+    <img src="../../_static/docs_image.png" class="logo__image only-dark pst-js-only" alt="FLORIS - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -408,7 +456,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Turbine</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../examples_turbine/001_check_turbine.html">Example: Check turbine power curves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_turbine/001_reference_turbines.html">Example: Reference turbines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples_turbine/002_multiple_turbine_types.html">Example: Multiple turbine types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples_turbine/003_specify_turbine_power_curve.html">Example: Specify turbine power curve</a></li>
 </ul>
@@ -450,9 +498,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -496,7 +549,7 @@
       
       
       
-      <li><a href="https://github.com/NREL/floris" target="_blank"
+      <li><a href="https://github.com/NatLabRockies/floris" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -513,7 +566,7 @@
       
       
       
-      <li><a href="https://github.com/NREL/floris/edit/main/docs/examples/examples_control_optimization/006_compare_yaw_optimizers.ipynb" target="_blank"
+      <li><a href="https://github.com/NatLabRockies/floris/edit/main/docs/examples/examples_control_optimization/006_compare_yaw_optimizers.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -530,7 +583,7 @@
       
       
       
-      <li><a href="https://github.com/NREL/floris/issues/new?title=Issue%20on%20page%20%2Fexamples/examples_control_optimization/006_compare_yaw_optimizers.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/NatLabRockies/floris/issues/new?title=Issue%20on%20page%20%2Fexamples/examples_control_optimization/006_compare_yaw_optimizers.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -599,7 +652,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -613,24 +666,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 
 </div></div>
       
@@ -660,7 +705,7 @@ document.write(`
 <h1>Example: Compare yaw optimizers<a class="headerlink" href="#example-compare-yaw-optimizers" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Example: Compare yaw optimizers</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">"""Example: Compare yaw optimizers</span>
 <span class="sd">This example compares the SciPy-based yaw optimizer with the Serial-Refine optimizer</span>
 <span class="sd">and geometric optimizer.</span>
 
@@ -677,7 +722,7 @@ document.write(`
 <span class="sd">see floris.optimization.yaw_optimization.yaw_optimizer_geometric.py and the paper online</span>
 <span class="sd">at https://wes.copernicus.org/preprints/wes-2023-1/. See also example 16c.</span>
 
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="kn">import</span> <span class="n">perf_counter</span> <span class="k">as</span> <span class="n">timerpc</span>
 
@@ -693,7 +738,7 @@ document.write(`
 
 
 <span class="c1"># Load the default example floris object</span>
-<span class="n">fmodel</span> <span class="o">=</span> <span class="n">FlorisModel</span><span class="p">(</span><span class="s2">&quot;../inputs/gch.yaml&quot;</span><span class="p">)</span>
+<span class="n">fmodel</span> <span class="o">=</span> <span class="n">FlorisModel</span><span class="p">(</span><span class="s2">"../inputs/gch.yaml"</span><span class="p">)</span>
 
 <span class="c1"># Reinitialize as a 3-turbine farm with range of WDs and 1 WS</span>
 <span class="n">D</span> <span class="o">=</span> <span class="mf">126.0</span> <span class="c1"># Rotor diameter for the NREL 5 MW</span>
@@ -708,19 +753,19 @@ document.write(`
     <span class="n">turbulence_intensities</span><span class="o">=</span><span class="n">turbulence_intensities</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Performing optimizations with SciPy...&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Performing optimizations with SciPy..."</span><span class="p">)</span>
 <span class="n">start_time</span> <span class="o">=</span> <span class="n">timerpc</span><span class="p">()</span>
 <span class="n">yaw_opt_scipy</span> <span class="o">=</span> <span class="n">YawOptimizationScipy</span><span class="p">(</span><span class="n">fmodel</span><span class="p">)</span>
 <span class="n">df_opt_scipy</span> <span class="o">=</span> <span class="n">yaw_opt_scipy</span><span class="o">.</span><span class="n">optimize</span><span class="p">()</span>
 <span class="n">time_scipy</span> <span class="o">=</span> <span class="n">timerpc</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Performing optimizations with Serial Refine...&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Performing optimizations with Serial Refine..."</span><span class="p">)</span>
 <span class="n">start_time</span> <span class="o">=</span> <span class="n">timerpc</span><span class="p">()</span>
 <span class="n">yaw_opt_sr</span> <span class="o">=</span> <span class="n">YawOptimizationSR</span><span class="p">(</span><span class="n">fmodel</span><span class="p">)</span>
 <span class="n">df_opt_sr</span> <span class="o">=</span> <span class="n">yaw_opt_sr</span><span class="o">.</span><span class="n">optimize</span><span class="p">()</span>
 <span class="n">time_sr</span> <span class="o">=</span> <span class="n">timerpc</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Performing optimizations with Geometric Yaw...&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Performing optimizations with Geometric Yaw..."</span><span class="p">)</span>
 <span class="n">start_time</span> <span class="o">=</span> <span class="n">timerpc</span><span class="p">()</span>
 <span class="n">yaw_opt_geo</span> <span class="o">=</span> <span class="n">YawOptimizationGeometric</span><span class="p">(</span><span class="n">fmodel</span><span class="p">)</span>
 <span class="n">df_opt_geo</span> <span class="o">=</span> <span class="n">yaw_opt_geo</span><span class="o">.</span><span class="n">optimize</span><span class="p">()</span>
@@ -729,9 +774,9 @@ document.write(`
 
 
 <span class="c1"># Print time spent</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Time spent, Geometric Yaw: </span><span class="si">{:.2f}</span><span class="s2"> s.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time_geo</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Time spent, Serial Refine: </span><span class="si">{:.2f}</span><span class="s2"> s.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time_sr</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Time spent, SciPy (SLSQP): </span><span class="si">{:.2f}</span><span class="s2"> s.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time_scipy</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2"> Time spent, Geometric Yaw: </span><span class="si">{:.2f}</span><span class="s2"> s."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time_geo</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">" Time spent, Serial Refine: </span><span class="si">{:.2f}</span><span class="s2"> s."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time_sr</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">" Time spent, SciPy (SLSQP): </span><span class="si">{:.2f}</span><span class="s2"> s.</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time_scipy</span><span class="p">))</span>
 
 <span class="c1"># Split out the turbine results</span>
 <span class="n">yaw_angles_opt_geo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">df_opt_geo</span><span class="o">.</span><span class="n">yaw_angles_opt</span><span class="p">)</span>
@@ -742,18 +787,18 @@ document.write(`
 <span class="c1"># Yaw results</span>
 <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_opt_geo</span><span class="o">.</span><span class="n">wind_direction</span><span class="p">,</span> <span class="n">yaw_angles_opt_geo</span><span class="p">[:,</span> <span class="n">t</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Geometric&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_opt_sr</span><span class="o">.</span><span class="n">wind_direction</span><span class="p">,</span> <span class="n">yaw_angles_opt_sr</span><span class="p">[:,</span> <span class="n">t</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Serial Refine&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_opt_scipy</span><span class="o">.</span><span class="n">wind_direction</span><span class="p">,</span> <span class="n">yaw_angles_opt_scipy</span><span class="p">[:,</span> <span class="n">t</span><span class="p">],</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;SciPy&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_opt_geo</span><span class="o">.</span><span class="n">wind_direction</span><span class="p">,</span> <span class="n">yaw_angles_opt_geo</span><span class="p">[:,</span> <span class="n">t</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">'m'</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'Geometric'</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_opt_sr</span><span class="o">.</span><span class="n">wind_direction</span><span class="p">,</span> <span class="n">yaw_angles_opt_sr</span><span class="p">[:,</span> <span class="n">t</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'Serial Refine'</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_opt_scipy</span><span class="o">.</span><span class="n">wind_direction</span><span class="p">,</span> <span class="n">yaw_angles_opt_scipy</span><span class="p">[:,</span> <span class="n">t</span><span class="p">],</span><span class="s1">'--'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'g'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'SciPy'</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Yaw Offset (deg&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Yaw Offset (deg'</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Turbine </span><span class="si">{:d}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Turbine </span><span class="si">{:d}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
 
 <span class="c1"># Power results ==============</span>
 
-<span class="c1"># Before plotting results, need to compute values for GEOOPT since it doesn&#39;t compute</span>
+<span class="c1"># Before plotting results, need to compute values for GEOOPT since it doesn't compute</span>
 <span class="c1"># power within the optimization</span>
 <span class="n">fmodel</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">yaw_angles</span><span class="o">=</span><span class="n">yaw_angles_opt_geo</span><span class="p">)</span>
 <span class="n">fmodel</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
@@ -764,30 +809,30 @@ document.write(`
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
     <span class="n">df_opt_sr</span><span class="o">.</span><span class="n">wind_direction</span><span class="p">,</span>
     <span class="n">df_opt_sr</span><span class="o">.</span><span class="n">farm_power_baseline</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span>
-    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Baseline&#39;</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s1">'Baseline'</span>
 <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
     <span class="n">df_opt_geo</span><span class="o">.</span><span class="n">wind_direction</span><span class="p">,</span>
     <span class="n">geo_farm_power</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">,</span>
-    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Optimized, Gemoetric&#39;</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">'m'</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s1">'Optimized, Gemoetric'</span>
 <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
     <span class="n">df_opt_sr</span><span class="o">.</span><span class="n">wind_direction</span><span class="p">,</span>
     <span class="n">df_opt_sr</span><span class="o">.</span><span class="n">farm_power_opt</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span>
-    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Optimized, Serial Refine&#39;</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s1">'Optimized, Serial Refine'</span>
 <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
     <span class="n">df_opt_scipy</span><span class="o">.</span><span class="n">wind_direction</span><span class="p">,</span>
     <span class="n">df_opt_scipy</span><span class="o">.</span><span class="n">farm_power_opt</span><span class="p">,</span>
-    <span class="s1">&#39;--&#39;</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span>
-    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Optimized, SciPy&#39;</span>
+    <span class="s1">'--'</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">'g'</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s1">'Optimized, SciPy'</span>
 <span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Wind Farm Power (W)&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Wind Direction (deg)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Wind Farm Power (W)'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Wind Direction (deg)'</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
@@ -798,24 +843,24 @@ document.write(`
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
     <span class="n">df_opt_geo</span><span class="o">.</span><span class="n">wind_direction</span><span class="p">,</span>
     <span class="n">geo_farm_power</span> <span class="o">-</span> <span class="n">df_opt_sr</span><span class="o">.</span><span class="n">farm_power_baseline</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">,</span>
-    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Optimized, Gemoetric&#39;</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">'m'</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s1">'Optimized, Gemoetric'</span>
 <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
     <span class="n">df_opt_sr</span><span class="o">.</span><span class="n">wind_direction</span><span class="p">,</span>
     <span class="n">df_opt_sr</span><span class="o">.</span><span class="n">farm_power_opt</span> <span class="o">-</span> <span class="n">df_opt_sr</span><span class="o">.</span><span class="n">farm_power_baseline</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span>
-    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Optimized, Serial Refine&#39;</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s1">'Optimized, Serial Refine'</span>
 <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
     <span class="n">df_opt_scipy</span><span class="o">.</span><span class="n">wind_direction</span><span class="p">,</span>
     <span class="n">df_opt_scipy</span><span class="o">.</span><span class="n">farm_power_opt</span> <span class="o">-</span> <span class="n">df_opt_scipy</span><span class="o">.</span><span class="n">farm_power_baseline</span><span class="p">,</span>
-    <span class="s1">&#39;--&#39;</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span>
-    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Optimized, SciPy&#39;</span>
+    <span class="s1">'--'</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">'g'</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s1">'Optimized, SciPy'</span>
 <span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Increase in Wind Farm Power (W)&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Wind Direction (deg)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Increase in Wind Farm Power (W)'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Wind Direction (deg)'</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
@@ -837,11 +882,11 @@ document.write(`
         <span class="n">total_power_uplift_sr</span> <span class="o">/</span> <span class="n">total_power_uplift_scipy</span><span class="p">,</span>
         <span class="mf">1.0</span><span class="p">,</span>
     <span class="p">],</span>
-    <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">],</span>
+    <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">'m'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">,</span> <span class="s1">'g'</span><span class="p">],</span>
 <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="s1">&#39;Geometric&#39;</span><span class="p">,</span> <span class="s1">&#39;Serial Refine&#39;</span><span class="p">,</span> <span class="s1">&#39;SciPy&#39;</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Normalized Power Gain&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="s1">'Geometric'</span><span class="p">,</span> <span class="s1">'Serial Refine'</span><span class="p">,</span> <span class="s1">'SciPy'</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Normalized Power Gain'</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -852,19 +897,19 @@ document.write(`
         <span class="n">time_sr</span> <span class="o">/</span> <span class="n">time_scipy</span><span class="p">,</span>
         <span class="mf">1.0</span><span class="p">,</span>
     <span class="p">],</span>
-    <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">],</span>
+    <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">'m'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">,</span> <span class="s1">'g'</span><span class="p">],</span>
 <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="s1">&#39;Geometric&#39;</span><span class="p">,</span> <span class="s1">&#39;Serial Refine&#39;</span><span class="p">,</span> <span class="s1">&#39;SciPy&#39;</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Normalized Computation Time&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="s1">'Geometric'</span><span class="p">,</span> <span class="s1">'Serial Refine'</span><span class="p">,</span> <span class="s1">'SciPy'</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Normalized Computation Time'</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Change to semi-logy</span>
-<span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">'log'</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -879,9 +924,7 @@ Optimization terminated successfully    (Exit mode 0)
             Iterations: 1
             Function evaluations: 3
             Gradient evaluations: 1
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
+  NIT    FC           OBJFUN            GNORM
     1     3    -1.000000E+00     8.365698E-03
 Optimization terminated successfully    (Exit mode 0)
             Current function value: -1.0
@@ -897,9 +940,7 @@ Optimization terminated successfully    (Exit mode 0)
             Iterations: 1
             Function evaluations: 3
             Gradient evaluations: 1
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
+  NIT    FC           OBJFUN            GNORM
     1     3    -1.000000E+00     9.711141E-03
 Optimization terminated successfully    (Exit mode 0)
             Current function value: -1.0
@@ -915,9 +956,226 @@ Optimization terminated successfully    (Exit mode 0)
             Iterations: 1
             Function evaluations: 3
             Gradient evaluations: 1
+  NIT    FC           OBJFUN            GNORM
+    1     3    -1.000000E+00     7.129374E-02
+Optimization terminated successfully    (Exit mode 0)
+            Current function value: -1.0
+            Iterations: 1
+            Function evaluations: 3
+            Gradient evaluations: 1
+  NIT    FC           OBJFUN            GNORM
+    1     3    -1.000000E+00     1.419861E-01
+Optimization terminated successfully    (Exit mode 0)
+            Current function value: -1.0
+            Iterations: 1
+            Function evaluations: 3
+            Gradient evaluations: 1
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
+    1     3    -1.000000E+00     2.180748E-01
+Optimization terminated successfully    (Exit mode 0)
+            Current function value: -1.0
+            Iterations: 1
+            Function evaluations: 3
+            Gradient evaluations: 1
+  NIT    FC           OBJFUN            GNORM
+    1     3    -1.000000E+00     2.208611E-01
+Optimization terminated successfully    (Exit mode 0)
+            Current function value: -1.0
+            Iterations: 1
+            Function evaluations: 3
+            Gradient evaluations: 1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
+    1     4    -1.003155E+00     6.242130E-02
+    2     7    -1.093049E+00     1.020444E-01
+    3    10    -1.203810E+00     1.954488E-01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    4    13    -1.211961E+00     1.281127E-01
+    5    16    -1.214226E+00     1.153093E-01
+    6    19    -1.214237E+00     1.015314E-01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    7    22    -1.214237E+00     1.013118E-01
+    8    24    -1.214237E+00     1.013095E-01
+Optimization terminated successfully    (Exit mode 0)
+            Current function value: -1.2142370269715688
+            Iterations: 8
+            Function evaluations: 24
+            Gradient evaluations: 8
+  NIT    FC           OBJFUN            GNORM
+    1     4    -1.077700E+00     2.636250E-01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    2     7    -1.240651E+00     3.181902E-01
+    3    10    -1.245722E+00     6.558203E-02
+    4    13    -1.254002E+00     5.362665E-02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    5    16    -1.254090E+00     1.319603E-02
+    6    19    -1.254067E+00     1.309625E-02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully    (Exit mode 0)
+            Current function value: -1.2540897918824472
+            Iterations: 6
+            Function evaluations: 29
+            Gradient evaluations: 6
+  NIT    FC           OBJFUN            GNORM
+    1     4    -1.041029E+00     2.069800E-01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    2     7    -1.123711E+00     1.859063E-01
+    3    10    -1.126458E+00     4.218585E-02
+    4    13    -1.126780E+00     2.116581E-02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    5    16    -1.125994E+00     1.612383E-02
+    6    20    -1.126860E+00     1.533901E-02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    7    25    -1.126833E+00     1.311498E-02
+    8    29    -1.128280E+00     8.142882E-03
+    9    32    -1.126762E+00     2.579974E-03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully    (Exit mode 0)
+            Current function value: -1.128280040832836
+            Iterations: 9
+            Function evaluations: 42
+            Gradient evaluations: 9
+  NIT    FC           OBJFUN            GNORM
+    1     4    -1.017900E+00     1.295852E-01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    2     7    -1.046548E+00     9.997854E-02
+    3    10    -1.046487E+00     8.887290E-03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    4    23    -1.046525E+00     8.887263E-03
+    5    28    -1.046624E+00     7.099863E-03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    6    31    -1.046658E+00     1.033764E-03
+    7    34    -1.046683E+00     4.341467E-04
+    8    37    -1.046685E+00     3.729168E-05
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    9    40    -1.046685E+00     2.824112E-06
+   10    42    -1.046685E+00     6.047027E-08
+Optimization terminated successfully    (Exit mode 0)
+            Current function value: -1.046685278652397
+            Iterations: 10
+            Function evaluations: 42
+            Gradient evaluations: 10
+  NIT    FC           OBJFUN            GNORM
+    1     4    -1.002993E+00     4.975943E-02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    2     7    -1.006900E+00     3.378644E-02
+    3    10    -1.007674E+00     1.032241E-02
+    4    13    -1.007874E+00     3.814488E-03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    5    16    -1.007914E+00     2.517815E-03
+    6    19    -1.007945E+00     2.060119E-03
+    7    22    -1.007921E+00     7.695137E-04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully    (Exit mode 0)
+            Current function value: -1.0079447483757344
+            Iterations: 7
+            Function evaluations: 32
+            Gradient evaluations: 7
+  NIT    FC           OBJFUN            GNORM
+    1     4    -1.000005E+00     8.565508E-04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    2     7    -1.000025E+00     7.819653E-04
+    3    10    -1.000035E+00     5.322843E-04
+    4    12    -1.000035E+00     4.924128E-04
+Optimization terminated successfully    (Exit mode 0)
+            Current function value: -1.0000354608371065
+            Iterations: 4
+            Function evaluations: 12
+            Gradient evaluations: 4
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
+    1     3    -1.000000E+00     7.483173E-03
+Optimization terminated successfully    (Exit mode 0)
+            Current function value: -1.0
+            Iterations: 1
+            Function evaluations: 3
+            Gradient evaluations: 1
+  NIT    FC           OBJFUN            GNORM
+    1     3    -1.000000E+00     8.306803E-03
+Optimization terminated successfully    (Exit mode 0)
+            Current function value: -1.0
+            Iterations: 1
+            Function evaluations: 3
+            Gradient evaluations: 1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
+    1     3    -1.000000E+00     8.359719E-03
+Optimization terminated successfully    (Exit mode 0)
+            Current function value: -1.0
+            Iterations: 1
+            Function evaluations: 3
+            Gradient evaluations: 1
+  NIT    FC           OBJFUN            GNORM
+    1     3    -1.000000E+00     8.361989E-03
+Optimization terminated successfully    (Exit mode 0)
+            Current function value: -1.0
+            Iterations: 1
+            Function evaluations: 3
+            Gradient evaluations: 1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
+    1     3    -1.000000E+00     8.362152E-03
+Optimization terminated successfully    (Exit mode 0)
+            Current function value: -1.0
+            Iterations: 1
+            Function evaluations: 3
+            Gradient evaluations: 1
+  NIT    FC           OBJFUN            GNORM
+    1     3    -1.000000E+00     8.365698E-03
+Optimization terminated successfully    (Exit mode 0)
+            Current function value: -1.0
+            Iterations: 1
+            Function evaluations: 3
+            Gradient evaluations: 1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
+    1     3    -1.000000E+00     8.454492E-03
+Optimization terminated successfully    (Exit mode 0)
+            Current function value: -1.0
+            Iterations: 1
+            Function evaluations: 3
+            Gradient evaluations: 1
+  NIT    FC           OBJFUN            GNORM
+    1     3    -1.000000E+00     9.711141E-03
+Optimization terminated successfully    (Exit mode 0)
+            Current function value: -1.0
+            Iterations: 1
+            Function evaluations: 3
+            Gradient evaluations: 1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
+    1     3    -1.000000E+00     2.217228E-02
+Optimization terminated successfully    (Exit mode 0)
+            Current function value: -1.0
+            Iterations: 1
+            Function evaluations: 3
+            Gradient evaluations: 1
+  NIT    FC           OBJFUN            GNORM
     1     3    -1.000000E+00     7.129374E-02
 Optimization terminated successfully    (Exit mode 0)
             Current function value: -1.0
@@ -933,9 +1191,7 @@ Optimization terminated successfully    (Exit mode 0)
             Iterations: 1
             Function evaluations: 3
             Gradient evaluations: 1
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
+  NIT    FC           OBJFUN            GNORM
     1     3    -1.000000E+00     2.180748E-01
 Optimization terminated successfully    (Exit mode 0)
             Current function value: -1.0
@@ -952,81 +1208,67 @@ Optimization terminated successfully    (Exit mode 0)
             Function evaluations: 3
             Gradient evaluations: 1
   NIT    FC           OBJFUN            GNORM
+    1     4    -1.003155E+00     6.242130E-02
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    1     4    -1.003155E+00     6.242130E-02
-    2     7    -1.093049E+00     1.020444E-01
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    3    10    -1.203810E+00     1.954488E-01
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    2     7    -1.093049E+00     1.020444E-01
+    3    10    -1.203810E+00     1.954488E-01
     4    13    -1.211961E+00     1.281127E-01
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    5    16    -1.214226E+00     1.153093E-01
     6    19    -1.214237E+00     1.015314E-01
+    7    22    -1.214237E+00     1.013118E-01
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    7    22    -1.214237E+00     1.013118E-01
-    8    24    -1.214237E+00     1.013095E-01
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    8    24    -1.214237E+00     1.013095E-01
 Optimization terminated successfully    (Exit mode 0)
-            Current function value: -1.2142370269715685
+            Current function value: -1.2142370269715694
             Iterations: 8
             Function evaluations: 24
             Gradient evaluations: 8
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
+  NIT    FC           OBJFUN            GNORM
     1     4    -1.077700E+00     2.636250E-01
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    2     7    -1.240651E+00     3.181902E-01
     3    10    -1.245722E+00     6.558203E-02
+    4    13    -1.254002E+00     5.362665E-02
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    4    13    -1.254002E+00     5.362665E-02
-    5    16    -1.254090E+00     1.319603E-02
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    6    19    -1.254067E+00     1.309625E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    5    16    -1.254090E+00     1.319603E-02
+    6    19    -1.254067E+00     1.309625E-02
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully    (Exit mode 0)
-            Current function value: -1.2540897918824465
+            Current function value: -1.254089791882447
             Iterations: 6
             Function evaluations: 29
             Gradient evaluations: 6
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
+  NIT    FC           OBJFUN            GNORM
     1     4    -1.041029E+00     2.069800E-01
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    2     7    -1.123711E+00     1.859063E-01
     3    10    -1.126458E+00     4.218585E-02
+    4    13    -1.126780E+00     2.116581E-02
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    4    13    -1.126780E+00     2.116581E-02
-    5    16    -1.125994E+00     1.612383E-02
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    6    20    -1.126860E+00     1.533901E-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    5    16    -1.125994E+00     1.612383E-02
+    6    20    -1.126860E+00     1.533901E-02
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    7    25    -1.126833E+00     1.311498E-02
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    8    29    -1.128280E+00     8.142882E-03
+    8    29    -1.128280E+00     8.142882E-03
     9    32    -1.126762E+00     2.579974E-03
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully    (Exit mode 0)
-            Current function value: -1.128280040832837
+            Current function value: -1.1282800408328362
             Iterations: 9
             Function evaluations: 42
             Gradient evaluations: 9
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
+  NIT    FC           OBJFUN            GNORM
     1     4    -1.017900E+00     1.295852E-01
 </pre></div>
 </div>
@@ -1035,57 +1277,47 @@ Optimization terminated successfully    (Exit mode 0)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    4    23    -1.046525E+00     8.887263E-03
+    5    28    -1.046624E+00     7.099863E-03
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    5    28    -1.046624E+00     7.099863E-03
-    6    31    -1.046658E+00     1.033764E-03
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    7    34    -1.046683E+00     4.341467E-04
-    8    37    -1.046685E+00     3.729168E-05
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    6    31    -1.046658E+00     1.033764E-03
+    7    34    -1.046683E+00     4.341466E-04
+    8    37    -1.046685E+00     3.729167E-05
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    9    40    -1.046685E+00     2.824111E-06
-   10    42    -1.046685E+00     6.047025E-08
+   10    42    -1.046685E+00     6.047026E-08
 Optimization terminated successfully    (Exit mode 0)
-            Current function value: -1.0466852786523977
+            Current function value: -1.0466852786523972
             Iterations: 10
             Function evaluations: 42
             Gradient evaluations: 10
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
+  NIT    FC           OBJFUN            GNORM
     1     4    -1.002993E+00     4.975943E-02
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    2     7    -1.006900E+00     3.378644E-02
     3    10    -1.007674E+00     1.032241E-02
+    4    13    -1.007874E+00     3.814488E-03
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    4    13    -1.007874E+00     3.814488E-03
-    5    16    -1.007914E+00     2.517815E-03
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    6    19    -1.007945E+00     2.060119E-03
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    5    16    -1.007914E+00     2.517815E-03
+    6    19    -1.007945E+00     2.060119E-03
     7    22    -1.007921E+00     7.695137E-04
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully    (Exit mode 0)
-            Current function value: -1.007944748375735
+            Current function value: -1.007944748375734
             Iterations: 7
             Function evaluations: 32
             Gradient evaluations: 7
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
+  NIT    FC           OBJFUN            GNORM
     1     4    -1.000005E+00     8.565508E-04
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    2     7    -1.000025E+00     7.819653E-04
     3    10    -1.000035E+00     5.322843E-04
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    4    12    -1.000035E+00     4.924128E-04
+    4    12    -1.000035E+00     4.924128E-04
 Optimization terminated successfully    (Exit mode 0)
             Current function value: -1.0000354608371065
             Iterations: 4
@@ -1100,9 +1332,7 @@ Optimization terminated successfully    (Exit mode 0)
             Iterations: 1
             Function evaluations: 3
             Gradient evaluations: 1
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
+  NIT    FC           OBJFUN            GNORM
     1     3    -1.000000E+00     8.306803E-03
 Optimization terminated successfully    (Exit mode 0)
             Current function value: -1.0
@@ -1118,268 +1348,7 @@ Optimization terminated successfully    (Exit mode 0)
             Iterations: 1
             Function evaluations: 3
             Gradient evaluations: 1
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
-    1     3    -1.000000E+00     8.361989E-03
-Optimization terminated successfully    (Exit mode 0)
-            Current function value: -1.0
-            Iterations: 1
-            Function evaluations: 3
-            Gradient evaluations: 1
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
-    1     3    -1.000000E+00     8.362152E-03
-Optimization terminated successfully    (Exit mode 0)
-            Current function value: -1.0
-            Iterations: 1
-            Function evaluations: 3
-            Gradient evaluations: 1
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
-    1     3    -1.000000E+00     8.365698E-03
-Optimization terminated successfully    (Exit mode 0)
-            Current function value: -1.0
-            Iterations: 1
-            Function evaluations: 3
-            Gradient evaluations: 1
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
-    1     3    -1.000000E+00     8.454492E-03
-Optimization terminated successfully    (Exit mode 0)
-            Current function value: -1.0
-            Iterations: 1
-            Function evaluations: 3
-            Gradient evaluations: 1
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
-    1     3    -1.000000E+00     9.711141E-03
-Optimization terminated successfully    (Exit mode 0)
-            Current function value: -1.0
-            Iterations: 1
-            Function evaluations: 3
-            Gradient evaluations: 1
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
-    1     3    -1.000000E+00     2.217228E-02
-Optimization terminated successfully    (Exit mode 0)
-            Current function value: -1.0
-            Iterations: 1
-            Function evaluations: 3
-            Gradient evaluations: 1
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
-    1     3    -1.000000E+00     7.129374E-02
-Optimization terminated successfully    (Exit mode 0)
-            Current function value: -1.0
-            Iterations: 1
-            Function evaluations: 3
-            Gradient evaluations: 1
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
-    1     3    -1.000000E+00     1.419861E-01
-Optimization terminated successfully    (Exit mode 0)
-            Current function value: -1.0
-            Iterations: 1
-            Function evaluations: 3
-            Gradient evaluations: 1
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
-    1     3    -1.000000E+00     2.180748E-01
-Optimization terminated successfully    (Exit mode 0)
-            Current function value: -1.0
-            Iterations: 1
-            Function evaluations: 3
-            Gradient evaluations: 1
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
-    1     3    -1.000000E+00     2.208611E-01
-Optimization terminated successfully    (Exit mode 0)
-            Current function value: -1.0
-            Iterations: 1
-            Function evaluations: 3
-            Gradient evaluations: 1
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
-    1     4    -1.003155E+00     6.242130E-02
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    2     7    -1.093049E+00     1.020444E-01
-    3    10    -1.203810E+00     1.954488E-01
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    4    13    -1.211961E+00     1.281127E-01
-    5    16    -1.214226E+00     1.153093E-01
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    6    19    -1.214237E+00     1.015314E-01
-    7    22    -1.214237E+00     1.013118E-01
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    8    24    -1.214237E+00     1.013095E-01
-Optimization terminated successfully    (Exit mode 0)
-            Current function value: -1.2142370269715688
-            Iterations: 8
-            Function evaluations: 24
-            Gradient evaluations: 8
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
-    1     4    -1.077700E+00     2.636250E-01
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    2     7    -1.240651E+00     3.181902E-01
-    3    10    -1.245722E+00     6.558203E-02
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    4    13    -1.254002E+00     5.362665E-02
-    5    16    -1.254090E+00     1.319603E-02
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    6    19    -1.254067E+00     1.309625E-02
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully    (Exit mode 0)
-            Current function value: -1.254089791882446
-            Iterations: 6
-            Function evaluations: 29
-            Gradient evaluations: 6
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
-    1     4    -1.041029E+00     2.069800E-01
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    2     7    -1.123711E+00     1.859063E-01
-    3    10    -1.126458E+00     4.218585E-02
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    4    13    -1.126780E+00     2.116581E-02
-    5    16    -1.125994E+00     1.612383E-02
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    6    20    -1.126860E+00     1.533901E-02
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    7    25    -1.126833E+00     1.311498E-02
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    8    29    -1.128280E+00     8.142882E-03
-    9    32    -1.126762E+00     2.579974E-03
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully    (Exit mode 0)
-            Current function value: -1.1282800408328355
-            Iterations: 9
-            Function evaluations: 42
-            Gradient evaluations: 9
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
-    1     4    -1.017900E+00     1.295852E-01
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    2     7    -1.046548E+00     9.997854E-02
-    3    10    -1.046487E+00     8.887290E-03
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    4    23    -1.046525E+00     8.887263E-03
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    5    28    -1.046624E+00     7.099864E-03
-    6    31    -1.046658E+00     1.033765E-03
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    7    34    -1.046683E+00     4.341468E-04
-    8    37    -1.046685E+00     3.729169E-05
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    9    40    -1.046685E+00     2.824112E-06
-   10    42    -1.046685E+00     6.047028E-08
-Optimization terminated successfully    (Exit mode 0)
-            Current function value: -1.0466852786523961
-            Iterations: 10
-            Function evaluations: 42
-            Gradient evaluations: 10
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
-    1     4    -1.002993E+00     4.975943E-02
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    2     7    -1.006900E+00     3.378644E-02
-    3    10    -1.007674E+00     1.032241E-02
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    4    13    -1.007874E+00     3.814488E-03
-    5    16    -1.007914E+00     2.517815E-03
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    6    19    -1.007945E+00     2.060119E-03
-    7    22    -1.007921E+00     7.695137E-04
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully    (Exit mode 0)
-            Current function value: -1.0079447483757351
-            Iterations: 7
-            Function evaluations: 32
-            Gradient evaluations: 7
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
-    1     4    -1.000005E+00     8.565508E-04
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    2     7    -1.000025E+00     7.819653E-04
-    3    10    -1.000035E+00     5.322843E-04
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    4    12    -1.000035E+00     4.924128E-04
-Optimization terminated successfully    (Exit mode 0)
-            Current function value: -1.0000354608371067
-            Iterations: 4
-            Function evaluations: 12
-            Gradient evaluations: 4
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
-    1     3    -1.000000E+00     7.483173E-03
-Optimization terminated successfully    (Exit mode 0)
-            Current function value: -1.0
-            Iterations: 1
-            Function evaluations: 3
-            Gradient evaluations: 1
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
-    1     3    -1.000000E+00     8.306803E-03
-Optimization terminated successfully    (Exit mode 0)
-            Current function value: -1.0
-            Iterations: 1
-            Function evaluations: 3
-            Gradient evaluations: 1
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
-    1     3    -1.000000E+00     8.359719E-03
-Optimization terminated successfully    (Exit mode 0)
-            Current function value: -1.0
-            Iterations: 1
-            Function evaluations: 3
-            Gradient evaluations: 1
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  NIT    FC           OBJFUN            GNORM
+  NIT    FC           OBJFUN            GNORM
     1     3    -1.000000E+00     8.361989E-03
 Optimization terminated successfully    (Exit mode 0)
             Current function value: -1.0
@@ -1391,27 +1360,25 @@ Optimization terminated successfully    (Exit mode 0)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Performing optimizations with Serial Refine...
 [Serial Refine] Processing pass=0, turbine_depth=0 (0.0%)
 [Serial Refine] Processing pass=0, turbine_depth=1 (16.7%)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Serial Refine] Processing pass=0, turbine_depth=2 (33.3%)
+[Serial Refine] Processing pass=0, turbine_depth=2 (33.3%)
 [Serial Refine] Processing pass=1, turbine_depth=0 (50.0%)
-[Serial Refine] Processing pass=1, turbine_depth=1 (66.7%)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Serial Refine] Processing pass=1, turbine_depth=2 (83.3%)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Serial Refine] Processing pass=1, turbine_depth=1 (66.7%)
+[Serial Refine] Processing pass=1, turbine_depth=2 (83.3%)
 Performing optimizations with Geometric Yaw...
 
- Time spent, Geometric Yaw: 0.02 s.
- Time spent, Serial Refine: 0.65 s.
- Time spent, SciPy (SLSQP): 31.78 s.
+ Time spent, Geometric Yaw: 0.01 s.
+ Time spent, Serial Refine: 0.34 s.
+ Time spent, SciPy (SLSQP): 15.15 s.
 </pre></div>
 </div>
-<img alt="../../_images/a2fa68873cf0f0cd1839fedbc75e69b1aef407e7ae81de0f855e81b9b5468539.png" src="../../_images/a2fa68873cf0f0cd1839fedbc75e69b1aef407e7ae81de0f855e81b9b5468539.png" />
-<img alt="../../_images/969bbb19a977ae4071acd759d5f9586636dfa359e59fb265c60c29c6dd3870ab.png" src="../../_images/969bbb19a977ae4071acd759d5f9586636dfa359e59fb265c60c29c6dd3870ab.png" />
-<img alt="../../_images/888f7b241e0c466e89209fbc822fd80b3185c3954e38ec51d48f56b58f2a1644.png" src="../../_images/888f7b241e0c466e89209fbc822fd80b3185c3954e38ec51d48f56b58f2a1644.png" />
-<img alt="../../_images/75406eac4bfda131bf24bc447b24916f88abc6c6b12d1020ee09749a979b4955.png" src="../../_images/75406eac4bfda131bf24bc447b24916f88abc6c6b12d1020ee09749a979b4955.png" />
-<img alt="../../_images/7585838b1f69d17521dcfc146ad633aaaa20a11c7d7fe21ba8127cb764eeed87.png" src="../../_images/7585838b1f69d17521dcfc146ad633aaaa20a11c7d7fe21ba8127cb764eeed87.png" />
-<img alt="../../_images/802b559d0a8131044037c58f33e5473e4b67f801a421f9cdfc77f4c76d57f595.png" src="../../_images/802b559d0a8131044037c58f33e5473e4b67f801a421f9cdfc77f4c76d57f595.png" />
+<img alt="../../_images/990665fed2596f17a19bb83117f8279e0ab4fcfb87864a68d0aeba558248fc87.png" src="../../_images/990665fed2596f17a19bb83117f8279e0ab4fcfb87864a68d0aeba558248fc87.png" />
+<img alt="../../_images/90fe59315ee1e7d479ab22d4d568d7e60f1ad50c0b8d96538c633d8951d36961.png" src="../../_images/90fe59315ee1e7d479ab22d4d568d7e60f1ad50c0b8d96538c633d8951d36961.png" />
+<img alt="../../_images/5874f3758df342e199da028949f4f051d0dfd8577fbc6b2fbf175275ee066f86.png" src="../../_images/5874f3758df342e199da028949f4f051d0dfd8577fbc6b2fbf175275ee066f86.png" />
+<img alt="../../_images/a0c7707672e14671fe6aa64f372d94225ba1cb279470cee514471ef22f89ab19.png" src="../../_images/a0c7707672e14671fe6aa64f372d94225ba1cb279470cee514471ef22f89ab19.png" />
+<img alt="../../_images/a562d570208e387c0e049d03e9c939efc11ea0f75898f816eeebcbd857c32b5c.png" src="../../_images/a562d570208e387c0e049d03e9c939efc11ea0f75898f816eeebcbd857c32b5c.png" />
+<img alt="../../_images/c4812dd8d208f0c30e6e19faec77879539b37aeec1488fa5c9a746e479645705.png" src="../../_images/c4812dd8d208f0c30e6e19faec77879539b37aeec1488fa5c9a746e479645705.png" />
 </div>
 </div>
 </section>
@@ -1480,7 +1447,7 @@ Performing optimizations with Geometric Yaw...
   <div class="footer-item">
     
 <p class="component-author">
-By National Renewable Energy Laboratory
+By National Laboratory of the Rockies
 </p>
 
   </div>
@@ -1490,7 +1457,7 @@ By National Renewable Energy Laboratory
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>
@@ -1514,8 +1481,8 @@ By National Renewable Energy Laboratory
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

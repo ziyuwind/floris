@@ -16,47 +16,56 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../../_static/documentation_options.js?v=30a733bc"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-JV2SK7CNPR"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
                 gtag('js', new Date());
                 gtag('config', 'G-JV2SK7CNPR');
             </script>
@@ -66,45 +75,48 @@
     <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
                 gtag('js', new Date());
                 gtag('config', 'G-JV2SK7CNPR');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'examples/examples_layout_optimization/003_genetic_random_search';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Example: Gridded layout design" href="004_generate_gridded_layout.html" />
     <link rel="prev" title="Example: Layout optimization with heterogeneous inflow" href="002_optimize_layout_with_heterogeneity.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="python"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -112,7 +124,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -120,15 +131,55 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
     </header>
   
 
@@ -137,7 +188,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -167,21 +219,17 @@
     
     
     <img src="../../_static/docs_image.png" class="logo__image only-light" alt="FLORIS - Home"/>
-    <script>document.write(`<img src="../../_static/docs_image.png" class="logo__image only-dark" alt="FLORIS - Home"/>`);</script>
+    <img src="../../_static/docs_image.png" class="logo__image only-dark pst-js-only" alt="FLORIS - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -408,7 +456,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples - Turbine</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../examples_turbine/001_check_turbine.html">Example: Check turbine power curves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_turbine/001_reference_turbines.html">Example: Reference turbines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples_turbine/002_multiple_turbine_types.html">Example: Multiple turbine types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples_turbine/003_specify_turbine_power_curve.html">Example: Specify turbine power curve</a></li>
 </ul>
@@ -450,9 +498,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -496,7 +549,7 @@
       
       
       
-      <li><a href="https://github.com/NREL/floris" target="_blank"
+      <li><a href="https://github.com/NatLabRockies/floris" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -513,7 +566,7 @@
       
       
       
-      <li><a href="https://github.com/NREL/floris/edit/main/docs/examples/examples_layout_optimization/003_genetic_random_search.ipynb" target="_blank"
+      <li><a href="https://github.com/NatLabRockies/floris/edit/main/docs/examples/examples_layout_optimization/003_genetic_random_search.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -530,7 +583,7 @@
       
       
       
-      <li><a href="https://github.com/NREL/floris/issues/new?title=Issue%20on%20page%20%2Fexamples/examples_layout_optimization/003_genetic_random_search.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/NatLabRockies/floris/issues/new?title=Issue%20on%20page%20%2Fexamples/examples_layout_optimization/003_genetic_random_search.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -599,7 +652,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -613,24 +666,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 
 </div></div>
       
@@ -660,11 +705,11 @@ document.write(`
 <h1>Example: Layout optimization with genetic random search<a class="headerlink" href="#example-layout-optimization-with-genetic-random-search" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Example: Layout optimization with genetic random search</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">"""Example: Layout optimization with genetic random search</span>
 <span class="sd">This example shows a layout optimization using the genetic random search</span>
 <span class="sd">algorithm. It provides options for the users to try different distance</span>
 <span class="sd">probability mass functions for the random search perturbations.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -676,9 +721,9 @@ document.write(`
 <span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="c1"># Set up FLORIS</span>
-    <span class="n">fmodel</span> <span class="o">=</span> <span class="n">FlorisModel</span><span class="p">(</span><span class="s1">&#39;../inputs/gch.yaml&#39;</span><span class="p">)</span>
+    <span class="n">fmodel</span> <span class="o">=</span> <span class="n">FlorisModel</span><span class="p">(</span><span class="s1">'../inputs/gch.yaml'</span><span class="p">)</span>
 
 
     <span class="c1"># Setup 72 wind directions with a random wind speed and frequency distribution</span>
@@ -719,10 +764,10 @@ document.write(`
 
     <span class="c1"># Other options that users can try</span>
     <span class="c1"># 1.</span>
-    <span class="c1"># distance_pmf = {&quot;d&quot;: [100, 1000], &quot;p&quot;: [0.8, 0.2]}</span>
+    <span class="c1"># distance_pmf = {"d": [100, 1000], "p": [0.8, 0.2]}</span>
     <span class="c1"># 2.</span>
     <span class="c1"># p = gamma.pdf(np.linspace(0, 900, 91), 15, scale=20); p = p/p.sum()</span>
-    <span class="c1"># distance_pmf = {&quot;d&quot;: np.linspace(100, 1000, 91), &quot;p&quot;: p}</span>
+    <span class="c1"># distance_pmf = {"d": np.linspace(100, 1000, 91), "p": p}</span>
 
     <span class="n">layout_opt</span> <span class="o">=</span> <span class="n">LayoutOptimizationRandomSearch</span><span class="p">(</span>
         <span class="n">fmodel</span><span class="p">,</span>
@@ -743,7 +788,7 @@ document.write(`
 
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -752,85 +797,25 @@ document.write(`
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Placing turbine 1 of 4.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Placing turbine 1 of 4.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Placing turbine 1 of 4.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Placing turbine 2 of 4.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Placing turbine 2 of 4.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Placing turbine 2 of 4.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Placing turbine 1 of 4.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Placing turbine 3 of 4.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Placing turbine 3 of 4.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Placing turbine 2 of 4.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Placing turbine 3 of 4.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Placing turbine 3 of 4.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Time to generate initial layouts: 0.388 s
+Placing turbine 2 of 4.
+Placing turbine 3 of 4.
+Placing turbine 1 of 4.
+Placing turbine 2 of 4.
+Placing turbine 3 of 4.
+Placing turbine 1 of 4.
+Placing turbine 2 of 4.
+Placing turbine 3 of 4.
+Placing turbine 1 of 4.
+Placing turbine 2 of 4.
+Placing turbine 3 of 4.
+  Time to generate initial layouts: 1.252 s
 =======================================
 Optimization step +0.0
-Optimization time = +0.4 [s]
-Mean AEP = 56.9 [GWh] (+1.21%)
-Median AEP = 56.9 [GWh] (+1.14%)
-Max AEP = 57.2 [GWh] (+1.63%)
-Min AEP = 56.8 [GWh] (+0.93%)
+Optimization time = +1.3 [s]
+Mean AEP = 56.9 [GWh] (+1.17%)
+Median AEP = 57.2 [GWh] (+1.74%)
+Max AEP = 57.4 [GWh] (+2.02%)
+Min AEP = 55.8 [GWh] (-0.83%)
 =======================================
 Random Layout Optimization
 Number of turbines to optimize = 4
@@ -844,73 +829,73 @@ Optimization time: 0.0 s / 60.0 s
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=======================================
 Optimization step +1.0
-Optimization time = +10.5 [s]
-Mean AEP = 57.7 [GWh] (+2.62%)
-Median AEP = 57.7 [GWh] (+2.61%)
-Max AEP = 58.6 [GWh] (+4.21%)
-Min AEP = 56.9 [GWh] (+1.04%)
+Optimization time = +12.4 [s]
+Mean AEP = 58.4 [GWh] (+3.77%)
+Median AEP = 58.8 [GWh] (+4.41%)
+Max AEP = 58.8 [GWh] (+4.43%)
+Min AEP = 57.3 [GWh] (+1.83%)
 =======================================
-Optimization time: 10.1 s / 60.0 s
+Optimization time: 11.1 s / 60.0 s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=======================================
 Optimization step +2.0
-Optimization time = +20.6 [s]
-Mean AEP = 58.2 [GWh] (+3.51%)
-Median AEP = 58.7 [GWh] (+4.26%)
-Max AEP = 58.7 [GWh] (+4.30%)
-Min AEP = 57.0 [GWh] (+1.25%)
+Optimization time = +23.5 [s]
+Mean AEP = 58.8 [GWh] (+4.51%)
+Median AEP = 58.8 [GWh] (+4.51%)
+Max AEP = 58.8 [GWh] (+4.54%)
+Min AEP = 58.8 [GWh] (+4.50%)
 =======================================
-Optimization time: 20.2 s / 60.0 s
+Optimization time: 22.2 s / 60.0 s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=======================================
 Optimization step +3.0
-Optimization time = +30.8 [s]
-Mean AEP = 58.7 [GWh] (+4.38%)
-Median AEP = 58.7 [GWh] (+4.39%)
-Max AEP = 58.8 [GWh] (+4.43%)
-Min AEP = 58.7 [GWh] (+4.29%)
+Optimization time = +34.6 [s]
+Mean AEP = 58.8 [GWh] (+4.55%)
+Median AEP = 58.8 [GWh] (+4.56%)
+Max AEP = 58.8 [GWh] (+4.57%)
+Min AEP = 58.8 [GWh] (+4.52%)
 =======================================
-Optimization time: 30.4 s / 60.0 s
+Optimization time: 33.3 s / 60.0 s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=======================================
 Optimization step +4.0
-Optimization time = +40.9 [s]
-Mean AEP = 58.8 [GWh] (+4.47%)
-Median AEP = 58.8 [GWh] (+4.47%)
-Max AEP = 58.8 [GWh] (+4.48%)
-Min AEP = 58.8 [GWh] (+4.44%)
+Optimization time = +45.7 [s]
+Mean AEP = 58.8 [GWh] (+4.57%)
+Median AEP = 58.8 [GWh] (+4.57%)
+Max AEP = 58.8 [GWh] (+4.58%)
+Min AEP = 58.8 [GWh] (+4.56%)
 =======================================
-Optimization time: 40.5 s / 60.0 s
+Optimization time: 44.4 s / 60.0 s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=======================================
 Optimization step +5.0
-Optimization time = +51.1 [s]
-Mean AEP = 58.8 [GWh] (+4.53%)
-Median AEP = 58.8 [GWh] (+4.52%)
-Max AEP = 58.8 [GWh] (+4.57%)
-Min AEP = 58.8 [GWh] (+4.50%)
+Optimization time = +56.8 [s]
+Mean AEP = 58.8 [GWh] (+4.58%)
+Median AEP = 58.8 [GWh] (+4.58%)
+Max AEP = 58.9 [GWh] (+4.59%)
+Min AEP = 58.8 [GWh] (+4.57%)
 =======================================
-Optimization time: 50.6 s / 60.0 s
+Optimization time: 55.5 s / 60.0 s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=======================================
 Optimization step +6.0
-Optimization time = +61.2 [s]
-Mean AEP = 58.8 [GWh] (+4.55%)
-Median AEP = 58.8 [GWh] (+4.56%)
-Max AEP = 58.8 [GWh] (+4.58%)
-Min AEP = 58.8 [GWh] (+4.52%)
+Optimization time = +67.8 [s]
+Mean AEP = 58.8 [GWh] (+4.59%)
+Median AEP = 58.8 [GWh] (+4.59%)
+Max AEP = 58.9 [GWh] (+4.59%)
+Min AEP = 58.8 [GWh] (+4.59%)
 =======================================
-Final AEP = 58.8 [GWh] (+4.58%)
+Final AEP = 58.9 [GWh] (+4.59%)
 </pre></div>
 </div>
-<img alt="../../_images/217e302e4cc4a4cfc7faae11aacf60948ba344761229f49b3e922e3dc3c13800.png" src="../../_images/217e302e4cc4a4cfc7faae11aacf60948ba344761229f49b3e922e3dc3c13800.png" />
-<img alt="../../_images/35f60f456265d62a6cbdfbc7128e34b9f095fdda8dfab830eabcf312537e8b0e.png" src="../../_images/35f60f456265d62a6cbdfbc7128e34b9f095fdda8dfab830eabcf312537e8b0e.png" />
-<img alt="../../_images/f0187040cf44e556e54213c7d6b0f697108d51f67a3addb225a1fcc5a0e9ab16.png" src="../../_images/f0187040cf44e556e54213c7d6b0f697108d51f67a3addb225a1fcc5a0e9ab16.png" />
+<img alt="../../_images/81d887a15dced776854bdde21fe177c08e39d4f5a88c43ce14a83e0dd70d6897.png" src="../../_images/81d887a15dced776854bdde21fe177c08e39d4f5a88c43ce14a83e0dd70d6897.png" />
+<img alt="../../_images/a5bc0017bc4a9b9a6de5241bba396088de5fcca8d862cf90a6797f9b00f20a73.png" src="../../_images/a5bc0017bc4a9b9a6de5241bba396088de5fcca8d862cf90a6797f9b00f20a73.png" />
+<img alt="../../_images/cfd04ac678ff97a6f1bf0b1d6b6e28d1c16b1e50778754afb1c7ba610b4e8cb4.png" src="../../_images/cfd04ac678ff97a6f1bf0b1d6b6e28d1c16b1e50778754afb1c7ba610b4e8cb4.png" />
 </div>
 </div>
 </section>
@@ -979,7 +964,7 @@ Final AEP = 58.8 [GWh] (+4.58%)
   <div class="footer-item">
     
 <p class="component-author">
-By National Renewable Energy Laboratory
+By National Laboratory of the Rockies
 </p>
 
   </div>
@@ -989,7 +974,7 @@ By National Renewable Energy Laboratory
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>
@@ -1013,8 +998,8 @@ By National Renewable Energy Laboratory
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

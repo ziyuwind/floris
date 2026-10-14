@@ -1489,6 +1489,8 @@ window.runMermaid = runMermaid;</script>
 </li>
       <li><a href="_autosummary/floris.core.wake.html#floris.core.wake.WakeModelManager.enable_transverse_velocities">enable_transverse_velocities (floris.core.wake.WakeModelManager attribute)</a>
 </li>
+      <li><a href="_autosummary/floris.core.wake.html#floris.core.wake.WakeModelManager.enable_turbine_turbulence_grid">enable_turbine_turbulence_grid (floris.core.wake.WakeModelManager attribute)</a>
+</li>
       <li><a href="_autosummary/floris.core.wake.html#floris.core.wake.WakeModelManager.enable_yaw_added_recovery">enable_yaw_added_recovery (floris.core.wake.WakeModelManager attribute)</a>
 </li>
       <li><a href="_autosummary/floris.core.wake_deflection.gauss.html#floris.core.wake_deflection.gauss.GaussVelocityDeflection.eps_gain">eps_gain (floris.core.wake_deflection.gauss.GaussVelocityDeflection attribute)</a>
@@ -2156,8 +2158,6 @@ window.runMermaid = runMermaid;</script>
         <li><a href="_autosummary/floris.uncertain_floris_model.html#floris.uncertain_floris_model.UncertainFlorisModel.get_farm_power">(floris.uncertain_floris_model.UncertainFlorisModel method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="_autosummary/floris.wind_data.html#floris.wind_data.WindRoseWRG.get_heterogeneous_wind_rose">get_heterogeneous_wind_rose() (floris.wind_data.WindRoseWRG method)</a>
 </li>
       <li><a href="_autosummary/floris.floris_model.html#floris.floris_model.FlorisModel.get_operation_model">get_operation_model() (floris.floris_model.FlorisModel method)</a>
@@ -2168,6 +2168,8 @@ window.runMermaid = runMermaid;</script>
         <li><a href="_autosummary/floris.uncertain_floris_model.html#floris.uncertain_floris_model.UncertainFlorisModel.get_operation_model">(floris.uncertain_floris_model.UncertainFlorisModel method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="_autosummary/floris.optimization.layout_optimization.layout_optimization_pyoptsparse.html#floris.optimization.layout_optimization.layout_optimization_pyoptsparse.LayoutOptimizationPyOptSparse.get_optimized_locs">get_optimized_locs() (floris.optimization.layout_optimization.layout_optimization_pyoptsparse.LayoutOptimizationPyOptSparse method)</a>
 </li>
       <li><a href="_autosummary/floris.floris_model.html#floris.floris_model.FlorisModel.get_param">get_param() (floris.floris_model.FlorisModel method)</a>
@@ -2184,8 +2186,18 @@ window.runMermaid = runMermaid;</script>
 </li>
       <li><a href="_autosummary/floris.cut_plane.html#floris.cut_plane.get_power_profile">get_power_profile() (in module floris.cut_plane)</a>
 </li>
+      <li><a href="_autosummary/floris.core.flow_field.html#floris.core.flow_field.FlowField.get_sector_averaged_turbine_TIs">get_sector_averaged_turbine_TIs() (floris.core.flow_field.FlowField method)</a>
+</li>
+      <li><a href="_autosummary/floris.core.flow_field.html#floris.core.flow_field.FlowField.get_sector_averaged_turbine_wind_speeds">get_sector_averaged_turbine_wind_speeds() (floris.core.flow_field.FlowField method)</a>
+</li>
       <li><a href="_autosummary/floris.floris_model.html#floris.floris_model.FlorisModel.get_turbine_ais">get_turbine_ais() (floris.floris_model.FlorisModel method)</a>
 </li>
+      <li><a href="_autosummary/floris.core.flow_field.html#floris.core.flow_field.FlowField.get_turbine_grid_TIs">get_turbine_grid_TIs() (floris.core.flow_field.FlowField method)</a>
+
+      <ul>
+        <li><a href="_autosummary/floris.floris_model.html#floris.floris_model.FlorisModel.get_turbine_grid_TIs">(floris.floris_model.FlorisModel method)</a>
+</li>
+      </ul></li>
       <li><a href="_autosummary/floris.floris_model.html#floris.floris_model.FlorisModel.get_turbine_layout">get_turbine_layout() (floris.floris_model.FlorisModel method)</a>
 </li>
       <li><a href="_autosummary/floris.floris_model.html#floris.floris_model.FlorisModel.get_turbine_powers">get_turbine_powers() (floris.floris_model.FlorisModel method)</a>
@@ -2196,6 +2208,10 @@ window.runMermaid = runMermaid;</script>
         <li><a href="_autosummary/floris.uncertain_floris_model.html#floris.uncertain_floris_model.UncertainFlorisModel.get_turbine_powers">(floris.uncertain_floris_model.UncertainFlorisModel method)</a>
 </li>
       </ul></li>
+      <li><a href="_autosummary/floris.floris_model.html#floris.floris_model.FlorisModel.get_turbine_sector_average_TI">get_turbine_sector_average_TI() (floris.floris_model.FlorisModel method)</a>
+</li>
+      <li><a href="_autosummary/floris.floris_model.html#floris.floris_model.FlorisModel.get_turbine_sector_average_wind_speed">get_turbine_sector_average_wind_speed() (floris.floris_model.FlorisModel method)</a>
+</li>
       <li><a href="_autosummary/floris.floris_model.html#floris.floris_model.FlorisModel.get_turbine_thrust_coefficients">get_turbine_thrust_coefficients() (floris.floris_model.FlorisModel method)</a>
 </li>
       <li><a href="_autosummary/floris.floris_model.html#floris.floris_model.FlorisModel.get_turbine_TIs">get_turbine_TIs() (floris.floris_model.FlorisModel method)</a>
@@ -3203,10 +3219,10 @@ window.runMermaid = runMermaid;</script>
         <li><a href="_autosummary/floris.uncertain_floris_model.html#floris.uncertain_floris_model.UncertainFlorisModel.turbine_average_velocities">(floris.uncertain_floris_model.UncertainFlorisModel property)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="_autosummary/floris.core.farm.html#floris.core.farm.Farm.turbine_axial_induction_functions">turbine_axial_induction_functions (floris.core.farm.Farm attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="_autosummary/floris.core.grid.html#floris.core.grid.Grid.turbine_coordinates">turbine_coordinates (floris.core.grid.Grid attribute)</a>
 </li>
       <li><a href="_autosummary/floris.core.farm.html#floris.core.farm.Farm.turbine_definitions">turbine_definitions (floris.core.farm.Farm attribute)</a>
@@ -3278,6 +3294,8 @@ window.runMermaid = runMermaid;</script>
       <li><a href="_autosummary/floris.core.flow_field.html#floris.core.flow_field.FlowField.turbulence_intensity_field_sorted_avg">turbulence_intensity_field_sorted_avg (floris.core.flow_field.FlowField attribute)</a>
 </li>
       <li><a href="_autosummary/floris.core.wake.html#floris.core.wake.WakeModelManager.turbulence_model">turbulence_model (floris.core.wake.WakeModelManager attribute)</a>
+</li>
+      <li><a href="_autosummary/floris.core.flow_field.html#floris.core.flow_field.FlowField.turbulence_wake_mixing_sorted">turbulence_wake_mixing_sorted (floris.core.flow_field.FlowField attribute)</a>
 </li>
   </ul></td>
 </tr></table>

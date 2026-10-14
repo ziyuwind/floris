@@ -1050,6 +1050,8 @@ window.runMermaid = runMermaid;</script>
     <span class="n">turbulence_intensity_field_sorted_avg</span><span class="p">:</span> <span class="n">NDArrayFloat</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
         <span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
     <span class="p">)</span>
+    <span class="c1"># Will only be initialized (in solvers) if needed</span>
+    <span class="n">turbulence_wake_mixing_sorted</span><span class="p">:</span> <span class="n">NDArrayFloat</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([]))</span>
 
 <div class="viewcode-block" id="FlowField.turbulence_intensities_validator">
 <a class="viewcode-back" href="../../../_autosummary/floris.core.flow_field.html#floris.core.flow_field.FlowField.turbulence_intensities_validator">[docs]</a>
@@ -1368,6 +1370,60 @@ window.runMermaid = runMermaid;</script>
                 <span class="n">interps_f</span><span class="p">[</span><span class="n">findex</span><span class="p">]</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">interp_2d</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">het_map</span> <span class="o">=</span> <span class="n">interps_f</span></div>
+
+
+<div class="viewcode-block" id="FlowField.get_sector_averaged_turbine_wind_speeds">
+<a class="viewcode-back" href="../../../_autosummary/floris.core.flow_field.html#floris.core.flow_field.FlowField.get_sector_averaged_turbine_wind_speeds">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_sector_averaged_turbine_wind_speeds</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NDArrayFloat</span><span class="p">:</span>
+        <span class="n">n_turbines</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">u</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">sector_average_ws</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">n_findex</span><span class="p">,</span> <span class="n">n_turbines</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_turbines</span><span class="p">):</span>
+            <span class="c1"># TODO: Is this loop needed?</span>
+            <span class="n">vels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">u</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span>
+
+            <span class="c1"># simple average</span>
+            <span class="n">sector_average_ws</span><span class="p">[:,</span> <span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">vels</span><span class="p">[:,</span> <span class="p">:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># Up</span>
+            <span class="n">sector_average_ws</span><span class="p">[:,</span> <span class="n">i</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">vels</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># Right</span>
+            <span class="n">sector_average_ws</span><span class="p">[:,</span> <span class="n">i</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">vels</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>     <span class="c1"># Down</span>
+            <span class="n">sector_average_ws</span><span class="p">[:,</span> <span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">vels</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>     <span class="c1"># Left</span>
+
+        <span class="k">return</span> <span class="n">sector_average_ws</span></div>
+
+
+<div class="viewcode-block" id="FlowField.get_sector_averaged_turbine_TIs">
+<a class="viewcode-back" href="../../../_autosummary/floris.core.flow_field.html#floris.core.flow_field.FlowField.get_sector_averaged_turbine_TIs">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_sector_averaged_turbine_TIs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unsorted_indices</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NDArrayFloat</span><span class="p">:</span>
+        <span class="n">n_turbines</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">u</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">sector_average_TI</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span>
+            <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_findex</span><span class="p">,</span> <span class="n">n_turbines</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">turbulence_wake_mixing</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">take_along_axis</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">turbulence_wake_mixing_sorted</span><span class="p">,</span>
+            <span class="n">unsorted_indices</span><span class="p">,</span>
+            <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+        <span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_turbines</span><span class="p">):</span>
+            <span class="c1"># TODO: Is this loop needed?</span>
+            <span class="n">TIs</span> <span class="o">=</span> <span class="n">turbulence_wake_mixing</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span>
+
+            <span class="c1"># simple average</span>
+            <span class="n">sector_average_TI</span><span class="p">[:,</span> <span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">TIs</span><span class="p">[:,</span> <span class="p">:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>     <span class="c1"># Up</span>
+            <span class="n">sector_average_TI</span><span class="p">[:,</span> <span class="n">i</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">TIs</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>     <span class="c1"># Right</span>
+            <span class="n">sector_average_TI</span><span class="p">[:,</span> <span class="n">i</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">TIs</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>      <span class="c1"># Down</span>
+            <span class="n">sector_average_TI</span><span class="p">[:,</span> <span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">TIs</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>      <span class="c1"># Left</span>
+
+        <span class="k">return</span> <span class="n">sector_average_TI</span></div>
+
+
+<div class="viewcode-block" id="FlowField.get_turbine_grid_TIs">
+<a class="viewcode-back" href="../../../_autosummary/floris.core.flow_field.html#floris.core.flow_field.FlowField.get_turbine_grid_TIs">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_turbine_grid_TIs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unsorted_indices</span><span class="p">:</span> <span class="n">NDArrayFloat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NDArrayFloat</span><span class="p">:</span>
+        <span class="n">turbulence_intensity_field_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">take_along_axis</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">turbulence_intensity_field_sorted</span><span class="p">,</span>
+            <span class="n">unsorted_indices</span><span class="p">,</span>
+            <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">turbulence_intensity_field_grid</span></div>
 
 
 <div class="viewcode-block" id="FlowField.interpolate_multiplier_xy">

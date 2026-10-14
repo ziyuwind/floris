@@ -728,6 +728,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.turbulence_intensity_field"><code class="docutils literal notranslate"><span class="pre">FlowField.turbulence_intensity_field</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.turbulence_intensity_field_sorted"><code class="docutils literal notranslate"><span class="pre">FlowField.turbulence_intensity_field_sorted</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.turbulence_intensity_field_sorted_avg"><code class="docutils literal notranslate"><span class="pre">FlowField.turbulence_intensity_field_sorted_avg</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.turbulence_wake_mixing_sorted"><code class="docutils literal notranslate"><span class="pre">FlowField.turbulence_wake_mixing_sorted</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.turbulence_intensities_validator"><code class="docutils literal notranslate"><span class="pre">FlowField.turbulence_intensities_validator()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.wind_directions_validator"><code class="docutils literal notranslate"><span class="pre">FlowField.wind_directions_validator()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.wind_speeds_validator"><code class="docutils literal notranslate"><span class="pre">FlowField.wind_speeds_validator()</span></code></a></li>
@@ -737,6 +738,9 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.finalize"><code class="docutils literal notranslate"><span class="pre">FlowField.finalize()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.calculate_speed_ups"><code class="docutils literal notranslate"><span class="pre">FlowField.calculate_speed_ups()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.generate_heterogeneous_wind_map"><code class="docutils literal notranslate"><span class="pre">FlowField.generate_heterogeneous_wind_map()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.get_sector_averaged_turbine_wind_speeds"><code class="docutils literal notranslate"><span class="pre">FlowField.get_sector_averaged_turbine_wind_speeds()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.get_sector_averaged_turbine_TIs"><code class="docutils literal notranslate"><span class="pre">FlowField.get_sector_averaged_turbine_TIs()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.get_turbine_grid_TIs"><code class="docutils literal notranslate"><span class="pre">FlowField.get_turbine_grid_TIs()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.interpolate_multiplier_xy"><code class="docutils literal notranslate"><span class="pre">FlowField.interpolate_multiplier_xy()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.interpolate_multiplier_xyz"><code class="docutils literal notranslate"><span class="pre">FlowField.interpolate_multiplier_xyz()</span></code></a></li>
 </ul>
@@ -901,6 +905,11 @@
 <span class="sig-name descname"><span class="pre">turbulence_intensity_field_sorted_avg</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">GenericAlias</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">float64</span></code><span class="pre">]</span></em><a class="headerlink" href="#floris.core.flow_field.FlowField.turbulence_intensity_field_sorted_avg" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="floris.core.flow_field.FlowField.turbulence_wake_mixing_sorted">
+<span class="sig-name descname"><span class="pre">turbulence_wake_mixing_sorted</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">GenericAlias</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">float64</span></code><span class="pre">]</span></em><a class="headerlink" href="#floris.core.flow_field.FlowField.turbulence_wake_mixing_sorted" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="floris.core.flow_field.FlowField.turbulence_intensities_validator">
 <span class="sig-name descname"><span class="pre">turbulence_intensities_validator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/floris/core/flow_field.html#FlowField.turbulence_intensities_validator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#floris.core.flow_field.FlowField.turbulence_intensities_validator" title="Link to this definition">#</a></dt>
@@ -1032,6 +1041,39 @@ array of multiplicative factors defined for each wind direction.</p>
 <li><p><strong>z</strong> (optional): A list of z locations at which the speed up factors are defined.</p></li>
 </ul>
 </div></blockquote>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floris.core.flow_field.FlowField.get_sector_averaged_turbine_wind_speeds">
+<span class="sig-name descname"><span class="pre">get_sector_averaged_turbine_wind_speeds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/floris/core/flow_field.html#FlowField.get_sector_averaged_turbine_wind_speeds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#floris.core.flow_field.FlowField.get_sector_averaged_turbine_wind_speeds" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">GenericAlias</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float64</span></code>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floris.core.flow_field.FlowField.get_sector_averaged_turbine_TIs">
+<span class="sig-name descname"><span class="pre">get_sector_averaged_turbine_TIs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unsorted_indices</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/floris/core/flow_field.html#FlowField.get_sector_averaged_turbine_TIs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#floris.core.flow_field.FlowField.get_sector_averaged_turbine_TIs" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">GenericAlias</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float64</span></code>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="floris.core.flow_field.FlowField.get_turbine_grid_TIs">
+<span class="sig-name descname"><span class="pre">get_turbine_grid_TIs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unsorted_indices</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/floris/core/flow_field.html#FlowField.get_turbine_grid_TIs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#floris.core.flow_field.FlowField.get_turbine_grid_TIs" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">GenericAlias</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float64</span></code>]</span></p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>unsorted_indices</strong> (<em>NDArray</em><em>[</em><em>float64</em><em>]</em>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1193,6 +1235,7 @@ interp_method (str): interpolation method, either &quot;linear&quot; or &quot;ne
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.turbulence_intensity_field"><code class="docutils literal notranslate"><span class="pre">FlowField.turbulence_intensity_field</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.turbulence_intensity_field_sorted"><code class="docutils literal notranslate"><span class="pre">FlowField.turbulence_intensity_field_sorted</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.turbulence_intensity_field_sorted_avg"><code class="docutils literal notranslate"><span class="pre">FlowField.turbulence_intensity_field_sorted_avg</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.turbulence_wake_mixing_sorted"><code class="docutils literal notranslate"><span class="pre">FlowField.turbulence_wake_mixing_sorted</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.turbulence_intensities_validator"><code class="docutils literal notranslate"><span class="pre">FlowField.turbulence_intensities_validator()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.wind_directions_validator"><code class="docutils literal notranslate"><span class="pre">FlowField.wind_directions_validator()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.wind_speeds_validator"><code class="docutils literal notranslate"><span class="pre">FlowField.wind_speeds_validator()</span></code></a></li>
@@ -1202,6 +1245,9 @@ interp_method (str): interpolation method, either &quot;linear&quot; or &quot;ne
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.finalize"><code class="docutils literal notranslate"><span class="pre">FlowField.finalize()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.calculate_speed_ups"><code class="docutils literal notranslate"><span class="pre">FlowField.calculate_speed_ups()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.generate_heterogeneous_wind_map"><code class="docutils literal notranslate"><span class="pre">FlowField.generate_heterogeneous_wind_map()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.get_sector_averaged_turbine_wind_speeds"><code class="docutils literal notranslate"><span class="pre">FlowField.get_sector_averaged_turbine_wind_speeds()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.get_sector_averaged_turbine_TIs"><code class="docutils literal notranslate"><span class="pre">FlowField.get_sector_averaged_turbine_TIs()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.get_turbine_grid_TIs"><code class="docutils literal notranslate"><span class="pre">FlowField.get_turbine_grid_TIs()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.interpolate_multiplier_xy"><code class="docutils literal notranslate"><span class="pre">FlowField.interpolate_multiplier_xy()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.flow_field.FlowField.interpolate_multiplier_xyz"><code class="docutils literal notranslate"><span class="pre">FlowField.interpolate_multiplier_xyz()</span></code></a></li>
 </ul>

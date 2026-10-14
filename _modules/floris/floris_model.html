@@ -2105,6 +2105,39 @@ window.runMermaid = runMermaid;</script>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">flow_field</span><span class="o">.</span><span class="n">turbulence_intensity_field</span></div>
 
 
+<div class="viewcode-block" id="FlorisModel.get_turbine_grid_TIs">
+<a class="viewcode-back" href="../../_autosummary/floris.floris_model.html#floris.floris_model.FlorisModel.get_turbine_grid_TIs">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_turbine_grid_TIs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NDArrayFloat</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">wake</span><span class="o">.</span><span class="n">enable_turbine_turbulence_grid</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">"Grid TI quantities are only available if FLORIS "</span>
+                <span class="s2">"is run with enable_turbine_turbulence_grid = True."</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">flow_field</span><span class="o">.</span><span class="n">get_turbine_grid_TIs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">grid</span><span class="o">.</span><span class="n">unsorted_indices</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="FlorisModel.get_turbine_sector_average_wind_speed">
+<a class="viewcode-back" href="../../_autosummary/floris.floris_model.html#floris.floris_model.FlorisModel.get_turbine_sector_average_wind_speed">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_turbine_sector_average_wind_speed</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NDArrayFloat</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">wake</span><span class="o">.</span><span class="n">enable_turbine_turbulence_grid</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">"Sector-averaged quantities are only available if FLORIS "</span>
+                <span class="s2">"is run with enable_turbine_turbulence_grid = True."</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">flow_field</span><span class="o">.</span><span class="n">get_sector_averaged_turbine_wind_speeds</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="FlorisModel.get_turbine_sector_average_TI">
+<a class="viewcode-back" href="../../_autosummary/floris.floris_model.html#floris.floris_model.FlorisModel.get_turbine_sector_average_TI">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_turbine_sector_average_TI</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NDArrayFloat</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">wake</span><span class="o">.</span><span class="n">enable_turbine_turbulence_grid</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">"Sector-averaged quantities are only available if FLORIS "</span>
+                <span class="s2">"is run with enable_turbine_turbulence_grid = True."</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">flow_field</span><span class="o">.</span><span class="n">get_sector_averaged_turbine_TIs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">grid</span><span class="o">.</span><span class="n">unsorted_indices</span><span class="p">)</span></div>
+
+
 
     <span class="c1">### Methods for sampling and visualization</span>
 

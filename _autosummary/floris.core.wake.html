@@ -716,6 +716,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.wake.WakeModelManager.deflection_model"><code class="docutils literal notranslate"><span class="pre">WakeModelManager.deflection_model</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.wake.WakeModelManager.turbulence_model"><code class="docutils literal notranslate"><span class="pre">WakeModelManager.turbulence_model</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.wake.WakeModelManager.velocity_model"><code class="docutils literal notranslate"><span class="pre">WakeModelManager.velocity_model</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.wake.WakeModelManager.enable_turbine_turbulence_grid"><code class="docutils literal notranslate"><span class="pre">WakeModelManager.enable_turbine_turbulence_grid</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.wake.WakeModelManager.validate_model_strings"><code class="docutils literal notranslate"><span class="pre">WakeModelManager.validate_model_strings()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.wake.WakeModelManager.deflection_function"><code class="docutils literal notranslate"><span class="pre">WakeModelManager.deflection_function</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.wake.WakeModelManager.velocity_function"><code class="docutils literal notranslate"><span class="pre">WakeModelManager.velocity_function</span></code></a></li>
@@ -747,7 +748,7 @@
 </div>
 <dl class="py class">
 <dt class="sig sig-object py" id="floris.core.wake.WakeModelManager">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">floris.core.wake.</span></span><span class="sig-name descname"><span class="pre">WakeModelManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_strings</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_secondary_steering</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_yaw_added_recovery</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_active_wake_mixing</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_transverse_velocities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wake_deflection_parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wake_turbulence_parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wake_velocity_parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NOTHING</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/floris/core/wake.html#WakeModelManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#floris.core.wake.WakeModelManager" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">floris.core.wake.</span></span><span class="sig-name descname"><span class="pre">WakeModelManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_strings</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_secondary_steering</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_yaw_added_recovery</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_active_wake_mixing</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_transverse_velocities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wake_deflection_parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wake_turbulence_parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wake_velocity_parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NOTHING</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_turbine_turbulence_grid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/floris/core/wake.html#WakeModelManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#floris.core.wake.WakeModelManager" title="Link to this definition">#</a></dt>
 <dd><p>WakeModelManager is a container class for the wake velocity, deflection,
 turbulence, and combination models.</p>
 <dl class="simple">
@@ -773,6 +774,7 @@ turbulence, and combination models.</p>
 <li><p><strong>wake_deflection_parameters</strong> (<em>dict</em>)</p></li>
 <li><p><strong>wake_turbulence_parameters</strong> (<em>dict</em>)</p></li>
 <li><p><strong>wake_velocity_parameters</strong> (<em>dict</em>)</p></li>
+<li><p><strong>enable_turbine_turbulence_grid</strong> (<em>bool</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -834,6 +836,11 @@ turbulence, and combination models.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="floris.core.wake.WakeModelManager.velocity_model">
 <span class="sig-name descname"><span class="pre">velocity_model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="floris.core.base.html#floris.core.base.BaseModel" title="floris.core.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></a></em><a class="headerlink" href="#floris.core.wake.WakeModelManager.velocity_model" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="floris.core.wake.WakeModelManager.enable_turbine_turbulence_grid">
+<span class="sig-name descname"><span class="pre">enable_turbine_turbulence_grid</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></em><a class="headerlink" href="#floris.core.wake.WakeModelManager.enable_turbine_turbulence_grid" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -955,6 +962,7 @@ turbulence, and combination models.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.wake.WakeModelManager.deflection_model"><code class="docutils literal notranslate"><span class="pre">WakeModelManager.deflection_model</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.wake.WakeModelManager.turbulence_model"><code class="docutils literal notranslate"><span class="pre">WakeModelManager.turbulence_model</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.wake.WakeModelManager.velocity_model"><code class="docutils literal notranslate"><span class="pre">WakeModelManager.velocity_model</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.wake.WakeModelManager.enable_turbine_turbulence_grid"><code class="docutils literal notranslate"><span class="pre">WakeModelManager.enable_turbine_turbulence_grid</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.wake.WakeModelManager.validate_model_strings"><code class="docutils literal notranslate"><span class="pre">WakeModelManager.validate_model_strings()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.wake.WakeModelManager.deflection_function"><code class="docutils literal notranslate"><span class="pre">WakeModelManager.deflection_function</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floris.core.wake.WakeModelManager.velocity_function"><code class="docutils literal notranslate"><span class="pre">WakeModelManager.velocity_function</span></code></a></li>

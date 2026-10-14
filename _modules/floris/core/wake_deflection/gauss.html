@@ -1497,22 +1497,29 @@ window.runMermaid = runMermaid;</script>
     <span class="n">v_i</span><span class="p">,</span>
     <span class="n">w_i</span><span class="p">,</span>
     <span class="n">turb_v_i</span><span class="p">,</span>
-    <span class="n">turb_w_i</span>
+    <span class="n">turb_w_i</span><span class="p">,</span>
+    <span class="n">enable_turbine_turbulence_grid</span><span class="p">,</span>
 <span class="p">):</span>
-    <span class="c1"># Since turbulence mixing is constant for the turbine,</span>
-    <span class="c1"># use the left two dimensions only here and expand</span>
-    <span class="c1"># before returning. Dimensions are (wd, ws).</span>
+    <span class="c1"># If modeling turbulence as a grid, use the full 4D arrays for computations.</span>
+    <span class="c1"># Otherwise, average over the spatial dimensions.</span>
 
-    <span class="n">I_i</span> <span class="o">=</span> <span class="n">I_i</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-
-    <span class="n">average_u_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cbrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">u_i</span> <span class="o">**</span> <span class="mi">3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+    <span class="k">if</span> <span class="n">enable_turbine_turbulence_grid</span><span class="p">:</span>
+        <span class="n">average_u_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cbrt</span><span class="p">(</span><span class="n">u_i</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">I_i</span> <span class="o">=</span> <span class="n">I_i</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="n">average_u_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cbrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">u_i</span> <span class="o">**</span> <span class="mi">3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
 
     <span class="c1"># Convert ambient turbulence intensity to TKE (eq 24)</span>
     <span class="n">k</span> <span class="o">=</span> <span class="p">(</span><span class="n">average_u_i</span> <span class="o">*</span> <span class="n">I_i</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span>
 
     <span class="n">u_term</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">k</span><span class="p">)</span>
-    <span class="n">v_term</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">v_i</span> <span class="o">+</span> <span class="n">turb_v_i</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-    <span class="n">w_term</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">w_i</span> <span class="o">+</span> <span class="n">turb_w_i</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">enable_turbine_turbulence_grid</span><span class="p">:</span>
+        <span class="n">v_term</span> <span class="o">=</span> <span class="n">v_i</span> <span class="o">+</span> <span class="n">turb_v_i</span>
+        <span class="n">w_term</span> <span class="o">=</span> <span class="n">w_i</span> <span class="o">+</span> <span class="n">turb_w_i</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">v_term</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">v_i</span> <span class="o">+</span> <span class="n">turb_v_i</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+        <span class="n">w_term</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">w_i</span> <span class="o">+</span> <span class="n">turb_w_i</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
 
     <span class="c1"># Compute the new TKE (eq 23)</span>
     <span class="n">k_total</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">u_term</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">v_term</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">w_term</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
@@ -1523,7 +1530,10 @@ window.runMermaid = runMermaid;</script>
     <span class="c1"># Remove ambient from total TI leaving only the TI due to mixing</span>
     <span class="n">I_mixing</span> <span class="o">=</span> <span class="n">I_total</span> <span class="o">-</span> <span class="n">I_i</span>
 
-    <span class="k">return</span> <span class="n">I_mixing</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span></div>
+    <span class="k">if</span> <span class="n">enable_turbine_turbulence_grid</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">I_mixing</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">I_mixing</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span></div>
 
 </pre></div>
 

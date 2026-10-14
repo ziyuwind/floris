@@ -1066,6 +1066,13 @@ window.runMermaid = runMermaid;</script>
     <span class="c1"># Expand input turbulence intensity to 4d for (n_turbines, grid, grid)</span>
     <span class="n">turbine_turbulence_intensity</span> <span class="o">=</span> <span class="n">flow_field</span><span class="o">.</span><span class="n">turbulence_intensities</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
     <span class="n">turbine_turbulence_intensity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">turbine_turbulence_intensity</span><span class="p">,</span> <span class="n">farm</span><span class="o">.</span><span class="n">n_turbines</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">model_manager</span><span class="o">.</span><span class="n">enable_turbine_turbulence_grid</span><span class="p">:</span>
+        <span class="n">turbine_turbulence_intensity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span>
+            <span class="n">turbine_turbulence_intensity</span><span class="p">,</span> <span class="n">grid</span><span class="o">.</span><span class="n">grid_resolution</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span>
+        <span class="p">)</span>
+        <span class="n">turbine_turbulence_intensity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span>
+            <span class="n">turbine_turbulence_intensity</span><span class="p">,</span> <span class="n">grid</span><span class="o">.</span><span class="n">grid_resolution</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">3</span>
+        <span class="p">)</span>
 
     <span class="c1"># Ambient turbulent intensity should be a copy of n_findex-long turbulence_intensity</span>
     <span class="c1"># with dimensions expanded for (n_turbines, grid, grid)</span>
@@ -1189,6 +1196,7 @@ window.runMermaid = runMermaid;</script>
                 <span class="n">flow_field</span><span class="o">.</span><span class="n">w_sorted</span><span class="p">[:,</span> <span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span>
                 <span class="n">v_wake</span><span class="p">[:,</span> <span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span>
                 <span class="n">w_wake</span><span class="p">[:,</span> <span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span>
+                <span class="n">model_manager</span><span class="o">.</span><span class="n">enable_turbine_turbulence_grid</span><span class="p">,</span>
             <span class="p">)</span>
             <span class="n">gch_gain</span> <span class="o">=</span> <span class="mi">2</span>
             <span class="n">turbine_turbulence_intensity</span><span class="p">[:,</span> <span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">turbulence_intensity_i</span> <span class="o">+</span> <span class="n">gch_gain</span> <span class="o">*</span> <span class="n">I_mixing</span>
@@ -1248,6 +1256,12 @@ window.runMermaid = runMermaid;</script>
         <span class="n">flow_field</span><span class="o">.</span><span class="n">w_sorted</span> <span class="o">+=</span> <span class="n">w_wake</span>
 
     <span class="n">flow_field</span><span class="o">.</span><span class="n">turbulence_intensity_field_sorted</span> <span class="o">=</span> <span class="n">turbine_turbulence_intensity</span>
+    <span class="k">if</span> <span class="n">model_manager</span><span class="o">.</span><span class="n">enable_turbine_turbulence_grid</span><span class="p">:</span>
+        <span class="c1"># An approximate method to account for scaling of turbulence intensity with</span>
+        <span class="c1"># the local flow velocity. Unvalidated method used for informing surrogate models.</span>
+        <span class="n">flow_field</span><span class="o">.</span><span class="n">turbulence_wake_mixing_sorted</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">turbine_turbulence_intensity</span> <span class="o">*</span> <span class="n">flow_field</span><span class="o">.</span><span class="n">u_initial_sorted</span> <span class="o">/</span> <span class="n">flow_field</span><span class="o">.</span><span class="n">u_sorted</span>
+        <span class="p">)</span>
     <span class="n">flow_field</span><span class="o">.</span><span class="n">turbulence_intensity_field_sorted_avg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span>
         <span class="n">turbine_turbulence_intensity</span><span class="p">,</span>
         <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span>
@@ -1501,6 +1515,13 @@ window.runMermaid = runMermaid;</script>
     <span class="c1"># Set up turbulence arrays</span>
     <span class="n">turbine_turbulence_intensity</span> <span class="o">=</span> <span class="n">flow_field</span><span class="o">.</span><span class="n">turbulence_intensities</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
     <span class="n">turbine_turbulence_intensity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">turbine_turbulence_intensity</span><span class="p">,</span> <span class="n">farm</span><span class="o">.</span><span class="n">n_turbines</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">model_manager</span><span class="o">.</span><span class="n">enable_turbine_turbulence_grid</span><span class="p">:</span>
+        <span class="n">turbine_turbulence_intensity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span>
+            <span class="n">turbine_turbulence_intensity</span><span class="p">,</span> <span class="n">grid</span><span class="o">.</span><span class="n">grid_resolution</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span>
+        <span class="p">)</span>
+        <span class="n">turbine_turbulence_intensity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span>
+            <span class="n">turbine_turbulence_intensity</span><span class="p">,</span> <span class="n">grid</span><span class="o">.</span><span class="n">grid_resolution</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">3</span>
+        <span class="p">)</span>
 
     <span class="c1"># Ambient turbulent intensity should be a copy of n_findex-long turbulence_intensities</span>
     <span class="c1"># with extra dimension to reach 4d</span>
@@ -1664,6 +1685,7 @@ window.runMermaid = runMermaid;</script>
                 <span class="n">flow_field</span><span class="o">.</span><span class="n">w_sorted</span><span class="p">[:,</span> <span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span>
                 <span class="n">v_wake</span><span class="p">[:,</span> <span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span>
                 <span class="n">w_wake</span><span class="p">[:,</span> <span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span>
+                <span class="n">model_manager</span><span class="o">.</span><span class="n">enable_turbine_turbulence_grid</span><span class="p">,</span>
             <span class="p">)</span>
             <span class="n">gch_gain</span> <span class="o">=</span> <span class="mf">1.0</span>
             <span class="n">turbine_turbulence_intensity</span><span class="p">[:,</span> <span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">turbulence_intensity_i</span> <span class="o">+</span> <span class="n">gch_gain</span> <span class="o">*</span> <span class="n">I_mixing</span>
@@ -1718,6 +1740,12 @@ window.runMermaid = runMermaid;</script>
     <span class="n">flow_field</span><span class="o">.</span><span class="n">u_sorted</span> <span class="o">=</span> <span class="n">turb_inflow_field</span>
 
     <span class="n">flow_field</span><span class="o">.</span><span class="n">turbulence_intensity_field_sorted</span> <span class="o">=</span> <span class="n">turbine_turbulence_intensity</span>
+    <span class="k">if</span> <span class="n">model_manager</span><span class="o">.</span><span class="n">enable_turbine_turbulence_grid</span><span class="p">:</span>
+        <span class="c1"># An approximate method to account for scaling of turbulence intensity with</span>
+        <span class="c1"># the local flow velocity. Unvalidated method used for informing surrogate models.</span>
+        <span class="n">flow_field</span><span class="o">.</span><span class="n">turbulence_wake_mixing_sorted</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">turbine_turbulence_intensity</span> <span class="o">*</span> <span class="n">flow_field</span><span class="o">.</span><span class="n">u_initial_sorted</span> <span class="o">/</span> <span class="n">flow_field</span><span class="o">.</span><span class="n">u_sorted</span>
+        <span class="p">)</span>
     <span class="n">flow_field</span><span class="o">.</span><span class="n">turbulence_intensity_field_sorted_avg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span>
         <span class="n">turbine_turbulence_intensity</span><span class="p">,</span>
         <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span>
@@ -1979,6 +2007,13 @@ window.runMermaid = runMermaid;</script>
     <span class="c1"># Set up turbulence arrays</span>
     <span class="n">turbine_turbulence_intensity</span> <span class="o">=</span> <span class="n">flow_field</span><span class="o">.</span><span class="n">turbulence_intensities</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
     <span class="n">turbine_turbulence_intensity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">turbine_turbulence_intensity</span><span class="p">,</span> <span class="n">farm</span><span class="o">.</span><span class="n">n_turbines</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">model_manager</span><span class="o">.</span><span class="n">enable_turbine_turbulence_grid</span><span class="p">:</span>
+        <span class="n">turbine_turbulence_intensity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span>
+            <span class="n">turbine_turbulence_intensity</span><span class="p">,</span> <span class="n">grid</span><span class="o">.</span><span class="n">grid_resolution</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span>
+        <span class="p">)</span>
+        <span class="n">turbine_turbulence_intensity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span>
+            <span class="n">turbine_turbulence_intensity</span><span class="p">,</span> <span class="n">grid</span><span class="o">.</span><span class="n">grid_resolution</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">3</span>
+        <span class="p">)</span>
 
     <span class="c1"># Ambient turbulent intensity should be a copy of n_findex-long turbulence_intensities</span>
     <span class="c1"># with extra dimension to reach 4d</span>
@@ -2182,6 +2217,12 @@ window.runMermaid = runMermaid;</script>
         <span class="n">flow_field</span><span class="o">.</span><span class="n">w_sorted</span> <span class="o">+=</span> <span class="n">w_wake</span>
 
     <span class="n">flow_field</span><span class="o">.</span><span class="n">turbulence_intensity_field_sorted</span> <span class="o">=</span> <span class="n">turbine_turbulence_intensity</span>
+    <span class="k">if</span> <span class="n">model_manager</span><span class="o">.</span><span class="n">enable_turbine_turbulence_grid</span><span class="p">:</span>
+        <span class="c1"># An approximate method to account for scaling of turbulence intensity with</span>
+        <span class="c1"># the local flow velocity. Unvalidated method used for informing surrogate models.</span>
+        <span class="n">flow_field</span><span class="o">.</span><span class="n">turbulence_wake_mixing_sorted</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">turbine_turbulence_intensity</span> <span class="o">*</span> <span class="n">flow_field</span><span class="o">.</span><span class="n">u_initial_sorted</span> <span class="o">/</span> <span class="n">flow_field</span><span class="o">.</span><span class="n">u_sorted</span>
+        <span class="p">)</span>
     <span class="n">flow_field</span><span class="o">.</span><span class="n">turbulence_intensity_field_sorted_avg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span>
         <span class="n">turbine_turbulence_intensity</span><span class="p">,</span>
         <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
@@ -2419,6 +2460,13 @@ window.runMermaid = runMermaid;</script>
         <span class="n">flow_field</span><span class="o">.</span><span class="n">u_sorted</span> <span class="o">=</span> <span class="n">flow_field</span><span class="o">.</span><span class="n">u_initial_sorted</span> <span class="o">-</span> <span class="n">wake_field</span>
         <span class="n">flow_field</span><span class="o">.</span><span class="n">v_sorted</span> <span class="o">+=</span> <span class="n">v_wake</span>
         <span class="n">flow_field</span><span class="o">.</span><span class="n">w_sorted</span> <span class="o">+=</span> <span class="n">w_wake</span>
+
+    <span class="k">if</span> <span class="n">model_manager</span><span class="o">.</span><span class="n">enable_turbine_turbulence_grid</span><span class="p">:</span>
+        <span class="c1"># An approximate method to account for scaling of turbulence intensity with</span>
+        <span class="c1"># the local flow velocity. Unvalidated method used for informing surrogate models.</span>
+        <span class="n">flow_field</span><span class="o">.</span><span class="n">turbulence_wake_mixing_sorted</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="o">*</span> <span class="n">flow_field</span><span class="o">.</span><span class="n">u_initial_sorted</span> <span class="o">/</span> <span class="n">flow_field</span><span class="o">.</span><span class="n">u_sorted</span>
+        <span class="p">)</span>
 
     <span class="k">return</span> <span class="n">mixing_factor</span></div>
 
